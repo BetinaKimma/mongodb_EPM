@@ -2,12 +2,13 @@
 <html lang="en">
 
 <%- include('layouts/header'); -%>
-<%- include('layouts/navbarHome'); -%>
 
 <!-- SAR: This pages purpose is to create a new user by requesting and taking input information and converting it to an array
      that stores the user data in localStorage-->
 
 <body>
+<%- include('layouts/navbarHome'); -%>
+<div class="bg-img5">
 
 <!-- SAR: Here we create the login form. It has input fields for the required information that we need from a new user.
      Each field is set as required. The password field also has certain parameters which the user must abide by.-->
@@ -64,7 +65,7 @@
     });
 </script> -->
 
-
+</div>
 </body>
 <script src="../Javascript/userClass.js"></script>
 <script src="../Javascript/userList.js"></script>
