@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 
-const app = new express();
+const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
@@ -60,7 +60,7 @@ app.get('/post/:id',async (req,res)=>{
 })
 
 app.get('/posts/new',(req,res)=>{
-    res.render('create')
+    res.render('create');
 })
 
 app.post('/posts/store', (req,res)=>{
