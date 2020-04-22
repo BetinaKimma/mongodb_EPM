@@ -1,0 +1,25 @@
+{
+  "name": "mongodb_epm",
+  "version": "1.0.0",
+  "description": "\"# mongodb_EPM\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BetinaKimma/mongodb_EPM.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BetinaKimma/mongodb_EPM/issues"
+  },
+  "homepage": "https://github.com/BetinaKimma/mongodb_EPM#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}

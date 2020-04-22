@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
+const ejs = require('ejs')
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
@@ -13,7 +14,7 @@ mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true});
 app.use(bodeParser.json())
 app.use(bodyPaser.urlencoded({extended:true}))
 
-app.set('view engine');
+app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 
@@ -39,48 +40,51 @@ app.get('/',async (req,res)=>{
     });
 })
 
-app.get('/about',(req,res)=>{
-    res.render('about');
+app.get('/signIn',(req,res)=>{
+//    res.sendFile(path.resolve(__dirname, '/signIn.ejs'));
+    res.render('signIn');
 })
 
-app.get('/contact',(req,res)=>{
-    res.render('contact');
+app.get('/userProfile',(req,res)=>{
+//    res.sendFile(path.resolve(__dirname, 'index.ejs'));
+    res.render('userProfile');
 })
 
-app.get('/post',(req,res)=>{
-    res.render('post')
+app.get('/notFound',(req,res)=>{
+//    res.sendFile(path.resolve(__dirname, '/notFound.ejs'));
+    res.render('notFound');
 })
 
-app.get('/post/:id',async (req,res)=>{
-    const blogpost = await BlogPost.findById(req.params.id)
-    console.log(blogpost)
-    res.render('post',{
-        blogpost
-    });
-})
+//app.get('/post/:id',async (req,res)=>{
+ //   const blogpost = await BlogPost.findById(req.params.id)
+  //  console.log(blogpost)
+  //  res.render('post',{
+  //      blogpost
+  //  });
+//})
 
-app.get('/posts/new',(req,res)=>{
-    res.render('create');
-})
+//app.get('/posts/new',(req,res)=>{
+//    res.render('create');
+//})
 
-app.post('/posts/store', (req,res)=>{
-    let image = req.files.image;
-    image.mv(path.resolve(__dirname,'public/img',image.name),async (error)=>{
-        await BlogPost.create({
-            ...req.body,
-            image: '/img/' + image.name
-        })
-        res.redirect('/')
-    })
-})
+//app.post('/posts/store', (req,res)=>{
+//    let image = req.files.image;
+//    image.mv(path.resolve(__dirname,'public/img',image.name),async (error)=>{
+//        await BlogPost.create({
+//            ...req.body,
+//           image: '/img/' + image.name
+//        })
+//        res.redirect('/')
+//    })
+//})
 
 
 //const http = require('http');
 //const fs = require('fs');
-//const homePage = fs.readFileSync('index.html');
-//const signInPage = fs.readFileSync('signIn.html');
-//const userProfilePage = fs.readFileSync('userProfile.html');
-//const notFoundPage = fs.readFileSync('notFound.html');
+//const homePage = fs.readFileSync('index.ejs');
+//const signInPage = fs.readFileSync('signIn.ejs');
+//const userProfilePage = fs.readFileSync('userProfile.ejs');
+//const notFoundPage = fs.readFileSync('notFound.ejs');
 
 
 //const server = http.createServer((req, res) => {
@@ -105,14 +109,4 @@ app.post('/posts/store', (req,res)=>{
 //    });
 //})
 
-//app.get('/', (req, res)=>{
-//    res.sendFile(path.resolve(__dirname, 'index.html'));
-//})
 
-//app.get('/signIn', (req,res)=>{
-//    res.sendFile(path.resolve(__dirname, '/signIn.html'));
-//})
-
-//app.get('/notFound',(req,res)=>{
-//    res.sendFile(path.resolve(__dirname, '/notFound.html'));
-//})
