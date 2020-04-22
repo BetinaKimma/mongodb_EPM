@@ -32,7 +32,7 @@ const validateMiddleWare = (req,res,next)=>{
 app.use('/posts/store',validateMiddleWare)
 
 app.get('/userProfile',(req,res)=>{
-//    res.sendFile(path.resolve(__dirname, 'index.ejs'));
+//    res.sendFile(path.resolve(__dirname, 'userProfile.ejs'));
     res.render('userProfile');
 })
 
