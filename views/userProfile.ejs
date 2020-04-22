@@ -1,12 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../public/css/index.css">
-    <title>userProfile</title>
-</head>
+
+<%- include('layouts/header'); -%>
+<%- include('layouts/navbarEmployee'); -%>
+
 <body>
 
+<div class="bg-img5">
+
+    <div class="card">
+        <img id="profilePicture" class="profilePicture" src="../public/css/profil1.jpg" alt="profilePicture">
+        <h1 class="fullName" id="fullName">Jane Doe</h1>
+        <p class="title" id="title">SoMe assistent</p>
+        <p class="department" id="department">Marketing</p>
+        <p class="telephone" id="telephone">12345678</p>
+        <p class="emailAdr" id="emailAdr">JaneDoe@assistent.com</p>
+        <button id="changeInfoBtn">Ret info</button>
+        <div id="infoBox" class="infoBox">
+            <div id="infoBoxContent">
+                <span class="close">&times;</span>
+                <label for="changeName"><b>Navn</b></label>
+                <input type="text" placeholder="Navn" name="changeName" id="changeName" class="inputField">
+
+                <label for="changeTitle"><b>Titel</b></label>
+                <input type="text" placeholder="Titel" name="changeTitle" id="changeTitle" class="inputField">
+
+                <label for="changeDep"><b>Afdeling</b></label>
+                <input type="text" name="changeDep" id="changeDep" class="inputField" placeholder="Afdeling">
+
+                <label for="changePhone"><b>Afdeling</b></label>
+                <input type="text" name="changePhone" id="changePhone" class="inputField" placeholder="Telefon">
+
+                <label for="changeEmail"><b>Email</b></label>
+                <input type="text" name="changeEmail" id="changeEmail" class="inputField" placeholder="Email">
+                <button id="saveChanges">Gem</button>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <button id="changeImageBtn">Skift billede</button>
+        <div id="imageBox" class="imageBox">
+            <div id="imageBoxContent">
+                <span class="close">&times;</span>
+                <form action="/posts/store" method="POST"
+                      enctype="multipart/form-data">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label for="image"><b>Image</b></label>
+                            <input type="file" class="form-control" id="image" name="image">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <p>Billedet skal have formatet bredde: 200px og højde: 300px</p>
+                        <button onclick="saveImage()" id="saveImage">Gem</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-container">
+        <div class="profileText">
+            <h1>Din profiltekst</h1>
+        </div>
+        <div class="profileTextBox">
+            <textarea id="profileText" name="profileText" style="height: 50px"></textarea>
+            <button onclick="saveText()">Gem</button>
+        </div>
+    </div>
+
+    <div class="addSkills-container">
+        <div class="addedSkills">
+            <h1>Dine færdigheder</h1>
+        </div>
+        <form action="">
+            <input type="text" list="Skills" name="skills">
+            <datalist id="skills">
+            </datalist>
+            <button onclick="saveSkills()">Gem</button>
+        </form>
+    </div>
+
+</div>
+
 </body>
-<script src="../public/js/index.js"></script>
+
+    <script src="../public/js/index.js"></script>
+
 </html>

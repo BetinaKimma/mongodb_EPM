@@ -31,29 +31,30 @@ const validateMiddleWare = (req,res,next)=>{
 
 app.use('/posts/store',validateMiddleWare)
 
-
-app.get('/',async (req,res)=>{
-    console.log("home starting...")
-    const blogposts = await BlogPost.find({})
-    res.render('index',{
-        blogposts
-    });
-})
-
-app.get('/signIn',(req,res)=>{
-//    res.sendFile(path.resolve(__dirname, '/signIn.ejs'));
-    res.render('signIn');
-})
-
 app.get('/userProfile',(req,res)=>{
 //    res.sendFile(path.resolve(__dirname, 'index.ejs'));
     res.render('userProfile');
+})
+
+app.get('/register',(req,res)=>{
+//    res.sendFile(path.resolve(__dirname, 'register.ejs'));
+    res.render('register');
 })
 
 app.get('/notFound',(req,res)=>{
 //    res.sendFile(path.resolve(__dirname, '/notFound.ejs'));
     res.render('notFound');
 })
+
+
+/*app.get('/',async (req,res)=>{
+    console.log("home starting...")
+    const blogposts = await BlogPost.find({})
+    res.render('index',{
+        blogposts
+    });
+})
+*/
 
 //app.get('/post/:id',async (req,res)=>{
  //   const blogpost = await BlogPost.findById(req.params.id)
