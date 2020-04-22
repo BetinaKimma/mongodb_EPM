@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('layouts/header'); -%>
+
+<body>
+
+<%- include('layouts/navbarEmployee'); -%>
+<div class="bg-img5">
+
+    <form name="contactForm" id="contactForm" class="container">
+        <h1>Ansøg om at deltage i projekt</h1>
+
+        <label for="fname"><b>Navn</b></label>
+        <input type="text" placeholder="Navn" name="fname" id="fname" class="inputField" required>
+
+        <label for="phone"><b>Telefon</b></label>
+        <input type="text" name="phoneNr" id="phone" class="inputField" placeholder="Telefon" required>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" name="email" id="email" class="inputField" placeholder="Email" required>
+
+        <label for="projectName"><b>Projektnavn</b></label>
+        <input type="text" name="projectName" id="projectName" class="inputField" placeholder="projektnavn" required>
+
+        <label for="commentText"><b>Kommentar</b></label>
+        <textarea id="commentText" name="commentText"></textarea>
+
+        <button onclick=contactForm()>Send ansøgning</button>
+    </form>
+
+</div>
+
+</body>
+
+<script src="controllers/user.js"></script>
+<script src="index.js"></script>
+
+</html>
