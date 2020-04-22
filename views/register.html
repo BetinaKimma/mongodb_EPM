@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<!-- SAR: This pages purpose is to create a new user by requesting and taking input information and converting it to an array
+     that stores the user data in localStorage-->
+<head>
+    <title> Login and Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="../public/css/EPM_styles.css">
+    <!--<link rel="stylesheet" type="text/css" href="../CSS/general.css"> -->
+<body>
+
+<!-- SAR: Here we create the login form. It has input fields for the required information that we need from a new user.
+     Each field is set as required. The password field also has certain parameters which the user must abide by.-->
+<div class="login-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <!-- for browser to know tha tthe form contains mutli media. will encripy multie media and send to server -->
+                <form action="/users/register" method="POST" enctype="multipart/form-data">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Username</label>
+                            <input type="text" class="form-control" placeholder="Username"
+                                   id="username" name="username">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Password</label>
+                            <input type="text" class="form-control" placeholder="password"
+                                   id="password" name="password">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- SAR: Here we create the popup message that shows the user what requirements are left for their chosen password.
+     Each class is given an id and set as invalid. This "invalid" tag is changed in the registration.js if the user
+     meets the requirements -->
+    <div id="message">
+        <h3>Password must contain the following:</h3>
+        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+        <p id="number" class="invalid">A <b>number</b></p>
+        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+    </div>
+
+</div>
+
+<!-- SAR: Here we call the script code from jquery. jQuery is a JavaScript library designed to simplify HTML and it
+ allows us to animate with ease the transition between a sign-up form and a log-in form when the user clicks the link
+<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+
+ In this script we code the transition animation, so that when clicking the message "a" (which in this case is either
+ "Already Registered?" or "Not Registered") it will animate with a toggle function
+<script>
+    $('.message a').click(function(){
+    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+    });
+</script> -->
+
+
+</body>
+<script src="../Javascript/userClass.js"></script>
+<script src="../Javascript/userList.js"></script>
+<script src="../Javascript/login.js"></script>
+<script src="../Javascript/registration.js"></script>
+
+</html>
