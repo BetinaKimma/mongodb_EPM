@@ -20,7 +20,7 @@ const flash = require('connect-flash');
 
 //app.use(fileUpload());
 
-mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://newuser1:superadmin@cluster0-vxjpr.mongodb.net/my_database', {useNewUrlParser: true});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
