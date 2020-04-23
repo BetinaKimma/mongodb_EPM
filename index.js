@@ -31,9 +31,19 @@ const validateMiddleWare = (req,res,next)=>{
 
 app.use('/posts/store',validateMiddleWare)
 
+app.get('/',(req,res)=>{
+//    res.sendFile(path.resolve(__dirname, 'index.ejs'));
+      res.render('index');
+});
+
 app.get('/userProfile',(req,res)=>{
-//    res.sendFile(path.resolve(__dirname, 'userProfile.ejs'));
+//   res.sendFile(path.resolve(__dirname, 'userProfile.ejs'));
     res.render('userProfile');
+});
+
+app.get('/applyProject',(req,res)=>{
+//    res.sendFile(path.resolve(__dirname, 'applyProject.ejs'));
+    res.render('applyProject');
 });
 
 app.get('/register',(req,res)=>{
