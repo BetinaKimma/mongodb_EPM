@@ -12,6 +12,9 @@
   },
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "12.16.2"
+  },
   "bugs": {
     "url": "https://github.com/BetinaKimma/mongodb_EPM/issues"
   },
