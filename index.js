@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const ejs = require('ejs')
+const ejs = require('ejs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
@@ -11,8 +11,8 @@ const bodyParser = require('body-parser');
 //app.use(fileUpload());
 
 mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true});
-app.use(bodeParser.json())
-app.use(bodyPaser.urlencoded({extended:true}))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 
 app.set('view engine', 'ejs');
 
@@ -27,24 +27,24 @@ const validateMiddleWare = (req,res,next)=>{
         return res.redirect('/posts/new')
     }
     next()
-}
+};
 
 app.use('/posts/store',validateMiddleWare)
 
 app.get('/userProfile',(req,res)=>{
 //    res.sendFile(path.resolve(__dirname, 'userProfile.ejs'));
     res.render('userProfile');
-})
+});
 
 app.get('/register',(req,res)=>{
 //    res.sendFile(path.resolve(__dirname, 'register.ejs'));
     res.render('register');
-})
+});
 
 app.get('/notFound',(req,res)=>{
 //    res.sendFile(path.resolve(__dirname, '/notFound.ejs'));
     res.render('notFound');
-})
+});
 
 
 /*app.get('/',async (req,res)=>{
