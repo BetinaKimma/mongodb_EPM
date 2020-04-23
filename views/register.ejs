@@ -10,13 +10,12 @@
 <%- include('layouts/navbarHome'); -%>
 <div class="img-register">
 
-<!-- SAR: Here we create the login form. It has input fields for the required information that we need from a new user.
+<!-- SAR: Here we create the login/register form. It has input fields for the required information that we need from a new user.
      Each field is set as required. The password field also has certain parameters which the user must abide by.-->
 <div class="login-page">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <!-- for browser to know tha tthe form contains mutli media. will encripy multie media and send to server -->
                 <form action="/users/register" method="POST" enctype="multipart/form-data">
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
