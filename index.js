@@ -31,22 +31,15 @@ const validateMiddleWare = (req,res,next)=>{
 
 app.use('/posts/store',validateMiddleWare)
 
-const newUserController = require('./controllers/newUser');
-const storeUserController = require('./controllers/storeUser');
-
-app.get('/register', newUserController);
-
-app.post('/users/register', storeUserController);
-
 app.get('/userProfile',(req,res)=>{
 //    res.sendFile(path.resolve(__dirname, 'userProfile.ejs'));
     res.render('userProfile');
 });
 
-// app.get('/register',(req,res)=>{
-// //    res.sendFile(path.resolve(__dirname, 'register.ejs'));
-//     res.render('register');
-// });
+app.get('/register',(req,res)=>{
+//    res.sendFile(path.resolve(__dirname, 'register.ejs'));
+    res.render('register');
+});
 
 app.get('/notFound',(req,res)=>{
 //    res.sendFile(path.resolve(__dirname, '/notFound.ejs'));
