@@ -5,8 +5,18 @@ const app = express();
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
 //const fileUpload = require('express-fileUpload');
+
+
+const homeController = require('./controllers/home')
+const newUserController = require('./controllers/newUser')
+const storeUserController = require('./controllers/storeUser')
+const storeUserInfoController = require('./controllers/storeUserInfo')
+
+const validateMiddleware = require("./middleware/validateMiddleware");
+const authMiddleware = require('./middleware/authMiddleware');
+const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware')
+const flash = require('connect-flash');
 
 //app.use(fileUpload());
 
@@ -22,92 +32,25 @@ app.listen(3000, () =>{
     console.log("App listening on port 3000...");
 })
 
-const validateMiddleWare = (req,res,next)=>{
-    if(req.files == null || req.body.title == null || req.body.title == null){
-        return res.redirect('/posts/new')
-    }
-    next()
-};
-
 app.use('/posts/store',validateMiddleWare)
 
-app.get('/userProfile',(req,res)=>{
-//    res.sendFile(path.resolve(__dirname, 'userProfile.ejs'));
-    res.render('userProfile');
+app.use(expressSession({
+    secret: 'keyboard cat'
+}))
+
+global.loggedIn = null;
+
+app.use("*", (req, res, next) => {
+    loggedIn = req.session.userId;
+    next()
 });
 
-app.get('/register',(req,res)=>{
-//    res.sendFile(path.resolve(__dirname, 'register.ejs'));
-    res.render('register');
-});
-
-app.get('/notFound',(req,res)=>{
-//    res.sendFile(path.resolve(__dirname, '/notFound.ejs'));
-    res.render('notFound');
-});
+app.use(flash());
 
 
-/*app.get('/',async (req,res)=>{
-    console.log("home starting...")
-    const blogposts = await BlogPost.find({})
-    res.render('index',{
-        blogposts
-    });
-})
-*/
-
-//app.get('/post/:id',async (req,res)=>{
- //   const blogpost = await BlogPost.findById(req.params.id)
-  //  console.log(blogpost)
-  //  res.render('post',{
-  //      blogpost
-  //  });
-//})
-
-//app.get('/posts/new',(req,res)=>{
-//    res.render('create');
-//})
-
-//app.post('/posts/store', (req,res)=>{
-//    let image = req.files.image;
-//    image.mv(path.resolve(__dirname,'public/img',image.name),async (error)=>{
-//        await BlogPost.create({
-//            ...req.body,
-//           image: '/img/' + image.name
-//        })
-//        res.redirect('/')
-//    })
-//})
-
-
-//const http = require('http');
-//const fs = require('fs');
-//const homePage = fs.readFileSync('index.ejs');
-//const signInPage = fs.readFileSync('signIn.ejs');
-//const userProfilePage = fs.readFileSync('userProfile.ejs');
-//const notFoundPage = fs.readFileSync('notFound.ejs');
-
-
-//const server = http.createServer((req, res) => {
-//      res.end(homePage)
-//    else if(req.url === '/signIn')
-//        res.end(signInPage)
-//    else {
-//        res.writeHead(404)
-//        res.end(notFoundPage)
-//    }
-//})
-
-//server.listen(3000)
-
-//const app = express();
-
-
-
-//app.get('/', (req, res) =>{
-//    res.json({
-//        name: 'Greg Lim'
-//    });
-//})
-
+app.get('/',homeController);
+app.get('/auth/register', redirectIfAuthenticatedMiddleware, newUserController);
+app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
+app.post('/userinfos/userProfile', redirectIfAuthenticatedMiddleware, storeUserInfoController);
+app.use((req, res) => res.render('notfound'));
 
