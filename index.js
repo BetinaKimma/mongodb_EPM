@@ -8,15 +8,13 @@ const bodyParser = require('body-parser');
 
 //const fileUpload = require('express-fileUpload');
 
-
-
 //app.use(fileUpload());
 
 mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.set('view engine','ejs');
+app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 
@@ -33,19 +31,9 @@ const validateMiddleWare = (req,res,next)=>{
 
 app.use('/posts/store',validateMiddleWare)
 
-app.get('/',(req,res)=>{
-//    res.sendFile(path.resolve(__dirname, 'index.ejs'));
-      res.render('index');
-});
-
 app.get('/userProfile',(req,res)=>{
-//   res.sendFile(path.resolve(__dirname, 'userProfile.ejs'));
+//    res.sendFile(path.resolve(__dirname, 'userProfile.ejs'));
     res.render('userProfile');
-});
-
-app.get('/applyProject',(req,res)=>{
-//    res.sendFile(path.resolve(__dirname, 'applyProject.ejs'));
-    res.render('applyProject');
 });
 
 app.get('/register',(req,res)=>{
