@@ -64,13 +64,15 @@
     </div>
 
     <div class="text-container">
-        <div class="profileText">
-            <h1>Din profiltekst</h1>
-        </div>
-        <div class="profileTextBox">
-            <textarea id="profileText" name="profileText" style="height: 50px"></textarea>
-            <button onclick="saveText()">Gem</button>
-        </div>
+        <form action="/user/profileText" method="POST">
+            <div class="profileText">
+                <h1>Din profiltekst</h1>
+            </div>
+            <div class="profileTextBox">
+                <textarea id="profileText" name="profileText" style="height: 50px"></textarea>
+                <button> Gem </button>
+            </div>
+        </form>
     </div>
 
     <div class="addSkills-container">

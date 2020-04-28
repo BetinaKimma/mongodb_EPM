@@ -63,6 +63,8 @@ const storeUserController = require('./controllers/storeUser');
 //const loginController = require('./controllers/login');
 //const loginUserController = require('./controllers/loginUser');
 //const logoutController = require('./controllers/logout');
+const userProfileController = require('./controllers/userProfile');
+const userProfileTextController = require('./controllers/storeProfileText');
 
 app.get('/', homeController);
 
@@ -81,5 +83,9 @@ app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserControll
 //app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController);
 
 //app.get('/auth/logout', logoutController);
+
+app.get('/user/profile', userProfileController);
+
+app.post('/user/profileText', userProfileTextController);
 
 app.use((req, res) => res.render('notFound'));
