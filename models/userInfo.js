@@ -7,9 +7,8 @@ const UserInfoSchema = new Schema({
     department: String,
     telephone: String,
     emailAdr: String
-}),
-    image: String
 });
+
 
 const userInfo = mongoose.model('userInfo', UserInfoSchema);
 module.exports = userInfo;
