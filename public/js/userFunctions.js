@@ -1,16 +1,16 @@
 // dette er en færdig implementeret funktion der gemmer profiltekst i local storage
 function saveText() {
     var userProfileText = document.getElementById("profileText").value;
-    var userId = 1; //TODO
+//    var userId = 1; //TODO
     var profileText =  {
         profileText : profileText
     };
-
+/*
     pool.query("INSERT INTO \"UserInfoProfileTexts\" (\"UserId\",\"ProfileText\") VALUES(" + userId +",'" + userProfileText + "')").then(result => {
         console.log(result.rows);
         pool.end()
     });
-
+*/
     alert("Din profiltekst er gemt");
     localStorage["profileText"] = JSON.stringify(userProfileText);
 }
@@ -25,6 +25,7 @@ function saveSkills() {
     alert("Dine skills blev gemt");
     localStorage["skills"] = JSON.stringify(employeeSkills);
 }
+
 
 
 // dette er funktionen for at rette sine brugeroplysninger, ikke færdig implementeret, da den ikke gemmer oplysninger endnu
@@ -54,7 +55,9 @@ window.onclick = function(event) {
 }
 
 
-// dette er funktionen for at rette uploade profilbillede, ikke færdig implementeret, da den ikke uploader og gemmer endnu
+
+
+// dette er funktionen for at åbne boxen for at rette/uploade profilbillede
 var imageBox = document.getElementById("imageBox");
 
 // knappen der åbner boxen
@@ -80,7 +83,29 @@ window.onclick = function(event) {
     }
 }
 
-// dette er en  funktion der gemmer i local storage, men den skal kunne ændre billedet og gemme billedet i database
+// dette er en  funktion der uploader profilbillede og gemmer i local storage, ikke færdig
+var image = document.getElementById("image"),
+    preview = document.getElementById("preview");
+
+image.addEventListener("change", function() {
+    changeImage(this);
+});
+
+function changeImage(input) {
+    var reader;
+
+    if (input.files && input.files[0]) {
+        reader = new FileReader();
+
+        reader.onload = function(e) {
+            preview.setAttribute('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+// dette er funktionen der gemmer profilbillede i localstorage
 function saveImage() {
     var profilePicture = document.getElementById("image").value.innerHTML;
     return this.image;
@@ -91,13 +116,15 @@ function saveImage() {
     localStorage["image"] = JSON.stringify(profilePicture);
 }
 
+
+
 // Kan ikke få denne til at gemme!!!
 function contactForm() {
     var fname = document.getElementById("fname").value;
     var phone = document.getElementById("phone").value;
     var email = document.getElementById("email").value;
     var projectName = document.getElementById("projectName").value;
-    var commentText = document.getElementById(commentText).value;
+    var commentText = document.getElementById("commentText").value;
     var contactForm =  {
         fname : fname,
         phone : phone,

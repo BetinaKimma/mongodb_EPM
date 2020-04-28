@@ -5,20 +5,22 @@ const app = express();
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-//const fileUpload = require('express-fileUpload');
+const fileUpload = require('express-fileupload');
 
 
 const homeController = require('./controllers/home')
 const newUserController = require('./controllers/newUser')
 const storeUserController = require('./controllers/storeUser')
 const storeUserInfoController = require('./controllers/storeUserInfo')
+const userProfileController = require('./controllers/userProfile')
+
 
 const validateMiddleware = require("./middleware/validateMiddleware");
 const authMiddleware = require('./middleware/authMiddleware');
 const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware')
 const flash = require('connect-flash');
 
-//app.use(fileUpload());
+app.use(fileUpload());
 
 mongoose.connect('mongodb+srv://newuser1:superadmin@cluster0-vxjpr.mongodb.net/my_database', {useNewUrlParser: true});
 app.use(bodyParser.json());
@@ -53,8 +55,11 @@ app.use(flash());
 
 
 app.get('/',homeController);
+
 app.get('/auth/register', redirectIfAuthenticatedMiddleware, newUserController);
 app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
-app.post('/userinfos/userProfile', redirectIfAuthenticatedMiddleware, storeUserInfoController);
+app.post('')
+app.get('userProfile', userProfileController);
+app.post('userProfile', storeUserInfoController);
 app.use((req, res) => res.render('notfound'));
 
