@@ -1,65 +1,85 @@
 const express = require('express');
 const path = require('path');
 
-const app = express();
+const app = new express();
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
 
-
-const homeController = require('./controllers/home')
-const newUserController = require('./controllers/newUser')
-const storeUserController = require('./controllers/storeUser')
-const storeUserInfoController = require('./controllers/storeUserInfo')
-const userProfileController = require('./controllers/userProfile')
-
-
-const validateMiddleware = require("./middleware/validateMiddleware");
-const authMiddleware = require('./middleware/authMiddleware');
-const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware')
-const flash = require('connect-flash');
+const expressSession = require('express-session');
 
 app.use(fileUpload());
 
-mongoose.connect('mongodb+srv://newuser1:superadmin@cluster0-vxjpr.mongodb.net/my_database', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.set('view engine', 'ejs');
+app.set('view engine','ejs');
 
 app.use(express.static('public'));
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-    port = 3000;
-}
-app.listen(3000, () =>{
-    console.log("App listening on port 3000...");
-})
-
-app.use('/posts/store',validateMiddleWare)
-
 app.use(expressSession({
-    secret: 'keyboard cat'
-}))
+    secret: 'leeroy jenkins'
+}));
+
+app.listen(4000, ()=>{
+    console.log('App listening on port 4000 ...')
+});
 
 global.loggedIn = null;
 
-app.use("*", (req, res, next) => {
+app.use("*", (req, res, next) =>{ //SAR: Global declaration of variable loggedIn, which will be accessed by our navigation bar to change layout.
     loggedIn = req.session.userId;
     next()
 });
 
-app.use(flash());
+const validateMiddleWare = require("./middleware/validationMiddleware");
+const authMiddleware = require('./middleware/authMiddleware');
+const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware');
 
 
-app.get('/',homeController);
+app.use('/posts/store',validateMiddleWare);
+
+/* app.get('/about',(req,res)=>{
+    res.render('about');
+})
+
+app.get('/contact',(req,res)=>{
+    res.render('contact');
+})
+
+app.get('/post',(req,res)=>{
+    res.render('post')
+}) */
+
+//const newPostController = require('./controllers/newPost');
+//const storePostController = require('./controllers/storePost');
+//const getPostController = require('./controllers/getPost');
+
+const homeController = require('./controllers/home');
+const newUserController = require('./controllers/newUser');
+const storeUserController = require('./controllers/storeUser');
+//const loginController = require('./controllers/login');
+//const loginUserController = require('./controllers/loginUser');
+//const logoutController = require('./controllers/logout');
+
+app.get('/', homeController);
+
+// app.get('/post/:id', getPostController);
+//
+// app.post('/posts/store', storePostController);
+//
+// app.get('/posts/new', newPostController);
 
 app.get('/auth/register', redirectIfAuthenticatedMiddleware, newUserController);
-app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
-app.post('')
-app.get('userProfile', userProfileController);
-app.post('userProfile', storeUserInfoController);
-app.use((req, res) => res.render('notfound'));
 
+app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
+
+//app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController);
+
+//app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController);
+
+//app.get('/auth/logout', logoutController);
+
+app.use((req, res) => res.render('notFound'));
