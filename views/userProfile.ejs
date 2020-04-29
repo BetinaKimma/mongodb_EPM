@@ -9,81 +9,86 @@
 <div class="img-user">
 
     <div class="card">
-        <img id="profilePicture" class="profilePicture" src="..." alt="profilePicture">
-        <h1 class="fullName" id="fullName">Jane Doe</h1>
-        <p class="title" id="title">SoMe assistent</p>
-        <p class="department" id="department">Marketing</p>
-        <p class="telephone" id="telephone">12345678</p>
-        <p class="emailAdr" id="emailAdr">JaneDoe@assistent.com</p>
+        <img id="profileImage" class="profileImage" src="" alt="profileImage">
+        <h1 class="profileName" id="profileName"><%= profileName %></h1>
+        <p class="profileTitle" id="profileTitle"><%= profileTitle %></p>
+        <p class="profileDepartment" id="profileDepartment"><%= profileDepartment %></p>
+        <p class="profilePhone" id="profilePhone"><%= profilePhone %></p>
+        <p class="profileEmail" id="profileEmail"><%= profileEmail %></p>
         <button id="changeInfoBtn">Ret info</button>
+        <button id="changeImageBtn">Skift billede</button>
+
+
+
         <div id="infoBox" class="infoBox">
             <div id="infoBoxContent">
                 <span class="close">&times;</span>
-                <label for="changeName"><b>Navn</b></label>
-                <input type="text" placeholder="Navn" name="changeName" id="changeName" class="inputField">
+                <label for="profileName"><b>Navn</b></label>
+                <input type="text" placeholder="Navn" name="profileName" id="profileName" class="inputField" value="<%= profileName %>">
 
-                <label for="changeTitle"><b>Titel</b></label>
-                <input type="text" placeholder="Titel" name="changeTitle" id="changeTitle" class="inputField">
+                <label for="profileTitle"><b>Titel</b></label>
+                <input type="text" placeholder="Titel" name="profileTitle" id="profileTitle" class="inputField" value="<%= profileTitle %>">
 
-                <label for="changeDep"><b>Afdeling</b></label>
-                <input type="text" name="changeDep" id="changeDep" class="inputField" placeholder="Afdeling">
+                <label for="profileDepartment"><b>Afdeling</b></label>
+                <input type="text" name="profileDepartment" id="profileDepartment" class="inputField" placeholder="Afdeling" value="<%= profileDepartment %>">
 
-                <label for="changePhone"><b>Afdeling</b></label>
-                <input type="text" name="changePhone" id="changePhone" class="inputField" placeholder="Telefon">
+                <label for="profilePhone"><b>Afdeling</b></label>
+                <input type="text" name="profilePhone" id="profilePhone" class="inputField" placeholder="Telefon" value="<%= profilePhone %>">
 
-                <label for="changeEmail"><b>Email</b></label>
-                <input type="text" name="changeEmail" id="changeEmail" class="inputField" placeholder="Email">
+                <label for="profileEmail"><b>Email</b></label>
+                <input type="text" name="profileEmail" id="profileEmail" class="inputField" placeholder="Email" value="<%= profileEmail %>">
                 <button id="saveChanges">Gem</button>
             </div>
         </div>
         <br>
         <br>
 
-        <button id="changeImageBtn">Skift billede</button>
+
+
         <div id="imageBox" class="imageBox">
             <div id="imageBoxContent">
                 <span class="close">&times;</span>
-                <form action="/posts/store" method="POST"
-                      enctype="multipart/form-data">
+                <form ref="uploadForm" id="uploadForm" action="http://localhost:4000/upload" method="POST" enctype="multipart/form-data">
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
-                            <label for="image"><b>Image</b></label>
-                            <input type="file" class="form-control" id="image" name="image">
+                            <label for="profileImage"><b>Image</b></label>
+                            <input type="file" class="form-control" id="profileImage" name="profileImage" value="<%= profileImage %>">
+                            <input type='submit' value='Upload!'>
                             <img src="" id="preview">
                         </div>
                     </div>
                     <br>
                     <div class="form-group">
                         <p>Billedet skal have formatet bredde: 200px og højde: 300px</p>
-                        <button onclick="saveImage()" id="saveImage">Gem</button>
+                        <button> Gem </button>
                     </div>
                 </form>
             </div>
         </div>
-
     </div>
+
+
 
     <div class="text-container">
         <form action="/user/profileText" method="POST">
+
             <div class="profileText">
                 <h1>Din profiltekst</h1>
             </div>
+
             <div class="profileTextBox">
-                <textarea id="profileText" name="profileText" style="height: 50px"></textarea>
+                <textarea id="profileText" name="profileText" style="height: 50px"><%= profileText %></textarea>
                 <button> Gem </button>
             </div>
-        </form>
-    </div>
 
-    <div class="addSkills-container">
-        <div class="addedSkills">
-            <h1>Dine færdigheder</h1>
-        </div>
-        <form action="">
-            <input type="text" list="Skills" name="skills">
-            <datalist id="skills">
-            </datalist>
-            <button onclick="saveSkills()">Gem</button>
+             <div class="profileSkills">
+                <h1>Dine færdigheder</h1>
+             </div>
+
+            <div class="profileSkillsBox">
+            <textarea id="profileSkills" name="profileSkills" style="height: 50px"><%= profileSkills %></textarea>
+            <button> Gem </button>
+
         </form>
     </div>
 

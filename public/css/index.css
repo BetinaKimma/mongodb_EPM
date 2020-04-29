@@ -184,21 +184,28 @@ td {
     right: 0;
     padding: 16px;
 }
-.profilePicture{
+.profileImage {
     background-image: url('profil1.jpg');
     width: 100%;
 }
-.title {
+.profileTitle {
     color: grey;
     font-size: 18px;
 }
-.fullName{
+.profileName{
+}
 
-}
-.Department{
+.profileDepartment{
     color: grey;
     font-size: 18px;
 }
+
+.profilePhone{
+}
+
+.profileEmail{
+}
+
 
 /* BKS styling of Button */
 button {

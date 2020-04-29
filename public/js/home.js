@@ -9,7 +9,6 @@ var d = currentdate.getDate() + "/"
     + currentdate.getHours() + ":"
     + currentdate.getMinutes() + ":"
     + currentdate.getSeconds();
-if (document.getElementById("dateOnFront") != null)
-{
+if (document.getElementById("dateOnFront") != null) {
     document.getElementById("dateOnFront").innerHTML = d;
-}
+};

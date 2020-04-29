@@ -11,6 +11,12 @@ const expressSession = require('express-session');
 
 app.use(fileUpload());
 
+
+
+
+
+
+
 mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -34,12 +40,70 @@ app.use("*", (req, res, next) =>{ //SAR: Global declaration of variable loggedIn
     next()
 });
 
+
+
+// BKS upload af profilbillede...virker denne mon?
+app.post('/upload', function(req, res) {
+    if (!req.files || Object.keys(req.files).length === 0) {
+        return res.status(400).send('No files were uploaded.');
+    }
+
+    // The name of the input field (i.e. "profileImage") is used to retrieve the uploaded file
+    let profileImage = req.files.profileImage;
+
+    // Use the mv() method to place the file somewhere on your server
+    profileImage.mv('/somewhere/on/your/server/filename.jpg', function(err) {
+        if (err)
+            return res.status(500).send(err);
+
+        res.send('File uploaded!');
+    });
+    console.log(req.files.profileImage.name);
+});
+
+
+
+
+
 const validateMiddleWare = require("./middleware/validationMiddleware");
 const authMiddleware = require('./middleware/authMiddleware');
 const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware');
 
-
 app.use('/posts/store',validateMiddleWare);
+
+
+const homeController = require('./controllers/home');
+
+const newUserController = require('./controllers/newUser');
+const storeUserController = require('./controllers/storeUser');
+
+const ProfilePageController = require('./controllers/ProfilePage');
+
+//const storeProfileTextController = require('./controllers/storeProfileText');
+const storeProfileImageController = require('./controllers/storeProfileImage');
+//const storeProfileSkillsController = require('./controllers/storeProfileSkills');
+//const storeProfileInfoController = require('./controllers/storeProfileInfo');
+
+
+app.get('/', homeController);
+
+app.get('/auth/register', redirectIfAuthenticatedMiddleware, newUserController);
+app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
+
+app.get('/user/userProfile', ProfilePageController);
+
+
+app.post('/users/userProfile', storeProfileImageController);
+//app.post('/user/profileInfo', storeProfileImageController);
+
+//app.post('/user/profileInfo', storeProfileTextController);
+//app.post('/user/userProfile', storeProfileSkillsController);
+//app.post('/user/userProfile', storeProfileInfoController);
+
+//app.post('/user/profileInfo', userProfileTextController);
+app.use((req, res) => res.render('notFound'));
+
+
 
 /* app.get('/about',(req,res)=>{
     res.render('about');
@@ -53,39 +117,16 @@ app.get('/post',(req,res)=>{
     res.render('post')
 }) */
 
+
 //const newPostController = require('./controllers/newPost');
 //const storePostController = require('./controllers/storePost');
 //const getPostController = require('./controllers/getPost');
-
-const homeController = require('./controllers/home');
-const newUserController = require('./controllers/newUser');
-const storeUserController = require('./controllers/storeUser');
 //const loginController = require('./controllers/login');
 //const loginUserController = require('./controllers/loginUser');
 //const logoutController = require('./controllers/logout');
-const userProfileController = require('./controllers/userProfile');
-const userProfileTextController = require('./controllers/storeProfileText');
-
-app.get('/', homeController);
-
 // app.get('/post/:id', getPostController);
-//
 // app.post('/posts/store', storePostController);
-//
 // app.get('/posts/new', newPostController);
-
-app.get('/auth/register', redirectIfAuthenticatedMiddleware, newUserController);
-
-app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
-
 //app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController);
-
 //app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController);
-
 //app.get('/auth/logout', logoutController);
-
-app.get('/user/profile', userProfileController);
-
-app.post('/user/profileText', userProfileTextController);
-
-app.use((req, res) => res.render('notFound'));
