@@ -42,24 +42,6 @@ app.use("*", (req, res, next) =>{ //SAR: Global declaration of variable loggedIn
 
 
 
-// BKS upload af profilbillede...virker denne mon?
-app.post('/upload', function(req, res) {
-    if (!req.files || Object.keys(req.files).length === 0) {
-        return res.status(400).send('No files were uploaded.');
-    }
-
-    // The name of the input field (i.e. "profileImage") is used to retrieve the uploaded file
-    let profileImage = req.files.profileImage;
-
-    // Use the mv() method to place the file somewhere on your server
-    profileImage.mv('/somewhere/on/your/server/filename.jpg', function(err) {
-        if (err)
-            return res.status(500).send(err);
-
-        res.send('File uploaded!');
-    });
-    console.log(req.files.profileImage.name);
-});
 
 
 
@@ -81,8 +63,9 @@ const ProfilePageController = require('./controllers/ProfilePage');
 
 //const storeProfileTextController = require('./controllers/storeProfileText');
 const storeProfileImageController = require('./controllers/storeProfileImage');
+const storeProfileInfoController = require('./controllers/storeProfileInfo');
 //const storeProfileSkillsController = require('./controllers/storeProfileSkills');
-//const storeProfileInfoController = require('./controllers/storeProfileInfo');
+
 
 
 app.get('/', homeController);
@@ -91,9 +74,10 @@ app.get('/auth/register', redirectIfAuthenticatedMiddleware, newUserController);
 app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
 
 app.get('/user/userProfile', ProfilePageController);
+app.post('/user/userProfile', storeProfileInfoController);
+app.post('/user/userProfileImage', storeProfileImageController)
 
-
-app.post('/users/userProfile', storeProfileImageController);
+//app.post('/users/userProfileImage', storeProfileImageController);
 //app.post('/user/profileInfo', storeProfileImageController);
 
 //app.post('/user/profileInfo', storeProfileTextController);

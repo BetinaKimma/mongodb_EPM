@@ -18,12 +18,12 @@ function saveText() {
 
 // dette er en færdig implementeret funktion der gemmer skills i local storage
 function saveSkills() {
-    var employeeSkills = document.getElementById("skills").value;
+    var profileSkills = document.getElementById("skills").value;
     var addedskills = {
-        skills : skills
+        profileSkills : profileSkills
     };
     alert("Dine skills blev gemt");
-    localStorage["skills"] = JSON.stringify(employeeSkills);
+    localStorage["skills"] = JSON.stringify(profileSkills);
 }
 
 
@@ -35,7 +35,11 @@ var infoBox = document.getElementById("infoBox");
 var changeInfoBtn = document.getElementById("changeInfoBtn");
 
 //  <span> element der lukker boksen
-var span = document.getElementsByClassName("close")[0];
+var closeSpans = document.getElementsByClassName("close");
+
+for (var i = 0; i < closeSpans.length; i++) {
+    closeSpans[i].addEventListener('click', closeSpan, false);
+}
 
 // Knappen der åbner boksen
 changeInfoBtn.onclick = function() {
@@ -43,9 +47,13 @@ changeInfoBtn.onclick = function() {
 }
 
 // når man trykker på <span> (x) lukker boksen
-span.onclick = function() {
+function closeSpan()
+{
     infoBox.style.display = "none";
 }
+//span.onclick = function() {
+//    infoBox.style.display = "none";
+//}
 
 // når man trykker uden for boxen lukker den
 window.onclick = function(event) {
@@ -83,12 +91,14 @@ window.onclick = function(event) {
     }
 }
 
+
+
 // dette er en  funktion der uploader profilbillede og gemmer i local storage, ikke færdig
-var image = document.getElementById("image"),
+var profileImage = document.getElementById("profileImage"),
     preview = document.getElementById("preview");
 
-image.addEventListener("change", function() {
-    changeImage(this);
+profileImage.addEventListener("change", function() {
+    profileImage(this);
 });
 
 function changeImage(input) {
@@ -107,14 +117,16 @@ function changeImage(input) {
 
 // dette er funktionen der gemmer profilbillede i localstorage
 function saveImage() {
-    var profilePicture = document.getElementById("image").value.innerHTML;
-    return this.image;
+    var profileImage = document.getElementById("profileImage").value.innerHTML;
+    return this.profileImage;
     var uploadedImage = {
-        image : image
+        profileImage : profileImage
     };
     alert("Dit billede blev gemt");
-    localStorage["image"] = JSON.stringify(profilePicture);
+    localStorage["profileImage"] = JSON.stringify(profileImage);
 }
+
+
 
 
 

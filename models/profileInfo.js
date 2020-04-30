@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const profileInfoSchema = new Schema({
+    profileId: Number,
     profileName: String,
     profileTitle: String,
     profileDepartment: String,
@@ -13,6 +14,6 @@ const profileInfoSchema = new Schema({
 });
 
 
-const profileInfo = mongoose.model('userInfo', profileInfoSchema);
+const profileInfo = mongoose.model('profileInfo', profileInfoSchema);
 module.exports = profileInfo;
 
