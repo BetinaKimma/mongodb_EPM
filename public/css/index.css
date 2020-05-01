@@ -206,6 +206,59 @@ td {
 .profileEmail{
 }
 
+/*SB Styling of project leader user */
+.fullName{
+    color: black;
+    font-size: 18px;
+}
+.lTitle{
+    color: black;
+    font-size: 18px;
+}
+.lDepartment{
+    color: black;
+    font-size: 18px;
+}
+.lTelephone{
+    color: black;
+    font-size: 18px;
+}
+.lEmailAdr{
+    color: black;
+    font-size: 18px;
+}
+
+.container {
+    overflow: hidden;
+}
+
+.filterDiv {
+    float: left;
+    background-color: #2196F3;
+    color: #ffffff;
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin: 2px;
+    display: none;
+}
+.show {
+    display: block;
+}
+.btn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #ddd;
+}
+.btn.active {
+    background-color: #555;
+    color: white;
+}
 
 /* BKS styling of Button */
 button {
