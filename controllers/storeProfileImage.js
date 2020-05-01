@@ -1,7 +1,7 @@
 const profileImage = require('../models/profileImage');
 const path = require('path');
 
-// BKS upload af profilbillede...virker denne mon?
+// BKS upload af profilbillede
 module.exports = (req, res) =>{
     if (!req.files || Object.keys(req.files).length === 0) {
         return res.status(400).send('No files were uploaded.');
