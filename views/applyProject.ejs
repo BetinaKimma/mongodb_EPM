@@ -8,7 +8,7 @@
 <%- include('layouts/navbarEmployee'); -%>
 <div class="img-apply">
 
-    <form name="contactForm" id="contactForm" class="container">
+    <form action="/user/applyProject" name="contactForm" id="contactForm" class="container" method="POST">
         <h1>Ansøg om at deltage i projekt</h1>
 
         <label for="fname"><b>Navn</b></label>
@@ -27,7 +27,7 @@
         <textarea id="commentText" name="commentText"></textarea>
 
         <button onclick=contactForm()>Send ansøgning</button>
-    </form>
+    </>
 
 </div>
 

@@ -92,7 +92,7 @@ window.onclick = function(event) {
 }
 
 
-
+/*
 // dette er en  funktion der uploader profilbillede og gemmer i local storage, ikke færdig
 var profileImage = document.getElementById("profileImage"),
     preview = document.getElementById("preview");
@@ -100,6 +100,8 @@ var profileImage = document.getElementById("profileImage"),
 profileImage.addEventListener("change", function() {
     profileImage(this);
 });
+*/
+
 
 function changeImage(input) {
     var reader;

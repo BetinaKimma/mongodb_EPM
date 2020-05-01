@@ -1,3 +1,3 @@
 module.exports = (req, res) => {
-    res.render('applyProject') // Renders our register.ejs page
+    res.render('applyProject') // Renders our applyproject.ejs page
 };

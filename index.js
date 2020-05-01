@@ -61,14 +61,13 @@ const applyProjectController = require('./controllers/applyProject');
 
 
 app.get('/', homeController);
-
 app.get('/auth/register', redirectIfAuthenticatedMiddleware, newUserController);
 app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
 app.get('/user/userProfile', ProfilePageController);
 app.post('/user/userProfileInfo', storeProfileInfoController);
-app.post('/user/userProfileImage', storeProfileImageController)
-
+app.post('/user/userProfileImage', storeProfileImageController);
 app.get('/user/applyProjectPage', applyProjectController);
+
 //app.post('/users/userProfileImage', storeProfileImageController);
 //app.post('/user/profileInfo', storeProfileImageController);
 //app.post('/user/profileInfo', storeProfileTextController);

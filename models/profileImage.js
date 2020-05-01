@@ -6,6 +6,5 @@ const profileImageSchema = new Schema({
     profileImage: String
 });
 
-
 const profileImage = mongoose.model('profileImage', profileImageSchema);
 module.exports = profileImage;

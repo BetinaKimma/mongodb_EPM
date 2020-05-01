@@ -29,7 +29,7 @@
              <input type="text" placeholder="Navn" name="profileName" id="profileName" class="inputField" value="<%= profileName %>">
 
              <label for="profileTitle"><b>Titel</b></label>
-             <input type="text" placeholder="Titel" name="profileTitle" id="profileTitle" class="inputField" value="<%= profileTitle %>">
+             <input type="text" placeholder="Title" name="profileTitle" id="profileTitle" class="inputField" value="<%= profileTitle %>">
 
              <label for="profileDepartment"><b>Afdeling</b></label>
              <input type="text" name="profileDepartment" id="profileDepartment" class="inputField" placeholder="Afdeling" value="<%= profileDepartment %>">
@@ -63,20 +63,20 @@
 <div id="imageBox" class="imageBox">
     <div id="imageBoxContent">
         <span class="close">&times;</span>
-        <form ref="uploadForm" id="uploadForm" action="/user/userProfileImage" method="POST" enctype="multipart/form-data">
-            <input type="hidden" id="profileId" name="profileId" value="1"/>
-            <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                    <label for="profileImage"><b>Image</b></label>
-                    <input type="file" class="form-control" id="profileImage" name="profileImage">
-                    <input type='submit' value='Upload!'>
-                    <img src="" id="preview">
-                </div>
+        <form ref="uploadForm" id="uploadForm" action="/user/userProfileImage" method="POST" enctype="multipart/form-data": url('<%= profileImage.image %>')">
+        <input type="hidden" id="profileId" name="profileId" value="1"/>
+        <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+                <label for="profileImage"><b>Image</b></label>
+                <input type="file" class="form-control" id="profileImage" name="profileImage">
+                <input type='submit' value='Upload!'>
+                <img src="" id="preview">
             </div>
-            <br>
-            <div class="form-group">
-                <p>Billedet skal have formatet bredde: 200px og højde: 300px</p>
-                <button> Gem </button>
+        </div>
+        <br>
+        <div class="form-group">
+            <p>Billedet skal have formatet bredde: 200px og højde: 300px</p>
+            <button> Gem </button>
             </div>
         </form>
     </div>
