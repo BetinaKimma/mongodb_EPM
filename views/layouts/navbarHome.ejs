@@ -1,5 +1,11 @@
 <div class="topnav">
     <a class="active" href="/">Home</a>
-    <a href="/auth/register">Login</a>
-    <a href="user/userProfile">Profile Page</a>
+    <% if (loggedIn) { %>
+    <a href="/user/userProfile">Profile Page</a>
+    <a href="/auth/logout">Log Out</a>
+    <% } %>
+    <% if(!loggedIn) { // SAR: If loggedIn is null, we display login/new user links. If it has a value, we display the "Register" and "Login" links %>
+    <a href="/auth/register">Register</a>
+    <a href="/auth/login">Login</a>
+    <% } %>
 </div>
