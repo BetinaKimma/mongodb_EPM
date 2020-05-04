@@ -5,7 +5,8 @@ module.exports = (req, res) => {
     let image = req.files.profileImage
     console.log(image)
     image.mv(path.resolve(__dirname, 'public/img/profileImages', image.name), async (error) => {
-            await profileImage.create({
+        //Wrap this into a search function and then replace profileImage by profileInfo
+        await profileImage.create({
                 ...req.body,
                 profileImage: '/img/' + image.name
         })

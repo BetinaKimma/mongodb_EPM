@@ -377,8 +377,22 @@ input[type=submit]:hover {
     font-weight: bold;
 }
 
+.spanClose {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
 .close:hover,
 .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.spanClose:hover,
+.spanClose:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;

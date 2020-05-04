@@ -56,6 +56,7 @@ const ProfilePageController = require('./controllers/ProfilePage');
 const storeProfileImageController = require('./controllers/storeProfileImage');
 const storeProfileInfoController = require('./controllers/storeProfileInfo');
 const applyProjectController = require('./controllers/applyProject');
+
 //const storeProfileSkillsController = require('./controllers/storeProfileSkills');
 //const storeProfileTextController = require('./controllers/storeProfileText');
 
@@ -66,6 +67,7 @@ app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserControll
 app.get('/user/userProfile', ProfilePageController);
 app.post('/user/userProfileInfo', storeProfileInfoController);
 app.post('/user/userProfileImage', storeProfileImageController);
+
 app.get('/user/applyProjectPage', applyProjectController);
 
 //app.post('/users/userProfileImage', storeProfileImageController);
