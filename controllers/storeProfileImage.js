@@ -1,21 +1,17 @@
-const profileImage = require('../models/profileImage');
-const path = require('path');
+const profileImage = require('../models/profileImage.js')
+const path = require('path')
 
-module.exports = (req, res) => {
-    let image = req.files.profileImage
-    console.log(image)
-    image.mv(path.resolve(__dirname, 'public/img/profileImages', image.name), async (error) => {
-        //Wrap this into a search function and then replace profileImage by profileInfo
+module.exports = (req,res)=>{
+    let image = req.files.image;
+    image.mv(path.resolve(__dirname,'..','public/img',image.name),async (error)=>{
         await profileImage.create({
-                ...req.body,
-                profileImage: '/img/' + image.name
+            ...req.body,
+            image: '/img/' + image.name
         })
+        console.log("req.body",req.body)
         res.redirect('/')
-        console.log("This is the image name: "+ image.name)
-        console.log(__dirname)
     })
 }
-
 
 
 
