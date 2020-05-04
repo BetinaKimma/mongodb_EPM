@@ -8,7 +8,7 @@
 <%- include('layouts/navbarEmployee'); -%>
 <div class="img-user">
 
-<div class="card" action="/user/userProfile" method="GET">
+<div class="card">
         <img id="profileImage" class="profileImage" src="<%= profileImage %>" alt="profileImage">
         <h1 class="profileName" id="profileName"><%= profileName %></h1>
         <p class="profileTitle" id="profileTitle"><%= profileTitle %></p>
@@ -42,11 +42,8 @@
              <button id="">Gem</button>
             </div>
     </div>
-</form>
-
-<div class="text-container">
-    <div class="profileText">
-          <form action="/user/userProfile" method="POST">
+    <div class="text-container">
+      <div class="profileText">
           <h1>Din profiltekst</h1>
       <div class="profileTextBox">
           <textarea id="profileText" name="profileText" style="height: 50px" value="<%= profileText %>"></textarea>
@@ -59,21 +56,20 @@
            <textarea id="profileSkills" name="profileSkills" style="height: 50px" value="<%= profileSkills %>"></textarea>
            <button> Gem </button>
       </div>
-          </form>
       </div>
 </div>
-</div>
-
+</form>
 
 <div id="imageBox" class="imageBox">
     <div id="imageBoxContent">
-        <span class="spanClose">&times;</span>
-        <form ref="uploadForm" id="uploadForm" action="/user/userProfileImage" method="POST" enctype="multipart/form-data": url('<%= profileImage %>')">
+        <span class="close">&times;</span>
+        <form ref="uploadForm" id="uploadForm" action="/user/userProfileImage" method="POST" enctype="multipart/form-data">
         <input type="hidden" id="profileId" name="profileId" value="1"/>
         <div class="control-group">
             <div class="form-group floating-label-form-group controls">
                 <label for="profileImage"><b>Image</b></label>
                 <input type="file" class="form-control" id="profileImage" name="profileImage">
+                <input type='submit' value='Upload!'>
                 <img src="" id="preview">
             </div>
         </div>

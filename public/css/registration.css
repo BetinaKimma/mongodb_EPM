@@ -1,0 +1,120 @@
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+/* SAR: Creating the login-page design */
+.login-page{
+    width: 360px;
+    padding: 10% 0 0;
+    margin: auto;
+}
+
+/* SAR: Creating the login-form design */
+.form{
+    position: relative;
+    z-index: 1;
+    background: rgba(169, 169, 169, 0.8);
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+}
+
+/* SAR: Creating the style for the login input */
+.form input{
+    font-family: "Roboto Light", sans-serif;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* SAR: Creating the style for the Register button */
+.form input[type=submit] {
+    font-family: "Roboto Light", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #4CAF50;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* SAR: Creating the Hover effect for the button */
+.form input[type=submit]:hover,.form input[type=submit]:active{
+    background: #43A047;
+    color: white;
+}
+
+/* SAR: Styling the message box that is shown when the user clicks on the password field */
+#message {
+    display:none;
+    background: rgba(169, 169, 169, 0.8);
+    color: #000;
+    position: relative;
+    font-family: "Roboto Light", sans-serif;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+#message p {
+    padding: 10px 35px;
+    font-size: 18px;
+}
+
+/* SAR: Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "\2713";
+}
+
+/* SAR: Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "\292B";
+}
+
+/* SAR: Creating the style for the bottom message on the login form */
+.form .message{
+    margin: 15px 0 0;
+    color: aliceblue;
+    font-size: 12px;
+}
+
+/* SAR: Making it so that when clicked, the link won't change colour */
+.form .message a{
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+/* SAR: Making the login-form invisible unless clicked to */
+.form .login-form{
+    display: none;
+}
+

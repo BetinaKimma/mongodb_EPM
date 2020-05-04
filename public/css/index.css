@@ -421,4 +421,65 @@ input[type=submit]:hover {
     padding: 20px;
     border: 1px solid #888;
     width: 60%; /* Could be more or less, depending on screen size */
-}'
+}
+
+/* SAR: Styling the message box that is shown when the user clicks on the password field */
+#message {
+    display:none;
+    background: rgba(169, 169, 169, 0.8);
+    color: #000;
+    position: relative;
+    font-family: "Roboto Light", sans-serif;
+    background: #f2f2f2;
+    width: 20%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+#message p {
+    padding: 10px 35px;
+    font-size: 18px;
+}
+
+/* SAR: Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "\2713";
+}
+
+/* SAR: Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "\292B";
+}
+
+/* SAR: Creating the style for the bottom message on the login form */
+.form .message{
+    margin: 15px 0 0;
+    color: aliceblue;
+    font-size: 12px;
+}
+
+/* SAR: Making it so that when clicked, the link won't change colour */
+.form .message a{
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+/* SAR: Making the login-form invisible unless clicked to */
+.form .login-form{
+    display: none;
+}
