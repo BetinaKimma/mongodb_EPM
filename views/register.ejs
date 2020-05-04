@@ -21,14 +21,14 @@
                         <div class="form-group floating-label-form-group controls">
                             <label>Username</label>
                             <input type="text" class="form-control" placeholder="Username"
-                                   id="username" name="username">
+                                   id="username" name="username" required>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
                             <label>Password</label>
                             <input type="text" class="form-control" placeholder="password"
-                                   id="password" name="password">
+                                   id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                         </div>
                     </div>
                     <br>
@@ -42,15 +42,8 @@
     <!-- SAR: Here we create the popup message that shows the user what requirements are left for their chosen password.
      Each class is given an id and set as invalid. This "invalid" tag is changed in the registration.js if the user
      meets the requirements -->
-    <div id="message">
-        <h3>Password must contain the following:</h3>
-        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-        <p id="number" class="invalid">A <b>number</b></p>
-        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-    </div>
-
 </div>
+
 
 <!-- SAR: Here we call the script code from jquery. jQuery is a JavaScript library designed to simplify HTML and it
  allows us to animate with ease the transition between a sign-up form and a log-in form when the user clicks the link
@@ -65,12 +58,25 @@
 </script> -->
 
 </div>
+
+<div id="message">
+    <h3>Password must contain the following:</h3>
+    <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+    <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+    <p id="number" class="invalid">A <b>number</b></p>
+    <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+</div>
+
 </body>
+
+<!--
 <script src="../Javascript/userClass.js"></script>
 <script src="../Javascript/userList.js"></script>
 <script src="../Javascript/login.js"></script>
 <script src="../Javascript/registration.js"></script>
-
 <script src="index.js"></script>
+-->
+
+<%- include('layouts/scripts'); -%>
 
 </html>
