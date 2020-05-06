@@ -1,11 +1,11 @@
 // dette er en færdig implementeret funktion der gemmer profiltekst i local storage
 function saveText() {
     var userProfileText = document.getElementById("profileText").value;
-    var profileText =  {
-        profileText : profileText
+    var profileText = {
+        profileText: profileText
     };
     alert("Din profiltekst er gemt");
-    localStorage["profileText"] = JSON.stringify(userProfileText);
+    localStorage["profileText"] = JSON.stringify(profileText);
 }
 
 // dette er en færdig implementeret funktion der gemmer skills i local storage
@@ -69,7 +69,7 @@ function spanClose()
 
 /*
 // dette er en  funktion der uploader profilbillede og gemmer i local storage, ikke færdig
-var profileImage = document.getElementById("profileImage"),
+let profileImage = document.getElementById("profileImage"),
     preview = document.getElementById("preview");
 
 profileImage.addEventListener("change", function() {

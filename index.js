@@ -72,7 +72,7 @@ app.get('/user/userProfile', ProfilePageController);
 
 app.post('/user/userProfileInfo', authMiddleware, storeProfileInfoController);
 
-app.get('/post/:id',getImageController)
+app.get('/user/getImage',getImageController)
 app.post('/user/storeImage', authMiddleware, storeProfileImageController);
 
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);

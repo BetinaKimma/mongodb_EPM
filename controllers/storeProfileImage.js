@@ -15,8 +15,6 @@ module.exports = (req,res)=>{
 
 
 
-
-
 /*
 // BKS upload af profilbillede
 module.exports = (req, res) =>{
