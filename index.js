@@ -65,7 +65,7 @@ const loginController = require('./controllers/login');
 const loginUserController = require('./controllers/loginUser');
 const logoutController = require('./controllers/logout');
 
-const storeProfileSkillsController = require('./controllers/storeProfileSkills');
+//const storeProfileSkillsController = require('./controllers/storeProfileSkills');
 const storeProfileTextController = require('./controllers/storeProfileText');
 
 
@@ -80,7 +80,7 @@ app.get('/user/getProfileInfo', authMiddleware, getProfileInfoController);
 app.post('/user/storeProfileImage', authMiddleware, storeProfileImageController);
 app.get('/user/getProfileImage', authMiddleware, getProfileImageController);
 
-app.post('/user/storeProfileSkills', authMiddleware, storeProfileSkillsController);
+//app.post('/user/storeProfileSkills', authMiddleware, storeProfileSkillsController);
 app.post('/user/storeProfileText', authMiddleware, storeProfileTextController);
 
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);

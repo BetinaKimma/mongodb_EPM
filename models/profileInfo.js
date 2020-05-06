@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const profileInfoSchema = new Schema({
-    profileId: Number,
     profileName: String,
     profileTitle: String,
     profileDepartment: String,

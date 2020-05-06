@@ -35,15 +35,15 @@
 </div>
 
 <div class="card">
-    <form action="/user/userProfileInfo" method="GET">
-    <h1 class="profileName" id="profileName"</h1>
-    <p class="profileTitle" id="profileTitle"></p>
-    <p class="profileDepartment" id="profileDepartment"></p>
-    <p class="profilePhone" id="profilePhone"></p>
-    <p class="profileEmail" id="profileEmail"></p>
+    <% Object.keys(profileInfos).forEach(function(key){ %>
+    <h1 class="profileName" id="profileName"><%= profileName[key] %></h1>
+    <p class="profileTitle" id="profileTitle"><%= profileTitle[key] %></p>
+    <p class="profileDepartment" id="profileDepartment"><%= profileDepartment[key] %></p>
+    <p class="profilePhone" id="profilePhone"><%= pprofilePhone[key] %></p>
+    <p class="profileEmail" id="profileEmail"><%= profileEmail[key] %></p>
+        <% }); %>
     <br>
     <button id="changeInfoBtn">Ret info</button>
-    </form>
 </div>
 
 <form action="/user/userProfileInfo" method="POST">
