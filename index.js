@@ -52,6 +52,9 @@ const storeUserController = require('./controllers/storeUser');
 const ProfilePageController = require('./controllers/ProfilePage');
 const storeProfileImageController = require('./controllers/storeProfileImage');
 const storeProfileInfoController = require('./controllers/storeProfileInfo');
+const getImageController = require('./controllers/getProfileImage');
+
+const projectPageController = require('./controllers/projectPage');
 
 const applyProjectController = require('./controllers/applyProject');
 const loginController = require('./controllers/login');
@@ -69,7 +72,7 @@ app.get('/user/userProfile', ProfilePageController);
 
 app.post('/user/userProfileInfo', authMiddleware, storeProfileInfoController);
 
-app.get('/post/:id',getImageController)
+app.get('/post/:id',getImageController);
 app.post('/user/storeImage', authMiddleware, storeProfileImageController);
 
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
@@ -77,6 +80,10 @@ app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserControll
 app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController);
 app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController);
 app.get('/auth/logout', logoutController);
+
+app.get('/user/projectPage', projectPageController);
+
+
 //app.post('/users/userProfileImage', storeProfileImageController);
 //app.post('/user/profileInfo', storeProfileImageController);
 //app.post('/user/profileInfo', storeProfileTextController);
