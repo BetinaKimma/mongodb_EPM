@@ -38,9 +38,6 @@ app.use("*", (req, res, next) =>{ //SAR: Global declaration of variable loggedIn
 
 
 
-
-
-
 const validateMiddleWare = require("./middleware/validationMiddleware");
 const authMiddleware = require('./middleware/authMiddleware');
 const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware');
@@ -54,9 +51,10 @@ const newUserController = require('./controllers/newUser');
 const storeUserController = require('./controllers/storeUser');
 const ProfilePageController = require('./controllers/ProfilePage');
 const storeProfileImageController = require('./controllers/storeProfileImage');
-const getImageController = require('./controllers/getProfileImage');
 const storeProfileInfoController = require('./controllers/storeProfileInfo');
-const getInfoController = require('./controllers/getProfileInfo');
+const getImageController = require('./controllers/getProfileImage');
+
+const projectPageController = require('./controllers/projectPage');
 
 const applyProjectController = require('./controllers/applyProject');
 const loginController = require('./controllers/login');
@@ -71,17 +69,21 @@ app.get('/', homeController);
 app.get('/auth/register', redirectIfAuthenticatedMiddleware, newUserController);
 app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
 app.get('/user/userProfile', ProfilePageController);
-app.get('user/getInfo', getInfoController);
+
 app.post('/user/userProfileInfo', authMiddleware, storeProfileInfoController);
 
+app.get('/post/:id',getImageController);
 app.post('/user/storeImage', authMiddleware, storeProfileImageController);
-app.get('/user/getImage',getImageController);
 
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
 app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
 app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController);
 app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController);
 app.get('/auth/logout', logoutController);
+
+app.get('/user/projectPage', projectPageController);
+
+
 //app.post('/users/userProfileImage', storeProfileImageController);
 //app.post('/user/profileInfo', storeProfileImageController);
 //app.post('/user/profileInfo', storeProfileTextController);

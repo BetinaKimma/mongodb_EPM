@@ -2,11 +2,12 @@
 <html lang="en">
 <!-- SAR: This pages purpose is to allow the user to login to the website by taking
           user data from our database-->
-<head>
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="../CSS/registration.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/general.css">
+
+<%- include('layouts/header'); -%>
+
 <body>
+<%- include('layouts/navbarHome'); -%>
+<div class="img-register">
 
 <!-- SAR: Here we create the login form. It has input fields for the required information that is needed from the user.
      Each field is set as required. -->
@@ -38,6 +39,7 @@
         </div>
     </div>
 </div>
+</div>
 
 </body>
 
@@ -47,5 +49,7 @@
 <script src="../Javascript/login.js"></script>
 <script src="../Javascript/registration.js"></script>
 -->
+
+<%- include('layouts/scripts'); -%>
 
 </html>

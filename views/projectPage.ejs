@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('layouts/header'); -%>
+
+<body>
+<%- include('layouts/navbar'); -%>
+<!-- Page Header -->
+
+<header class="masthead" style="background-image: url('img/post-bg.jpg')">
+  <div class="overlay">
+
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1><%= project.projectName %></h1>
+          <h2 class="subheading"><%= project.projectDecription %></h2>
+          <span class="meta">Projektleder
+                        <a href="#"><%= project.projectManager %></a>
+                        on <%= project.projectDate.toDateString() %></span>
+
+          <a href="#">Opret Projekt</a>
+          <span> d. 05. Maj, 2020</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Post Content -->
+<article>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <%= blogpost.body %>
+      </div>
+    </div>
+  </div>
+</article>
+<hr>
+<%- include('layouts/footer'); -%>
+<%- include('layouts/scripts'); -%>
+</body>
+</html>
