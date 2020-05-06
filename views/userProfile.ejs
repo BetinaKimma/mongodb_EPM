@@ -23,7 +23,7 @@
                         <label for="profileImage"><b>Image</b></label>
                         <input type="file" class="form-control" id="profileImage" name="profileImage">
                         <button type='submit' value='Upload!'></button>
-                        <img src="" id="preview">
+                        <img src="" id="preview" alt="profilbillede">
                    </div>
               </div>
               <br>
@@ -35,13 +35,15 @@
 </div>
 
 <div class="card">
-    <h1 class="profileName" id="profileName"></h1>
+    <form action="/user/userProfileInfo" method="GET">
+    <h1 class="profileName" id="profileName"</h1>
     <p class="profileTitle" id="profileTitle"></p>
     <p class="profileDepartment" id="profileDepartment"></p>
     <p class="profilePhone" id="profilePhone"></p>
     <p class="profileEmail" id="profileEmail"></p>
     <br>
     <button id="changeInfoBtn">Ret info</button>
+    </form>
 </div>
 
 <form action="/user/userProfileInfo" method="POST">

@@ -54,7 +54,9 @@ const newUserController = require('./controllers/newUser');
 const storeUserController = require('./controllers/storeUser');
 const ProfilePageController = require('./controllers/ProfilePage');
 const storeProfileImageController = require('./controllers/storeProfileImage');
+const getImageController = require('./controllers/getProfileImage');
 const storeProfileInfoController = require('./controllers/storeProfileInfo');
+const getInfoController = require('./controllers/getProfileInfo');
 
 const applyProjectController = require('./controllers/applyProject');
 const loginController = require('./controllers/login');
@@ -69,11 +71,11 @@ app.get('/', homeController);
 app.get('/auth/register', redirectIfAuthenticatedMiddleware, newUserController);
 app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
 app.get('/user/userProfile', ProfilePageController);
-
+app.get('user/getInfo', getInfoController);
 app.post('/user/userProfileInfo', authMiddleware, storeProfileInfoController);
 
-app.get('/user/getImage',getImageController)
 app.post('/user/storeImage', authMiddleware, storeProfileImageController);
+app.get('/user/getImage',getImageController);
 
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
 app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
