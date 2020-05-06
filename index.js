@@ -38,9 +38,6 @@ app.use("*", (req, res, next) =>{ //SAR: Global declaration of variable loggedIn
 
 
 
-
-
-
 const validateMiddleWare = require("./middleware/validationMiddleware");
 const authMiddleware = require('./middleware/authMiddleware');
 const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware');

@@ -3,7 +3,7 @@
 var password = document.getElementById("password");
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
-var length = document.getElementById("length"); // LS: Nice starting off defining variables outside functions.
+var length = document.getElementById("length");
 
 // SAR: Script to show a message box when password field is clicked
 password.onfocus = function showPswCheck () {
@@ -55,7 +55,11 @@ password.onkeyup = function pswCheck () {
         length.classList.remove("valid");
         length.classList.add("invalid");
     }
-}; //LS: Nice function which sets a bunch of requirements for the user. The overview is generally good here and the code makes sense. I wouldn't change a thing.
+};
+
+
+
+// SAR: OBS: The following code is currently unimplemented in the project.
 
 // SAR: Here we create the variables and assign them to their respective id values.
 //var fullname = document.getElementById("fullname");
@@ -137,10 +141,10 @@ if(localStorage.getItem("User") == null){
     console.log(allUsers);
     console.log("Admin Only");
 } else {
-    allUsers = JSON.parse(localStorage.getItem("User"))
-    console.log("Current users found in localStorage:")
+    allUsers = JSON.parse(localStorage.getItem("User"));
+    console.log("Current users found in localStorage:");
     console.log(allUsers);
-} //LS: remember to use ";" to finish the code/script
+}
 
 // SAR: We now create a function which creates a user array of the input-data.
 function createUser () {
@@ -159,4 +163,4 @@ function createUser () {
     alert("New user created. You will now be redirected to the homepage for login");
     document.location.href = "../HTML/home.html";
     console.log(localStorage);
-} //LS: remember to use ";" to finish the code/script
+}
