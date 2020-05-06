@@ -1,20 +1,12 @@
 // dette er en færdig implementeret funktion der gemmer profiltekst i local storage
 function saveText() {
     var userProfileText = document.getElementById("profileText").value;
-//    var userId = 1; //TODO
     var profileText =  {
         profileText : profileText
     };
-/*
-    pool.query("INSERT INTO \"UserInfoProfileTexts\" (\"UserId\",\"ProfileText\") VALUES(" + userId +",'" + userProfileText + "')").then(result => {
-        console.log(result.rows);
-        pool.end()
-    });
-*/
     alert("Din profiltekst er gemt");
     localStorage["profileText"] = JSON.stringify(userProfileText);
 }
-
 
 // dette er en færdig implementeret funktion der gemmer skills i local storage
 function saveSkills() {
@@ -25,7 +17,6 @@ function saveSkills() {
     alert("Dine skills blev gemt");
     localStorage["skills"] = JSON.stringify(profileSkills);
 }
-
 
 
 // dette er funktionen for at rette sine brugeroplysninger, ikke færdig implementeret, da den ikke gemmer oplysninger endnu
@@ -51,18 +42,6 @@ function closeSpan()
 {
     infoBox.style.display = "none";
 }
-//span.onclick = function() {
-//    infoBox.style.display = "none";
-//}
-
-// når man trykker uden for boxen lukker den
-window.onclick = function(event) {
-    if (event.target == infoBox) {
-        infoBox.style.display = "none";
-    }
-}
-
-
 
 
 // dette er funktionen for at åbne boxen for at rette/uploade profilbillede
@@ -72,25 +51,21 @@ var imageBox = document.getElementById("imageBox");
 var changeImageBtn = document.getElementById("changeImageBtn");
 
 //  <span> element der lukker boksen
-var span = document.getElementsByClassName("close")[0];
+var spanCloses = document.getElementsByClassName("spanClose");
+
+for (var i = 0; i < spanCloses.length; i++) {
+    spanCloses[i].addEventListener('click', spanClose, false);
+}
 
 // Knappen der åbner boksen
 changeImageBtn.onclick = function() {
     imageBox.style.display = "block";
 }
-
 // når man trykker på <span> (x) lukker boksen
-span.onclick = function() {
+function spanClose()
+{
     imageBox.style.display = "none";
 }
-
-// når man trykker uden for boxen lukker den
-window.onclick = function(event) {
-    if (event.target == imageBox) {
-        imageBox.style.display = "none";
-    }
-}
-
 
 /*
 // dette er en  funktion der uploader profilbillede og gemmer i local storage, ikke færdig
