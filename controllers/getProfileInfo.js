@@ -11,10 +11,9 @@ module.exports = (req,res)=>{
 };
 */
 
-/*
+
 module.exports = async (req,res)=>{
     const profileName = await profileInfo.find({}).populate();
     res.render('userProfile',{profileName});
 }
 
- */

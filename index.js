@@ -50,9 +50,13 @@ const homeController = require('./controllers/home');
 const newUserController = require('./controllers/newUser');
 const storeUserController = require('./controllers/storeUser');
 const ProfilePageController = require('./controllers/ProfilePage');
+
 const storeProfileImageController = require('./controllers/storeProfileImage');
+const getProfileImageController = require('./controllers/getProfileImage');
+
 const storeProfileInfoController = require('./controllers/storeProfileInfo');
-const getImageController = require('./controllers/getProfileImage');
+const getProfileInfoController = require('./controllers/getProfileInfo')
+
 
 const projectPageController = require('./controllers/projectPage');
 
@@ -61,8 +65,8 @@ const loginController = require('./controllers/login');
 const loginUserController = require('./controllers/loginUser');
 const logoutController = require('./controllers/logout');
 
-//const storeProfileSkillsController = require('./controllers/storeProfileSkills');
-//const storeProfileTextController = require('./controllers/storeProfileText');
+const storeProfileSkillsController = require('./controllers/storeProfileSkills');
+const storeProfileTextController = require('./controllers/storeProfileText');
 
 
 app.get('/', homeController);
@@ -71,9 +75,13 @@ app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserControll
 app.get('/user/userProfile', ProfilePageController);
 
 app.post('/user/userProfileInfo', authMiddleware, storeProfileInfoController);
+app.get('/user/getProfileInfo', authMiddleware, getProfileInfoController);
 
-app.get('/post/:id',getImageController);
-app.post('/user/storeImage', authMiddleware, storeProfileImageController);
+app.post('/user/storeProfileImage', authMiddleware, storeProfileImageController);
+app.get('/user/getProfileImage', authMiddleware, getProfileImageController);
+
+app.post('/user/storeProfileSkills', authMiddleware, storeProfileSkillsController);
+app.post('/user/storeProfileText', authMiddleware, storeProfileTextController);
 
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
 app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
