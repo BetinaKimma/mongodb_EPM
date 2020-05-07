@@ -1,21 +1,32 @@
 const profileInfo = require('../models/profileInfo.js')
+const profileText = require('../models/profileText.js')
 const profileImage = require('../models/profileImage.js')
 const path = require('path');
 
-
 module.exports = (req, res) => {
+    var profileTextResult;
+    profileText.findOne({}, (error, result) => {
+        console.log(result.profileText);
+        profileTextResult = result;
+    });
+
     profileInfo.findOne({'profileName': "Betina"}, (error, result) => {
          console.log(result.profileName);
-         console.log(result)
-         res.render('userProfile', {profileName: result});
+         //console.log(result)
+         res.render('userProfile', {
+             profileName: result,
+             profileText: profileTextResult
+         });
     });
 };
 
-
+/*
 module.exports = async (req,res)=>{
     const profileImage = await profileImage.findById(req.params.id).populate('userid');
     res.render('image', {profileImage});
 }
+
+ */
 
 
 

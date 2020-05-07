@@ -41,6 +41,8 @@ const homeController = require('./controllers/home');
 const newUserController = require('./controllers/newUser');
 const storeUserController = require('./controllers/storeUser');
 const ProfilePageController = require('./controllers/ProfilePage');
+const storeProfileInfoController = require('./controllers/storeProfileInfo');
+const storeProfileImageController = require('./controllers/storeProfileImage');
 const projectPageController = require('./controllers/projectPage');
 const applyProjectController = require('./controllers/applyProject');
 const loginController = require('./controllers/login');
@@ -50,7 +52,11 @@ const logoutController = require('./controllers/logout');
 app.get('/', homeController);
 app.get('/auth/register', redirectIfAuthenticatedMiddleware, newUserController);
 app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
+/*Profile info*/
 app.get('/user/userProfile', ProfilePageController);
+app.post('/user/userProfile', storeProfileInfoController);
+app.post('/user/userProfileImage', storeProfileImageController);
+
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
 app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
 app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController);
@@ -61,9 +67,9 @@ app.use((req, res) => res.render('notFound'));
 
 //const storeProfileSkillsController = require('./controllers/storeProfileSkills');
 //const storeProfileTextController = require('./controllers/storeProfileText');
-//const storeProfileImageController = require('./controllers/storeProfileImage');
+
 //const getProfileImageController = require('./controllers/getProfileImage');
-//const storeProfileInfoController = require('./controllers/storeProfileInfo');
+
 //const getProfileInfoController = require('./controllers/getProfileInfo')
 //app.post('/user/userProfileInfo', authMiddleware, storeProfileInfoController);
 //app.get('/user/getProfileInfo', authMiddleware, getProfileInfoController);
@@ -75,7 +81,7 @@ app.use((req, res) => res.render('notFound'));
 //app.post('/user/profileInfo', storeProfileImageController);
 //app.post('/user/profileInfo', storeProfileTextController);
 //app.post('/user/userProfile', storeProfileSkillsController);
-//app.post('/user/userProfile', storeProfileInfoController);
+
 //app.post('/user/profileInfo', userProfileTextController);
 
 /* app.get('/about',(req,res)=>{

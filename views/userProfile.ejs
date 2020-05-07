@@ -22,7 +22,7 @@
                    <div class="form-group floating-label-form-group controls">
                         <label for="profileImage"><b>Image</b></label>
                         <input type="file" class="form-control" id="profileImage" name="profileImage">
-                        <button type='submit' value='Upload!'></button>
+                        <button type='submit' value='Upload!'>Upload</button>
                         <img src="" id="preview" alt="profilbillede">
                    </div>
               </div>
@@ -35,8 +35,8 @@
 </div>
 
 <div class="card">
-    <h1 class="profileName" id="profileName"><%= profileName %></h1>
-    <p class="profileTitle" id="profileTitle"><%= %></p>
+    <h1 class="profileName" id="profileName"><%=  %></h1>
+    <p class="profileTitle" id="profileTitle"><%= profileName.profileTitle %></p>
     <p class="profileDepartment" id="profileDepartment"><%= %></p>
     <p class="profilePhone" id="profilePhone"><%= %></p>
     <p class="profileEmail" id="profileEmail"><%= %></p>
@@ -44,7 +44,7 @@
     <button id="changeInfoBtn">Ret info</button>
 </div>
 
-<form action="/user/userProfileInfo" method="POST">
+<form action="/user/userProfile" method="POST">
     <div id="infoBox" class="infoBox">
          <div id="infoBoxContent">
              <span class="close">&times;</span>
@@ -72,7 +72,7 @@
          <div class="profileText">
               <h1>Din profiltekst</h1>
          <div class="profileTextBox">
-              <textarea id="profileText" name="profileText" style="height: 50px" value=""></textarea>
+              <textarea id="profileText" name="profileText" style="height: 50px" value=""><%=profileText.profileText%></textarea>
               <button> Gem </button>
          </div>
          </div>
