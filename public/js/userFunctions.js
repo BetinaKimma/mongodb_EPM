@@ -28,7 +28,7 @@ var changeInfoBtn = document.getElementById("changeInfoBtn");
 //  <span> element der lukker boksen
 var closeSpans = document.getElementsByClassName("close");
 
-for (i = 0; i < closeSpans.length; i++) {
+for (var i = 0; i < closeSpans.length; i++) {
     closeSpans[i].addEventListener('click', closeSpan, false);
 }
 
@@ -53,7 +53,7 @@ var changeImageBtn = document.getElementById("changeImageBtn");
 //  <span> element der lukker boksen
 var spanCloses = document.getElementsByClassName("spanClose");
 
-for (i = 0; i < spanCloses.length; i++) {
+for (var i = 0; i < spanCloses.length; i++) {
     spanCloses[i].addEventListener('click', spanClose, false);
 }
 
