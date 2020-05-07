@@ -40,9 +40,14 @@ app.use('/posts/store',validateMiddleWare);
 const homeController = require('./controllers/home');
 const newUserController = require('./controllers/newUser');
 const storeUserController = require('./controllers/storeUser');
+
+/* BKS: Profile page (info, text, skills og image) */
 const ProfilePageController = require('./controllers/ProfilePage');
 const storeProfileInfoController = require('./controllers/storeProfileInfo');
 const storeProfileImageController = require('./controllers/storeProfileImage');
+const storeProfileTextController = require('./controllers/storeProfileText');
+const storeProfileSkillsController = require('./controllers/storeProfileSkills');
+
 const projectPageController = require('./controllers/projectPage');
 const applyProjectController = require('./controllers/applyProject');
 const loginController = require('./controllers/login');
@@ -52,10 +57,13 @@ const logoutController = require('./controllers/logout');
 app.get('/', homeController);
 app.get('/auth/register', redirectIfAuthenticatedMiddleware, newUserController);
 app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
-/*Profile info*/
+
+/* BKS: Profile page (info, text, skills og image) */
 app.get('/user/userProfile', ProfilePageController);
 app.post('/user/userProfile', storeProfileInfoController);
 app.post('/user/userProfileImage', storeProfileImageController);
+app.post('/user/storeProfileText', authMiddleware, storeProfileTextController);
+app.post('/user/userProfileSkills', storeProfileSkillsController);
 
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
 app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
@@ -65,24 +73,7 @@ app.get('/auth/logout', logoutController);
 app.get('/user/projectPage', projectPageController);
 app.use((req, res) => res.render('notFound'));
 
-//const storeProfileSkillsController = require('./controllers/storeProfileSkills');
-//const storeProfileTextController = require('./controllers/storeProfileText');
 
-//const getProfileImageController = require('./controllers/getProfileImage');
-
-//const getProfileInfoController = require('./controllers/getProfileInfo')
-//app.post('/user/userProfileInfo', authMiddleware, storeProfileInfoController);
-//app.get('/user/getProfileInfo', authMiddleware, getProfileInfoController);
-//app.post('/user/storeProfileImage', authMiddleware, storeProfileImageController);
-//app.get('/user/getProfileImage', authMiddleware, getProfileImageController);
-//app.post('/user/storeProfileSkills', authMiddleware, storeProfileSkillsController);
-//app.post('/user/storeProfileText', authMiddleware, storeProfileTextController);
-//app.post('/users/userProfileImage', storeProfileImageController);
-//app.post('/user/profileInfo', storeProfileImageController);
-//app.post('/user/profileInfo', storeProfileTextController);
-//app.post('/user/userProfile', storeProfileSkillsController);
-
-//app.post('/user/profileInfo', userProfileTextController);
 
 /* app.get('/about',(req,res)=>{
     res.render('about');
@@ -96,16 +87,3 @@ app.get('/post',(req,res)=>{
     res.render('post')
 }) */
 
-
-//const newPostController = require('./controllers/newPost');
-//const storePostController = require('./controllers/storePost');
-//const getPostController = require('./controllers/getPost');
-//const loginController = require('./controllers/login');
-//const loginUserController = require('./controllers/loginUser');
-//const logoutController = require('./controllers/logout');
-// app.get('/post/:id', getPostController);
-// app.post('/posts/store', storePostController);
-// app.get('/posts/new', newPostController);
-//app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController);
-//app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController);
-//app.get('/auth/logout', logoutController);

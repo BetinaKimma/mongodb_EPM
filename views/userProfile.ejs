@@ -72,14 +72,18 @@
          <div class="profileText">
               <h1>Din profiltekst</h1>
          <div class="profileTextBox">
-              <textarea id="profileText" name="profileText" style="height: 50px" value=""><%=profileText.profileText%></textarea>
+              <textarea id="profileText" name="profileText" style="height: 50px"><%=profileText.profileText%></textarea>
               <button> Gem </button>
          </div>
          </div>
+    </div>
+</form>
+<form action="/user/userProfileSkills" method="POST">
+    <div class="skills-container">
          <div class="profileSkills">
               <h1>Dine færdigheder</h1>
          <div class="profileSkillsBox">
-               <textarea id="profileSkills" name="profileSkills" style="height: 50px" value=""></textarea>
+               <textarea id="profileSkills" name="profileSkills" style="height: 50px"><%=profileSkills.profileSkills%></textarea>
                <button> Gem </button>
          </div>
          </div>

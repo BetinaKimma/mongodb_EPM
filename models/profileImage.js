@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const profileImageSchema = new Schema({
     //profileName: String,
-    profileId: Number,
+    //profileId: Number,
     profileImage: String
 });
 
