@@ -3,14 +3,15 @@ const path = require('path')
 
 module.exports = (req,res)=>{
     console.log('Entering profileimageupload on post');
-    let image = req.files.image;
-    image.mv(path.resolve(__dirname,'..','public/img',image.name),async (error)=>{
+    let image = req.files.profileImage;
+    console.log(req.files.profileImage);
+    image.mv(path.resolve(__dirname,'..','public/img/profileimages',image.name),async (error)=>{
         await profileImage.create({
             ...req.body,
-            image: '/img/' + image.name
+            profileImage: '/img/' + image.name
         })
         console.log("req.body",req.body)
-        res.redirect('/')
+        res.redirect('/user/userProfile')
     })
 }
 
