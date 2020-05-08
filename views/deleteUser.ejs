@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('layouts/header'); -%>
+
+<!-- SAR: This pages purpose is to create a new user by requesting and taking input information and converting it to an array
+     that stores the user data in localStorage-->
+
+<body>
+<%- include('layouts/navbarHome'); -%>
+<div class="img-register">
+
+<!-- SAR: Here we create the login/register form. It has input fields for the required information that we need from a new user.
+     Each field is set as required. The password field also has certain parameters which the user must abide by.-->
+<div class="register-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <form action="/admin/delete" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <button class="btn btn-primary">Delete User</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- SAR: Here we create the popup message that shows the user what requirements are left for their chosen password.
+     Each class is given an id and set as invalid. This "invalid" tag is changed in the registration.js if the user
+     meets the requirements -->
+
+</div>
+</div>
+</body>
+
+<%- include('layouts/scripts'); -%>
+
+</html>
