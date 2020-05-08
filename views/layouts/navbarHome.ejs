@@ -1,10 +1,11 @@
 <div class="topnav">
     <a class="active" href="/">Home</a>
-    <% if (loggedIn) { %> <!-- SAR: If loggedIn has a value (user is logged-in), we display the following -->
+    <% if (userLoggedIn) { %> <!-- SAR: If loggedIn has a value (user is logged-in), we display the following -->
     <a href="/user/userProfile">Profile Page</a>
     <a href="/auth/logout">Log Out</a>
+    <a href="/admin">Delete User</a>
     <% } %>
-    <% if (!loggedIn) { %> <!-- SAR: // SAR: If loggedIn is null (user is logged-out), we display the following -->
+    <% if (!userLoggedIn) { %> <!-- SAR: // SAR: If loggedIn is null (user is logged-out), we display the following -->
     <a href="/auth/register">Register</a>
     <a href="/auth/login">Login</a>
     <% } %>
