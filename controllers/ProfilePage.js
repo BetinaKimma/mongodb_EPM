@@ -7,8 +7,13 @@ const path = require('path');
 module.exports = (req, res) => {
     var profileTextResult;
     profileText.findOne({}, (error, result) => {
-        console.log(result.profileText);
-        profileTextResult = result;
+        if ({$isNull: ['profileText', 'Unspecified']}) {
+           
+            console.log('no text yet');
+        } else {
+            console.log(result.profileText);
+            profileTextResult = result;
+        }
     });
     var profileSkillsResult;
     profileSkills.findOne({}, (error, result) => {
