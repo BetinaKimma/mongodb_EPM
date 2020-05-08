@@ -6,7 +6,7 @@ const profileInfoSchema = new Schema({
     profileTitle: String,
     profileDepartment: String,
     profilePhone: String,
-    profileEmail: String,
+    profileEmail: String
 });
 
 const profileInfo = mongoose.model('profileInfo', profileInfoSchema);

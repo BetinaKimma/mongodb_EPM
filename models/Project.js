@@ -1,18 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const projectSchema = new Schema({
+const ProjectSchema = new Schema({
     projectId: Number,
     projectName: String,
     projectDate: Number,
-    projectBudget: String,
+    //   projectBudget: String,
     projectDescription: String,
-    projectLocation: String,
-    projectDepartment: String,
-    projectManager: String,
-
+    //   projectLocation: String,
+    //   projectDepartment: String,
+    projectManager: String
 });
 
-
-const project = mongoose.model('project', projectSchema);
-module.exports = project;
+const Project = mongoose.model('Project', ProjectSchema);
+module.exports = Project;

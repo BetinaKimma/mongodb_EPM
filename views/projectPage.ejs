@@ -4,43 +4,37 @@
 <%- include('layouts/header'); -%>
 
 <body>
-<%- include('layouts/navbar'); -%>
+<%- include('layouts/navbarEmployee'); -%>
 <!-- Page Header -->
 
-<header class="masthead" style="background-image: url('img/post-bg.jpg')">
-  <div class="overlay">
+<div class="img-apply">
 
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="post-heading">
-          <h1><%= project.projectName %></h1>
-          <h2 class="subheading"><%= project.projectDecription %></h2>
-          <span class="meta">Projektleder
-                        <a href="#"><%= project.projectManager %></a>
-                        on <%= project.projectDate.toDateString() %></span>
+  <form action="/user/projectPage" method="POST">
+    <div id="contactForm" class="container">
+    <h1>Opret projekt</h1>
 
-          <a href="#">Opret Projekt</a>
-          <span> d. 05. Maj, 2020</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-<!-- Post Content -->
-<article>
+    <label for="projectId"><b>Projekt Id</b></label>
+    <input type="text" placeholder="Navn" name="projectId" id="projectId" class="inputField" required>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <%= blogpost.body %>
-      </div>
-    </div>
-  </div>
-</article>
-<hr>
-<%- include('layouts/footer'); -%>
-<%- include('layouts/scripts'); -%>
+    <label for="projectName"><b>Projekt Navn</b></label>
+    <input type="text" name="projectName" id="projectName" class="inputField" placeholder="Telefon">
+
+    <label for="projectDate"><b>Email</b></label>
+    <input type="text" name="projectDate" id="projectDate" class="inputField" placeholder="Email">
+
+    <label for="projectManager"><b>Projektnavn</b></label>
+    <input type="text" name="projectManager" id="projectManager" class="inputField" placeholder="projektnavn">
+
+    <label for="projectDescription"><b>Kommentar</b></label>
+    <input type="text" id="projectDescription" name="projectDescription" class="inputField">
+
+    <button>Opret projekt</button>
+  </form>
+
+</div>
+
 </body>
+
+<%- include('layouts/scripts'); -%>
+
 </html>

@@ -8,7 +8,7 @@ module.exports = (req, res) => {
     var profileTextResult;
     profileText.findOne({}, (error, result) => {
         if ({$isNull: ['profileText', 'Unspecified']}) {
-           
+            res.render('userProfile');
             console.log('no text yet');
         } else {
             console.log(result.profileText);
