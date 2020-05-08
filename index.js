@@ -85,7 +85,7 @@ app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController)
 app.get('/user/userProfile', ProfilePageController);
 app.post('/user/userProfile', storeProfileInfoController);
 app.post('/user/userProfileImage', storeProfileImageController);
-app.post('/user/storeProfileText', authMiddleware, storeProfileTextController);
+app.post('/user/userProfileText', authMiddleware, storeProfileTextController);
 app.post('/user/userProfileSkills', storeProfileSkillsController);
 
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);

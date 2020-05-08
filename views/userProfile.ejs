@@ -37,9 +37,9 @@
 <div class="card">
     <h1 class="profileName" id="profileName"><%= profileName.profileName %></h1>
     <p class="profileTitle" id="profileTitle"><%= profileName.profileTitle %></p>
-    <p class="profileDepartment" id="profileDepartment"><%= %></p>
-    <p class="profilePhone" id="profilePhone"><%= %></p>
-    <p class="profileEmail" id="profileEmail"><%= %></p>
+    <p class="profileDepartment" id="profileDepartment"><%= profileName.profileTitle %></p>
+    <p class="profilePhone" id="profilePhone"><%= profileName.profileTitle %></p>
+    <p class="profileEmail" id="profileEmail"><%= profileName.profileTitle %></p>
     <br>
     <button id="changeInfoBtn">Ret info</button>
 </div>
@@ -72,7 +72,8 @@
          <div class="profileText">
               <h1>Din profiltekst</h1>
          <div class="profileTextBox">
-              <textarea id="profileText" name="profileText" style="height: 50px"><%=profileText.profileText%></textarea>
+             <input type="text" name="heading" id="heading" class="inputField" placeholder="Overskrift"><%= heading.heading %>
+             <textarea id="profileText" name="profileText" style="height: 50px"><%= heading.profileText %></textarea>
               <button> Gem </button>
          </div>
          </div>

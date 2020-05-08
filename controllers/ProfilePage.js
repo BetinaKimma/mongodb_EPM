@@ -5,31 +5,49 @@ const profileImage = require('../models/profileImage.js')
 const path = require('path');
 
 module.exports = (req, res) => {
-    var profileTextResult;
-    profileText.findOne({}, (error, result) => {
-        if ({$isNull: ['profileText', 'Unspecified']}) {
-            res.render('userProfile');
-            console.log('no text yet');
-        } else {
-            console.log(result.profileText);
-            profileTextResult = result;
-        }
+  //  var profileTextResult;
+    profileText.findOne({'heading': "Velkommen"}, (error, result) => {
+  //      if ({$isNull: ['profileText', 'Unspecified']}) {
+  //          res.render('userProfile');
+  //          console.log('no text yet');
+  //      } else {
+            console.log(result.heading);
+        res.render('userProfile', {
+            heading: result
+        });
     });
-    var profileSkillsResult;
+  //  var profileSkillsResult;
     profileSkills.findOne({}, (error, result) => {
         console.log(result.profileSkills);
-        profileSkillsResult = result;
+        res.render('userProfile', {
+            heading: result
+        });
+  //      profileSkillsResult = result;
     });
     profileInfo.findOne({'profileName': "Betina"}, (error, result) => {
-         console.log(result.profileName);
-         //console.log(result)
-         res.render('userProfile', {
-             profileName: result,
-             profileText: profileTextResult,
-             profileSkills: profileSkillsResult
-         });
+        console.log(result.profileName);
+        //console.log(result)
+        res.render('userProfile', {
+            profileName: result
+   //         profileText: profileTextResult,
+   //         profileSkills: profileSkillsResult
+        });
     });
 };
+
+/*   var profileImageResult;
+   profileImage.findOne({}, (error, result) => {
+       console.log(result.profileImage);
+       profileImageResult = result;
+   });
+ */
+
+// if ({$isNull: ['profileText', 'Unspecified']}) {
+//     res.render('userProfile');
+//     console.log('no text yet');
+// } else {
+
+
 
 /*
 module.exports = async (req,res)=>{
