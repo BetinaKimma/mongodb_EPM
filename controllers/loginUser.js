@@ -8,7 +8,10 @@ module.exports = (req, res) =>{
         if (user){
             bcrypt.compare(password, user.password, (error, same) =>{
                 if(same) {
-                    req.session.userId = user._id; // SAR: Vi tildeler UserId til sessionen så hver gang brugeren laver en req fra serveren, sendes cookie id'et som verifikation
+                    req.session.userId = user._id;
+                    /* SAR: Vi tildeler UserId til sessionen så hver gang brugeren laver
+                    en req fra serveren, sendes cookie id'et som verifikation */
+                     */
                     res.redirect('/')
                 }
                 else{
