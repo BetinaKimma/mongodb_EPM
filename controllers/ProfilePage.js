@@ -5,31 +5,28 @@ const profileImage = require('../models/profileImage.js')
 const path = require('path');
 
 module.exports = (req, res) => {
-  //  var profileTextResult;
+    var profileTextResult;
     profileText.findOne({'heading': "Velkommen"}, (error, result) => {
   //      if ({$isNull: ['profileText', 'Unspecified']}) {
   //          res.render('userProfile');
   //          console.log('no text yet');
   //      } else {
-            console.log(result.heading);
-        res.render('userProfile', {
-            heading: result
-        });
+            console.log(result.profileText);
+            profileTextResult = result;
     });
-  //  var profileSkillsResult;
-    profileSkills.findOne({}, (error, result) => {
+    var profileSkillsResult;
+    profileSkills.findOne({'education': "HAit"}, (error, result) => {
         console.log(result.profileSkills);
-        res.render('userProfile', {
-            heading: result
-        });
-  //      profileSkillsResult = result;
+        profileSkillsResult = result;
     });
     profileInfo.findOne({'profileName': "Betina"}, (error, result) => {
         console.log(result.profileName);
+        profileInfoResult = result;
         //console.log(result)
         res.render('userProfile', {
-            profileName: result
-   //         profileText: profileTextResult,
+            profileName: result,
+            heading: result,
+            education: result
    //         profileSkills: profileSkillsResult
         });
     });

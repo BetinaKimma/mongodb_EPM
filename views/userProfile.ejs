@@ -37,9 +37,9 @@
 <div class="card">
     <h1 class="profileName" id="profileName"><%= profileName.profileName %></h1>
     <p class="profileTitle" id="profileTitle"><%= profileName.profileTitle %></p>
-    <p class="profileDepartment" id="profileDepartment"><%= profileName.profileTitle %></p>
-    <p class="profilePhone" id="profilePhone"><%= profileName.profileTitle %></p>
-    <p class="profileEmail" id="profileEmail"><%= profileName.profileTitle %></p>
+    <p class="profileDepartment" id="profileDepartment"><%= profileName.profileDepartment %></p>
+    <p class="profilePhone" id="profilePhone"><%= profileName.profilePhone %></p>
+    <p class="profileEmail" id="profileEmail"><%= profileName.profileEmail %></p>
     <br>
     <button id="changeInfoBtn">Ret info</button>
 </div>
@@ -74,7 +74,7 @@
          <div class="profileTextBox">
              <input type="text" name="heading" id="heading" class="inputField" placeholder="Overskrift"><%= heading.heading %>
              <textarea id="profileText" name="profileText" style="height: 50px"><%= heading.profileText %></textarea>
-              <button> Gem </button>
+             <button> Gem </button>
          </div>
          </div>
     </div>
@@ -84,8 +84,9 @@
          <div class="profileSkills">
               <h1>Dine færdigheder</h1>
          <div class="profileSkillsBox">
-               <textarea id="profileSkills" name="profileSkills" style="height: 50px"><%=profileSkills.profileSkills%></textarea>
-               <button> Gem </button>
+             <input type="text" name="education" id="education" class="inputField" placeholder="Uddannelse"><%= education.HAit %>
+             <textarea id="profileSkills" name="profileSkills" style="height: 50px"><%= education.profileSkills %></textarea>
+             <button> Gem </button>
          </div>
          </div>
     </div>
