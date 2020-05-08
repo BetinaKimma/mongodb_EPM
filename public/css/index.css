@@ -449,6 +449,9 @@ input[type=submit]:hover {
 
 
 /*SB Styling of project leader user */
+.profilePicture {
+    width: 100%;
+}
 .fullName{
     color: black;
     font-size: 18px;
