@@ -90,7 +90,9 @@ app.post('/user/userProfileImage', storeProfileImageController);
 app.post('/user/userProfileText', authMiddleware, storeProfileTextController);
 app.post('/user/userProfileSkills', storeProfileSkillsController);
 
+/* BKS: apply for project page */
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
+
 app.get('/user/projectPage', projectPageController);
 
 /* SAR: Delete user */

@@ -1,4 +1,5 @@
 // dette er en færdig implementeret funktion der gemmer profiltekst i local storage
+// bliver ikke længere kaldt, da vi gemmer i database i stedet for
 function saveText() {
     var userProfileText = document.getElementById("profileText").value;
     var profileText = {
@@ -8,7 +9,8 @@ function saveText() {
     localStorage["profileText"] = JSON.stringify(profileText);
 }
 
-// dette er en færdig implementeret funktion der gemmer skills i local storage
+// dette er en færdig implementeret funktion der gemmer skills i local storage,
+// bliver ikke længere kaldt, da vi gemmer i database i stedet for
 function saveSkills() {
     var profileSkills = document.getElementById("skills").value;
     var addedskills = {
@@ -18,8 +20,8 @@ function saveSkills() {
     localStorage["skills"] = JSON.stringify(profileSkills);
 }
 
-
-// dette er funktionen for at rette sine brugeroplysninger, ikke færdig implementeret, da den ikke gemmer oplysninger endnu
+// BKS: dette er funktionen for at åbne boksen på profilsiden, så man kan ændre sine info
+// dette er funktionen for at rette sine brugeroplysninger
 var infoBox = document.getElementById("infoBox");
 
 // knappen der åbner boxen
@@ -43,8 +45,8 @@ function closeSpan()
     infoBox.style.display = "none";
 }
 
-
-// dette er funktionen for at åbne boxen for at rette/uploade profilbillede
+// BKS: dette er funktionen for at åbne boksen på profilsiden, så man kan ændre sit image
+// dette er funktionen for at åbne boksenen for at rette/uploade profilbillede
 var imageBox = document.getElementById("imageBox");
 
 // knappen der åbner boxen
@@ -68,15 +70,13 @@ function spanClose()
 }
 
 /*
-// dette er en  funktion der uploader profilbillede og gemmer i local storage, ikke færdig
-let profileImage = document.getElementById("profileImage"),
+// BKS: dette er en  funktion der uploader profilbillede og viser i preview...bliver ikke kaldt på siden
+let showProfileImage = document.getElementById("showProfileImage"),
     preview = document.getElementById("preview");
 
-profileImage.addEventListener("change", function() {
-    profileImage(this);
+showProfileImage.addEventListener("change", function() {
+    showProfileImage(this);
 });
-*/
-
 
 function changeImage(input) {
     var reader;
@@ -87,12 +87,12 @@ function changeImage(input) {
         reader.onload = function(e) {
             preview.setAttribute('src', e.target.result);
         }
-
         reader.readAsDataURL(input.files[0]);
     }
 }
-
-// dette er funktionen der gemmer profilbillede i localstorage
+/*
+/*
+// BKS: dette er funktionen der gemmer profilbillede i localstorage
 function saveImage() {
     var profileImage = document.getElementById("profileImage").value.innerHTML;
     return this.profileImage;
@@ -102,12 +102,9 @@ function saveImage() {
     alert("Dit billede blev gemt");
     localStorage["profileImage"] = JSON.stringify(profileImage);
 }
+*/
 
-
-
-
-
-// Kan ikke få denne til at gemme!!!
+// BKS: dette er funktionen for kontaktformen, den gemmer blot i localstorage, skal laves om så den sender en mail.
 function contactForm() {
     var fname = document.getElementById("fname").value;
     var phone = document.getElementById("phone").value;
