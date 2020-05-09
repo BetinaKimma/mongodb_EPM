@@ -1,7 +1,24 @@
 const User = require('../models/User');
 const path = require('path');
 
+// BKS: mit forsøg på at slette en bruger...virker ikke
 module.exports = (req, res) =>{
+    let userId = req.params.id;
+    User.findByIdAndRemove({userId}, (error, result) => {
+        console.log('deleting user');
+        if (error) {
+            console.log('not deleted')
+        } else {
+            res.redirect('/');
+            console.log('user removed')
+            ;}
+    });
+};
+
+
+
+    /*
+// SAR:
     User.findOneAndRemove({
         userId: req.params.id
     }, function(err, User) {
@@ -15,6 +32,8 @@ module.exports = (req, res) =>{
         res.redirect('/');
 
     };
+
+     */
 
 // SAR: Code that has been tried:
 /*  db.collection('items').remove({_id: mongodb.ObjectID( req.params.id)}, (err, result) => {

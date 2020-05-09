@@ -55,11 +55,14 @@ const loginUserController = require('./controllers/loginUser');
 const ProfilePageController = require('./controllers/ProfilePage');
 const storeProfileInfoController = require('./controllers/storeProfileInfo');
 const storeProfileImageController = require('./controllers/storeProfileImage');
+//const ProfileImageController = require('/controllers/ProfileImage');
 const storeProfileTextController = require('./controllers/storeProfileText');
 const storeProfileSkillsController = require('./controllers/storeProfileSkills');
 
-const projectPageController = require('./controllers/projectPage');
+/* BKS: apply projectPage controller */
 const applyProjectController = require('./controllers/applyProject');
+
+const projectPageController = require('./controllers/projectPage');
 
 /* SAR: Delete user controller */
 const deleteUserPageController = require('./controllers/deleteUserPage');
@@ -88,10 +91,13 @@ app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController)
 app.get('/user/userProfile', ProfilePageController);
 app.post('/user/userProfile', storeProfileInfoController);
 app.post('/user/userProfileImage', storeProfileImageController);
+//app.get('/user/userProfileImage', ProfileImageController);
 app.post('/user/userProfileText', authMiddleware, storeProfileTextController);
 app.post('/user/userProfileSkills', storeProfileSkillsController);
 
+/* BKS: apply for project page */
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
+
 app.get('/user/projectPage', projectPageController);
 
 /* SAR: Delete user */
