@@ -4,7 +4,7 @@ const path = require('path');
 // BKS: mit forsøg på at slette en bruger...virker ikke
 module.exports = (req, res) =>{
     let userId = req.params.id;
-    User.findByIdAndRemove({userId}, (error, result) => {
+    User.findOneAndDelete({userId} (error, result) => {
         console.log('deleting user');
         if (error) {
             console.log('not deleted')
@@ -15,7 +15,19 @@ module.exports = (req, res) =>{
     });
 };
 
+// BKS: et forsøg på delete user
+/*
+User.findOneAndRemove({
+        userId: 'req.params.id'
+    })
+    .then(response => {
+        console.log(response)
+    })
+    .catch(err => {
+        console.error(err)
+    })
 
+ */
 
     /*
 // SAR:
