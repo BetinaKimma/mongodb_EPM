@@ -8,4 +8,4 @@ const profileImageSchema = new Schema({
 });
 
 const profileImage = mongoose.model('profileImage', profileImageSchema);
-module.exports = profileImage;
+module.exports = profileImage

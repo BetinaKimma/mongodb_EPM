@@ -1,35 +1,51 @@
 const profileInfo = require('../models/profileInfo.js')
 const profileText = require('../models/profileText.js')
 const profileSkills = require('../models/profileSkills.js')
-const profileImage = require('../models/profileImage.js')
+//const profileImage = require('../models/profileImage.js')
 const path = require('path');
 
 module.exports = (req, res) => {
-    var profileTextResult;
-    profileText.findOne({}, (error, result) => {
-        if ({$isNull: ['profileText', 'Unspecified']}) {
-            res.render('userProfile');
-            console.log('no text yet');
-        } else {
-            console.log(result.profileText);
-            profileTextResult = result;
-        }
+    let profileTextResult;
+    profileText.findOne({'heading': "Velkommen"}, (error, result) => {
+        profileTextResult = result;
+        console.log(result.heading);
     });
-    var profileSkillsResult;
-    profileSkills.findOne({}, (error, result) => {
-        console.log(result.profileSkills);
+    let profileSkillsResult;
+    profileSkills.findOne({'education': "HAit"}, (error, result) => {
         profileSkillsResult = result;
+        console.log(result.education);
     });
+    let profileInfoResult;
     profileInfo.findOne({'profileName': "Betina"}, (error, result) => {
-         console.log(result.profileName);
-         //console.log(result)
-         res.render('userProfile', {
-             profileName: result,
-             profileText: profileTextResult,
-             profileSkills: profileSkillsResult
-         });
+        profileInfoResult = result;
+        console.log(result.profileName);
+    res.render('userProfile', {
+        heading: result,
+        profileName: result,
+        education: result
+    });
     });
 };
+
+
+//      if ({$isNull: ['profileText', 'Unspecified']}) {
+//          res.render('userProfile');
+//          console.log('no text yet');
+//      } else {
+
+/*   var profileImageResult;
+   profileImage.findOne({}, (error, result) => {
+       console.log(result.profileImage);
+       profileImageResult = result;
+   });
+ */
+
+// if ({$isNull: ['profileText', 'Unspecified']}) {
+//     res.render('userProfile');
+//     console.log('no text yet');
+// } else {
+
+
 
 /*
 module.exports = async (req,res)=>{
