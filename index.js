@@ -72,7 +72,7 @@ const deleteUserController = require('./controllers/deleteUser');
 const logoutController = require('./controllers/logout');
 
 /* SB ProjectLeader controller */
-const pLeaderPageController = require('./controllers/pLeaderPage');
+//const pLeaderPageController = require('./controllers/pLeaderPage');
 const storeProjectLeaderController = require('./controllers/storeProjectLeaderInfo');
 
 
@@ -104,11 +104,21 @@ app.get('/user/projectPage', projectPageController);
 app.get('/admin', deleteUserPageController);
 app.delete('/admin/delete', deleteUserController);
 
+/* BKS: forsøg på delete user
+app.delete('/admin/:id', function(req, res) {
+    Users.findByIdAndRemove(req.params.id).exec().then(doc => {
+        if (!doc) {return res.status(404).end(); } //fandt ikke documentet
+        return res.status(204).end(); //den er blevet slettet
+    })
+        .catch(err => next(err));
+})
+ */
+
 /* SAR: User logout */
 app.get('/auth/logout', logoutController);
 
 /* SB: Project Leader page */
-app.get('/leader/plProfile', pLeaderPageController);
+//app.get('/leader/plProfile', pLeaderPageController);
 app.post('/leader/plProfile', storeProjectLeaderController);
 
 /* SAR: If no link matches, respond with 404 not found */

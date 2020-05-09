@@ -1,8 +1,19 @@
 const User = require('../models/User');
 const path = require('path');
 
-// BKS: mit forsøg på at slette en bruger...virker ikke
-module.exports = (req, res) =>{
+module.exports = function(req, res) {
+    User.findByIdAndRemove(req.params.id).exec().then(doc => {
+        if (!doc) {return res.status(404).end(); } //fandt ikke documentet
+        console.log('no doc');
+        return res.status(204).end(); //den er blevet slettet
+    })
+        .catch(err => next(err));
+    console.log('doc deletet');
+}
+
+
+// BKS: et forsøg på delete user
+    /*
     let userId = req.params.id;
     User.findOneAndDelete({userId} (error, result) => {
         console.log('deleting user');
@@ -15,17 +26,34 @@ module.exports = (req, res) =>{
     });
 };
 
+     */
+
 // BKS: et forsøg på delete user
 /*
-User.findOneAndRemove({
-        userId: 'req.params.id'
-    })
-    .then(response => {
-        console.log(response)
-    })
-    .catch(err => {
-        console.error(err)
-    })
+    let userId = req.params.id;
+    User.findOneAndDelete({userId}, function (error, result) {
+        console.log('deleting user');
+        if (error) {
+            console.log('not deleted')
+        } else {
+            res.redirect('/');
+            console.log('user removed')
+            ;}
+    });
+};
+
+     */
+
+// BKS: et forsøg på delete user
+/*
+    let userId = req.params.id;
+    User.findOneAndRemove({userId}).then(function (response) {
+                    console.log(response)
+        })
+        .catch(err => {
+            console.error(err)
+        })
+}
 
  */
 

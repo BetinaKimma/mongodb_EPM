@@ -1,6 +1,7 @@
 const profileInfo = require('../models/profileInfo.js')
 const profileText = require('../models/profileText.js')
 const profileSkills = require('../models/profileSkills.js')
+//const deleteInfo = require('../models/profileInfo')
 const path = require('path');
 
 module.exports = (req, res) => {
@@ -12,24 +13,33 @@ module.exports = (req, res) => {
 //      } else {
         profileTextResult = result;
         console.log(result.heading);
-    });
+        });
+
     let profileSkillsResult;
     profileSkills.findOne({'education': "HAit"}, (error, result) => {
         profileSkillsResult = result;
-        console.log(result.education);
+        console.log(result.profileSkills);
     });
+
     let profileInfoResult;
     profileInfo.findOne({'profileName': "Betina"}, (error, result) => {
         profileInfoResult = result;
         console.log(result.profileName);
     res.render('userProfile', {
-        heading: result,
         profileName: result,
+        heading: result,
         education: result
     });
-    });
-};
+    })
+}
 
+
+     /*
+
+module.exports = (req, res) => {
+
+}
+/*
 
 
 /*
