@@ -6,3 +6,18 @@ module.exports = (req, res) =>{
         res.redirect('userProfile')
     });
 };
+
+/*
+// BKS: forsøg på at lave en findOneAndUpdate ud fra profilnavn, så den ikke opretter et nyt document hver gang.
+    module.exports = (req, res) =>{
+        let profileName = req.body;
+        profileInfo.findOneAndUpdate(req.body, (error, result) => {
+            if (result({$isNull: 'profileName'})) {
+                profileInfo.create(req.body, (error, result) => {
+                res.redirect('userProfile')
+            });
+        }
+    });
+}
+
+ */

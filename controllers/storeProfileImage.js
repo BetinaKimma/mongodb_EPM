@@ -16,9 +16,8 @@ module.exports = (req,res)=>{
 }
 
 
-
 /*
-// BKS upload af profilbillede
+// BKS: forskellige forsøg på upload af profilbillede
 module.exports = (req, res) =>{
     if (!req.files || Object.keys(req.files).length === 0) {
         return res.status(400).send('No files were uploaded.');

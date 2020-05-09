@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html lang="en">
 
-<%- include('layouts/header'); %>
+<%- include('layouts/header'); -%>
 
 <body>
-<%-include('layouts/navbarLeader'); %>
+<%- include('layouts/navbarLeader'); -%>
 <div class="img-user">
     <div class="card">
             <h1 class="fullName" id="fullName"><%= fullName.fullName %></h1>
@@ -14,9 +14,8 @@
             <p class="lEmailAdr" id="lEmailAdr"><%= %></p>
             <br>
             <button id="changeInfoBtn">Ret info</button>
-            <button id="changeImageBtn">Skift billede</button>
 
-        <form action="/leader/leaderProfile" method="post">
+        <form action="/leader/leaderProfile" method="POST">
             <div id="infoBox" class="infoBox">
                 <div id="infoBoxContent">
 
@@ -59,31 +58,32 @@
     </div>
 
 </div>
+    <!-- Kode hentet fra https://www.w3schools.com/howto/howto_js_filter_table.asp -->
+    <h2>Medarbejdere</h2>
+    <input type="text" id="plInput" onkeyup="searchEmp()" placeholder="Søg på navn..">
 
-<div id="userBtnContainer">
-    <h2>Søg blandt medarbejdere</h2>
-    <button class="btn active" onclick="userSelection('all')"> Vis alle</button>
-    <button class="btn" onclick="userSelection('some')"> SoMe</button>
-    <button class="btn" onclick="userSelection('salg')"> Salg</button>
-    <button class="btn" onclick="userSelection('hr')"> HR</button>
-    <button class="btn" onclick="userSelection('regnskab')"> Regnskab</button>
-</div>
-
-<div class="container">
-    <div class="filterDiv some">Josefine Andersen</div>
-    <div class="filterDiv some">Sten M. Stuffs</div>
-    <div class="filterDiv salg">Anna Iversen</div>
-    <div class="filterDiv salg">Sofie J. M. Frisk</div>
-    <div class="filterDiv salg">Leif Ovensen</div>
-    <div class="filterDiv salg">Hecktor Jameson</div>
-    <div class="filterDiv salg">Simon Petersen</div>
-    <div class="filterDiv salg">Yvonne K. Skovsen</div>
-    <div class="filterDiv hr">Alexis Jobs</div>
-    <div class="filterDiv hr">Julie Simonsen</div>
-    <div class="filterDiv regnskab">Bøje Nielsen</div>
-    <div class="filterDiv regnskab">Sif Johansen</div>
-    <div class="filterDiv regnskab">Axel Jørgensen</div>
-</div>
+    <table id="plTable">
+        <tr class="header">
+            <th style="width:60%;">Navn</th>
+            <th style="width:40%;">Afdeling</th>
+        </tr>
+        <tr>
+            <td>Josefine Andersen</td>
+            <td>Regnskab</td>
+        </tr>
+        <tr>
+            <td>Sten M. Stuffs</</td>
+            <td>Marketing</td>
+        </tr>
+        <tr>
+            <td>Sofie J. M. Frisk</td>
+            <td>Salg</td>
+        </tr>
+        <tr>
+            <td>Yvonne K. Skovsen</td>
+            <td>HR</td>
+        </tr>
+    </table>
 
 </body>
 <%- include('layouts/scripts'); -%>
