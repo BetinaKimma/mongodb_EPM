@@ -69,6 +69,7 @@ const deleteUserController = require('./controllers/deleteUser');
 const logoutController = require('./controllers/logout');
 
 /* SB ProjectLeader controller */
+const pLeaderPageController = require('./controllers/pLeaderPage');
 const storeProjectLeaderController = require('./controllers/storeProjectLeaderInfo');
 
 
@@ -101,7 +102,8 @@ app.delete('/admin/delete', deleteUserController);
 app.get('/auth/logout', logoutController);
 
 /* SB: Project Leader page */
-app.post('/leader/leaderProfile', storeProjectLeaderController);
+app.get('/leader/plProfile', pLeaderPageController);
+app.post('/leader/plProfile', storeProjectLeaderController);
 
 /* SAR: If no link matches, respond with 404 not found */
 app.use((req, res) => res.render('notFound'));
