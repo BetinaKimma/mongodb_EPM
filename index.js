@@ -55,6 +55,7 @@ const loginUserController = require('./controllers/loginUser');
 const ProfilePageController = require('./controllers/ProfilePage');
 const storeProfileInfoController = require('./controllers/storeProfileInfo');
 const storeProfileImageController = require('./controllers/storeProfileImage');
+//const ProfileImageController = require('/controllers/ProfileImage');
 const storeProfileTextController = require('./controllers/storeProfileText');
 const storeProfileSkillsController = require('./controllers/storeProfileSkills');
 
@@ -89,6 +90,7 @@ app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController)
 app.get('/user/userProfile', ProfilePageController);
 app.post('/user/userProfile', storeProfileInfoController);
 app.post('/user/userProfileImage', storeProfileImageController);
+//app.get('/user/userProfileImage', ProfileImageController);
 app.post('/user/userProfileText', authMiddleware, storeProfileTextController);
 app.post('/user/userProfileSkills', storeProfileSkillsController);
 
