@@ -88,12 +88,12 @@ app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController);
 app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController);
 
 /* BKS: Profile page (info, text, skills og image) */
-app.get('/user/userProfile', ProfilePageController);
-app.post('/user/userProfile', storeProfileInfoController);
-app.post('/user/userProfileImage', storeProfileImageController);
+app.get('/user/userProfile', authMiddleware, ProfilePageController);
+app.post('/user/userProfile', authMiddleware, storeProfileInfoController);
+app.post('/user/userProfileImage', authMiddleware, storeProfileImageController);
 //app.get('/user/userProfileImage', ProfileImageController);
 app.post('/user/userProfileText', authMiddleware, storeProfileTextController);
-app.post('/user/userProfileSkills', storeProfileSkillsController);
+app.post('/user/userProfileSkills', authMiddleware, storeProfileSkillsController);
 
 /* BKS: apply for project page */
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
@@ -102,7 +102,7 @@ app.get('/user/projectPage', projectPageController);
 
 /* SAR: Delete user */
 app.get('/admin', deleteUserPageController);
-app.delete('/admin/delete', deleteUserController);
+app.post('/admin/delete', deleteUserController);
 
 /* BKS: forsøg på delete user
 app.delete('/admin/:id', function(req, res) {

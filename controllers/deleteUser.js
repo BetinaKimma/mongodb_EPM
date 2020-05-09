@@ -2,13 +2,13 @@ const User = require('../models/User');
 const path = require('path');
 
 module.exports = function(req, res) {
-    User.findByIdAndRemove(req.params.id).exec().then(doc => {
+    User.findOneAndRemove(req.params.username).exec().then(doc => {
         if (!doc) {return res.status(404).end(); } //fandt ikke documentet
         console.log('no doc');
         return res.status(204).end(); //den er blevet slettet
     })
         .catch(err => next(err));
-    console.log('doc deletet');
+    console.log('doc deleted');
 }
 
 
