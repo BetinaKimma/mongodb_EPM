@@ -3,6 +3,6 @@ const path = require('path');
 
 module.exports = (req, res) =>{
     profileSkills.create(req.body, (error, profileSkills) => {
-        res.redirect('/')
+        res.redirect('userProfile')
     });
 };

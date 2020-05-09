@@ -9,24 +9,20 @@ module.exports = (req, res) => {
     profileText.findOne({'heading': "Velkommen"}, (error, result) => {
         profileTextResult = result;
         console.log(result.heading);
-        res.render('userProfile', {
-            heading: result
-        });
     });
     let profileSkillsResult;
     profileSkills.findOne({'education': "HAit"}, (error, result) => {
         profileSkillsResult = result;
         console.log(result.education);
-        res.render('userProfile', {
-            education: result
-        });
     });
     let profileInfoResult;
     profileInfo.findOne({'profileName': "Betina"}, (error, result) => {
         profileInfoResult = result;
         console.log(result.profileName);
     res.render('userProfile', {
-        profileName: result
+        heading: result,
+        profileName: result,
+        education: result
     });
     });
 };
