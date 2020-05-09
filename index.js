@@ -58,8 +58,10 @@ const storeProfileImageController = require('./controllers/storeProfileImage');
 const storeProfileTextController = require('./controllers/storeProfileText');
 const storeProfileSkillsController = require('./controllers/storeProfileSkills');
 
-const projectPageController = require('./controllers/projectPage');
+/* BKS: apply projectPage controller */
 const applyProjectController = require('./controllers/applyProject');
+
+const projectPageController = require('./controllers/projectPage');
 
 /* SAR: Delete user controller */
 const deleteUserPageController = require('./controllers/deleteUserPage');

@@ -7,7 +7,7 @@ const path = require('path');
 module.exports = (req, res) => {
     let profileTextResult;
     profileText.findOne({'heading': "Velkommen"}, (error, result) => {
-//      if ({$isNull: ['profileText', 'Unspecified']}) {
+//      if (result({$isNull: ['profileText', 'Unspecified']})) {
 //          res.render('userProfile');
 //          console.log('no text yet');
 //      } else {
