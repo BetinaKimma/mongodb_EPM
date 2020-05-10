@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- SAR: This pages purpose is to create a new user by requesting and taking input information
+          and posting it to our database-->
 
 <%- include('layouts/header'); -%>
-
-<!-- SAR: This pages purpose is to create a new user by requesting and taking input information and converting it to an array
-     that stores the user data in localStorage-->
 
 <body>
 <%- include('layouts/navbarHome'); -%>
@@ -27,7 +26,7 @@
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
                             <label>Password</label>
-                            <input type="text" class="form-control" placeholder="password"
+                            <input type="password" class="form-control" placeholder="Password"
                                    id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                         </div>
                     </div>
@@ -39,26 +38,12 @@
             </div>
         </div>
     </div>
-    <!-- SAR: Here we create the popup message that shows the user what requirements are left for their chosen password.
-     Each class is given an id and set as invalid. This "invalid" tag is changed in the registration.js if the user
-     meets the requirements -->
+</div>
 </div>
 
-
-<!-- SAR: Here we call the script code from jquery. jQuery is a JavaScript library designed to simplify HTML and it
- allows us to animate with ease the transition between a sign-up form and a log-in form when the user clicks the link
-<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
-
- In this script we code the transition animation, so that when clicking the message "a" (which in this case is either
- "Already Registered?" or "Not Registered") it will animate with a toggle function
-<script>
-    $('.message a').click(function(){
-    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-    });
-</script> -->
-
-</div>
-
+<!-- SAR: Here we create the popup message that shows the user what requirements are left for their chosen password.
+    Each class is given an id and set as invalid. This "invalid" tag is changed in registration.js if the user
+    meets the requirements -->
 <div id="message">
     <h3>Password must contain the following:</h3>
     <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
@@ -68,14 +53,6 @@
 </div>
 
 </body>
-
-<!--
-<script src="../Javascript/userClass.js"></script>
-<script src="../Javascript/userList.js"></script>
-<script src="../Javascript/login.js"></script>
-<script src="../Javascript/registration.js"></script>
-<script src="index.js"></script>
--->
 
 <%- include('layouts/scripts'); -%>
 
