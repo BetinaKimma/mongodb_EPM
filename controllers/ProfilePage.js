@@ -1,13 +1,12 @@
 const profileInfo = require('../models/profileInfo.js')
 const profileText = require('../models/profileText.js')
 const profileSkills = require('../models/profileSkills.js')
-//const profileImage = require('../models/profileImage.js')
 //const deleteInfo = require('../models/profileInfo')
 const path = require('path');
 
 module.exports = (req, res) => {
     let profileTextResult;
-    profileText.findOne({'heading': "Velkommen3"}, (error, result) => {
+    profileText.findOne({'profileId': req.session.userId}, (error, result) => {
         if (result == null)
         {
             profileTextResult = new profileText();
@@ -15,25 +14,11 @@ module.exports = (req, res) => {
         }
         else {
             profileTextResult = result;
-            console.log(result.heading);
+            console.log('wanna be an auther?');
         }
-        });
-/*    let profileImageResult;
-    profileImage.findById(req.params.userId).populate('userId'), (error, image) => {
-    if (image == null)
-    {
-        profileImageResult = new profileImage();
-        console.log('You Dont look good');
-    }
-    else {
-        profileImageResult = image;
-        console.log('userId'.profileImage);
-    }
     });
-
- */
     let profileSkillsResult;
-    profileSkills.findOne({'education': "HAit6"}, (error, data) => {
+    profileSkills.findOne({'profileId': req.session.userId}, (error, data) => {
         if (data == null)
         {
             profileSkillsResult = new profileSkills();
@@ -41,7 +26,7 @@ module.exports = (req, res) => {
         }
         else {
             profileSkillsResult = data;
-            console.log(data.profileSkills);
+            console.log('you have many skills');
         }
     });
     let profileInfoResult;
@@ -53,7 +38,7 @@ module.exports = (req, res) => {
         }
         else {
             profileInfoResult = info;
-            console.log(info.profileName);
+            console.log('nice name');
         }
         console.log(profileSkillsResult);
         res.render('userProfile', {
@@ -61,8 +46,8 @@ module.exports = (req, res) => {
             education: profileSkillsResult,
             heading: profileTextResult,
             userId: req.session.userId
-        });
     });
+  });
 }
 
 

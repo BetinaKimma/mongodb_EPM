@@ -7,6 +7,21 @@ module.exports = async (req,res)=>{
         profileImage
     });
 }
+/*    let profileImageResult;
+    profileImage.findById(req.params.userId).populate('userId'), (error, image) => {
+    if (image == null)
+    {
+        profileImageResult = new profileImage();
+        console.log('You Dont look good');
+    }
+    else {
+        profileImageResult = image;
+        console.log('userId'.profileImage);
+    }
+    });
+
+ */
+
 
 // BKS: forskellige forsøg på at get profilbillede
 /*   var profileImageResult;
