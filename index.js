@@ -56,8 +56,6 @@ const ProfilePageController = require('./controllers/ProfilePage');
 const storeProfileInfoController = require('./controllers/storeProfileInfo');
 const storeProfileImageController = require('./controllers/storeProfileImage');
 //const ProfileImageController = require('/controllers/ProfileImage');
-//const storeProfileTextController = require('./controllers/storeProfileText');
-//const storeProfileSkillsController = require('./controllers/storeProfileSkills');
 
 /* BKS: apply projectPage controller */
 const applyProjectController = require('./controllers/applyProject');
@@ -92,8 +90,7 @@ app.get('/user/userProfile', authMiddleware, ProfilePageController);
 app.post('/user/userProfile', authMiddleware, storeProfileInfoController);
 app.post('/user/userProfileImage', authMiddleware, storeProfileImageController);
 //app.get('/user/userProfileImage', ProfileImageController);
-//app.post('/user/userProfileText', authMiddleware, storeProfileTextController);
-//app.post('/user/userProfileSkills', authMiddleware, storeProfileSkillsController);
+
 
 /* BKS: apply for project page */
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
@@ -103,16 +100,6 @@ app.get('/user/projectPage', projectPageController);
 /* SAR: Delete user */
 app.get('/admin', deleteUserPageController);
 app.post('/admin/delete', deleteUserController);
-
-/* BKS: forsøg på delete user
-app.delete('/admin/:id', function(req, res) {
-    Users.findByIdAndRemove(req.params.id).exec().then(doc => {
-        if (!doc) {return res.status(404).end(); } //fandt ikke documentet
-        return res.status(204).end(); //den er blevet slettet
-    })
-        .catch(err => next(err));
-})
- */
 
 /* SAR: User logout */
 app.get('/auth/logout', logoutController);
