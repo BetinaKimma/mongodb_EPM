@@ -56,8 +56,8 @@ const ProfilePageController = require('./controllers/ProfilePage');
 const storeProfileInfoController = require('./controllers/storeProfileInfo');
 const storeProfileImageController = require('./controllers/storeProfileImage');
 //const ProfileImageController = require('/controllers/ProfileImage');
-const storeProfileTextController = require('./controllers/storeProfileText');
-const storeProfileSkillsController = require('./controllers/storeProfileSkills');
+//const storeProfileTextController = require('./controllers/storeProfileText');
+//const storeProfileSkillsController = require('./controllers/storeProfileSkills');
 
 /* BKS: apply projectPage controller */
 const applyProjectController = require('./controllers/applyProject');
@@ -72,7 +72,7 @@ const deleteUserController = require('./controllers/deleteUser');
 const logoutController = require('./controllers/logout');
 
 /* SB ProjectLeader controller */
-const pLeaderPageController = require('./controllers/pLeaderPage');
+//const pLeaderPageController = require('./controllers/pLeaderPage');
 const storeProjectLeaderController = require('./controllers/storeProjectLeaderInfo');
 
 
@@ -88,12 +88,12 @@ app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController);
 app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController);
 
 /* BKS: Profile page (info, text, skills og image) */
-app.get('/user/userProfile', ProfilePageController);
-app.post('/user/userProfile', storeProfileInfoController);
-app.post('/user/userProfileImage', storeProfileImageController);
+app.get('/user/userProfile', authMiddleware, ProfilePageController);
+app.post('/user/userProfile', authMiddleware, storeProfileInfoController);
+app.post('/user/userProfileImage', authMiddleware, storeProfileImageController);
 //app.get('/user/userProfileImage', ProfileImageController);
-app.post('/user/userProfileText', authMiddleware, storeProfileTextController);
-app.post('/user/userProfileSkills', storeProfileSkillsController);
+//app.post('/user/userProfileText', authMiddleware, storeProfileTextController);
+//app.post('/user/userProfileSkills', authMiddleware, storeProfileSkillsController);
 
 /* BKS: apply for project page */
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
@@ -102,13 +102,23 @@ app.get('/user/projectPage', projectPageController);
 
 /* SAR: Delete user */
 app.get('/admin', deleteUserPageController);
-app.delete('/admin/delete', deleteUserController);
+app.post('/admin/delete', deleteUserController);
+
+/* BKS: forsøg på delete user
+app.delete('/admin/:id', function(req, res) {
+    Users.findByIdAndRemove(req.params.id).exec().then(doc => {
+        if (!doc) {return res.status(404).end(); } //fandt ikke documentet
+        return res.status(204).end(); //den er blevet slettet
+    })
+        .catch(err => next(err));
+})
+ */
 
 /* SAR: User logout */
 app.get('/auth/logout', logoutController);
 
 /* SB: Project Leader page */
-app.get('/leader/plProfile', pLeaderPageController);
+//app.get('/leader/plProfile', pLeaderPageController);
 app.post('/leader/plProfile', storeProjectLeaderController);
 
 /* SAR: If no link matches, respond with 404 not found */

@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const profileImageSchema = new Schema({
     //profileName: String,
     //profileId: Number,
-    profileImage: String
+    profileImage: String,
+    profileId:  { type: Schema.Types.ObjectId, ref: 'Users' }
 });
 
 const profileImage = mongoose.model('profileImage', profileImageSchema);

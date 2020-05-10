@@ -1,4 +1,4 @@
-const profileText = require('../models/profileText');
+/*const profileText = require('../models/profileText');
 const path = require('path');
 
 module.exports = (req, res) =>{
@@ -6,5 +6,7 @@ module.exports = (req, res) =>{
         res.redirect('userProfile')
     });
 };
+
+ */
 
 

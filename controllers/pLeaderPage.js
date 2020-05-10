@@ -1,3 +1,4 @@
+/*
 const projectLeader = require('../models/projectLeader.js')
 const path = require('path');
 
@@ -11,3 +12,5 @@ projectLeader.findOne({'fullName': "Line"}, (error, result) => {
         fullName: result,
     });
 });
+
+ */
