@@ -1,4 +1,4 @@
-const profileSkills = require('../models/profileSkills');
+/*const profileSkills = require('../models/profileSkills');
 const path = require('path');
 
 module.exports = (req, res) =>{
@@ -6,3 +6,5 @@ module.exports = (req, res) =>{
         res.redirect('userProfile')
     });
 };
+
+ */

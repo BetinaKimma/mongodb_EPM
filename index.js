@@ -56,8 +56,8 @@ const ProfilePageController = require('./controllers/ProfilePage');
 const storeProfileInfoController = require('./controllers/storeProfileInfo');
 const storeProfileImageController = require('./controllers/storeProfileImage');
 //const ProfileImageController = require('/controllers/ProfileImage');
-const storeProfileTextController = require('./controllers/storeProfileText');
-const storeProfileSkillsController = require('./controllers/storeProfileSkills');
+//const storeProfileTextController = require('./controllers/storeProfileText');
+//const storeProfileSkillsController = require('./controllers/storeProfileSkills');
 
 /* BKS: apply projectPage controller */
 const applyProjectController = require('./controllers/applyProject');
@@ -92,8 +92,8 @@ app.get('/user/userProfile', authMiddleware, ProfilePageController);
 app.post('/user/userProfile', authMiddleware, storeProfileInfoController);
 app.post('/user/userProfileImage', authMiddleware, storeProfileImageController);
 //app.get('/user/userProfileImage', ProfileImageController);
-app.post('/user/userProfileText', authMiddleware, storeProfileTextController);
-app.post('/user/userProfileSkills', authMiddleware, storeProfileSkillsController);
+//app.post('/user/userProfileText', authMiddleware, storeProfileTextController);
+//app.post('/user/userProfileSkills', authMiddleware, storeProfileSkillsController);
 
 /* BKS: apply for project page */
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);

@@ -47,21 +47,22 @@
 <form action="/user/userProfile" method="POST">
     <div id="infoBox" class="infoBox">
          <div id="infoBoxContent">
+             <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
              <span class="close">&times;</span>
              <label for="profileName"><b>Navn</b></label>
-             <input type="text" placeholder="Navn" name="profileName" id="profileName" class="inputField" value="">
+             <input type="text" placeholder="Navn" name="profileName" id="profileName" class="inputField" value="<%= profileName.profileName %>">
 
              <label for="profileTitle"><b>Titel</b></label>
-             <input type="text" placeholder="Title" name="profileTitle" id="profileTitle" class="inputField" value="">
+             <input type="text" placeholder="Title" name="profileTitle" id="profileTitle" class="inputField" value="<%= profileName.profileTitle %>">
 
              <label for="profileDepartment"><b>Afdeling</b></label>
-             <input type="text" name="profileDepartment" id="profileDepartment" class="inputField" placeholder="Afdeling" value="">
+             <input type="text" name="profileDepartment" id="profileDepartment" class="inputField" placeholder="Afdeling" value="<%= profileName.profileDepartment %>">
 
              <label for="profilePhone"><b>Afdeling</b></label>
-             <input type="text" name="profilePhone" id="profilePhone" class="inputField" placeholder="Telefon" value="">
+             <input type="text" name="profilePhone" id="profilePhone" class="inputField" placeholder="Telefon" value="<%= profileName.profilePhone %>">
 
              <label for="profileEmail"><b>Email</b></label>
-             <input type="text" name="profileEmail" id="profileEmail" class="inputField" placeholder="Email" value="">
+             <input type="text" name="profileEmail" id="profileEmail" class="inputField" placeholder="Email" value="<%= profileName.profileEmail %>">
              <button id="">Gem</button>
              <br>
              <br>
@@ -74,27 +75,29 @@
     </div>
 </form>
 
-<form action="/user/userProfileText" method="POST">
+<form action="/user/userProfile" method="POST">
     <div class="text-container">
          <div class="profileText">
              <p>Din profiltekst</p>
-             <p class="yourHeader" id="yourHeader"><%= heading.heading %></p>
+             <p class="yourHeader" id="yourHeader"></p>
              <p class="yourText" id="yourText"><%= heading.profileText %></p>
          <div class="profileTextBox">
-             <input type="text" name="heading" id="heading" class="inputField" placeholder="Overskrift">
+             <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
+             <input type="text" name="heading" id="heading" class="inputField" placeholder="Overskrift" value="<%= heading.heading %>">
              <textarea id="profileText" name="profileText" style="height: 50px"></textarea>
              <button> Gem </button>
          </div>
          </div>
     </div>
 </form>
-<form action="/user/userProfileSkills" method="POST">
+<form action="/user/userProfile" method="POST">
     <div class="skills-container">
          <div class="profileSkills">
               <p>Dine færdigheder</p>
              <p class="yourEdu" id="yourEdu"><%= education.education %></p>
              <p class="yourSkills" id="yourSkills"><%= education.profileSkills %></p>
          <div class="profileSkillsBox">
+             <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
              <input type="text" name="education" id="education" class="inputField" placeholder="Uddannelse">
              <textarea id="profileSkills" name="profileSkills" style="height: 50px"></textarea>
              <button> Gem </button>
