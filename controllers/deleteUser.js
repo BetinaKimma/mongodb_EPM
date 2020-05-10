@@ -1,6 +1,8 @@
 const User = require('../models/User');
 const path = require('path');
 
+// BKS: denne sletter en bruger.
+// Kode fundet: 09/05-2020 Kilde: https://www.youtube.com/watch?v=3fF4t-s7KXY (og modificeret)
 module.exports = function(req, res) {
     User.findOneAndRemove(req.params.username).exec().then(doc => {
         if (!doc) {return res.status(404).end(); } //fandt ikke documentet
@@ -9,6 +11,7 @@ module.exports = function(req, res) {
     })
         .catch(err => next(err));
     console.log('doc deleted');
+    res.render('/')
 }
 
 

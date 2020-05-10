@@ -16,20 +16,21 @@ module.exports = (req, res) => {
         });
 
     let profileSkillsResult;
-    profileSkills.findOne({'education': "HAit"}, (error, result) => {
-        profileSkillsResult = result;
-        console.log(result.profileSkills);
+    profileSkills.findOne({'education': "HAit"}, (error, data) => {
+        profileSkillsResult = data;
+        console.log(data.profileSkills);
     });
 
     let profileInfoResult;
-    profileInfo.findOne({'profileName': "Betina"}, (error, result) => {
-        profileInfoResult = result;
-        console.log(result.profileName);
+    profileInfo.findOne({'profileName': "Betina"}, (error, info) => {
+        profileInfoResult = info;
+        console.log(info.profileName);
     res.render('userProfile', {
-        profileName: result,
+        profileName: info,
         heading: result,
-        education: result
+        education: data
     });
+
     })
 }
 
