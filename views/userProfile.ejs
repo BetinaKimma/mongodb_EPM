@@ -20,10 +20,11 @@
          <form ref="uploadForm" id="uploadForm" action="/user/userProfileImage" method="POST" enctype="multipart/form-data">
               <div class="control-group">
                    <div class="form-group floating-label-form-group controls">
-                        <label for="profileImage"><b>Image</b></label>
-                        <input type="file" class="form-control" id="profileImage" name="profileImage">
-                        <button type='submit' value='Upload!'>Upload</button>
-                        <img class="" src="" id="preview" alt="">
+                       <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
+                       <label for="profileImage"><b>Image</b></label>
+                       <input type="file" class="form-control" id="profileImage" name="profileImage">
+                       <button type='submit' value='Upload!'>Upload</button>
+                       <img class="" src="" id="preview" alt="">
                    </div>
               </div>
               <br>
