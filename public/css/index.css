@@ -65,6 +65,18 @@ background-repeat: no-repeat;
 background-size: cover;
 position: absolute;
 }
+.img-delete{
+    /* The image used */
+    background-image: url("img_stop.jpg");
+    /* Control the height of the image */
+    min-height: 100%;
+    min-width: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+}
 .apply-container{
     float: right;
     width: 40%;

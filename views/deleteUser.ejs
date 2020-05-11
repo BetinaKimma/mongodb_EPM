@@ -8,7 +8,7 @@
 
 <body>
 <%- include('layouts/navbarHome'); -%>
-<div class="img-register">
+<div class="img-delete">
 
 <!-- SAR: Here we create the login/register form. It has input fields for the required information that we need from a new user.
      Each field is set as required. The password field also has certain parameters which the user must abide by.-->
@@ -17,7 +17,9 @@
         <div class="row">
             <div class="col-md-4">
                 <h1>OBS !!!</h1>
-                <p>Brugeren bliver slettet ved at trykke på navnet i listen (hver sikker på at du vil!)</p>
+                <p>Brugeren bliver slettet ved at trykke på navnet i listen</p>
+                <br>
+                <h2>(Sikker på du vil?!?)</h2>
                 <ul>
                     <% users.forEach(function(user){ %>
                         <li><a href="/admin/delete/?userName=<%= user.username %>"> Slet <%= user.username %></a></li>
