@@ -18,16 +18,9 @@
             <div class="col-md-4">
                 <ul>
                     <% users.forEach(function(user){ %>
-                        <li><a href="/admin/delete/?userName=<%= user.username %>">Slet <%= user.username %></a></li>
+                        <li><a href="/admin/delete/?userName=<%= user.username %>"> Slet <%= user.username %></a></li>
                     <%});%>
                 </ul>
-            </div>
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <form action="/admin/delete" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <button class="btn btn-primary">Delete User</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

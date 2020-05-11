@@ -5,77 +5,22 @@
 
 <body>
 
-<%- include('layouts/navbarEmployee'); -%>
+<%- include('layouts/navbarHome'); -%>
 <div class="img-user">
-
 <div class="pictureCard">
     <img id="showProfileImage" class="showProfileImage" src="<%= profileImage.profileImage  %>" alt="profileImage">
     <br>
     <button id="changeImageBtn">Upload billede</button>
 </div>
-
-<div id="imageBox" class="imageBox">
-     <div id="imageBoxContent">
-         <span class="spanClose">&times;</span>
-         <form ref="uploadForm" id="uploadForm" action="/user/userProfileImage" method="POST" enctype="multipart/form-data">
-              <div class="control-group">
-                   <div class="form-group floating-label-form-group controls">
-                       <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
-                       <label for="profileImage"><b>Image</b></label>
-                       <input type="file" class="form-control" id="profileImage" name="profileImage">
-                       <button type='submit' value='Upload!'>Upload</button>
-                       <img class="" src="" id="preview" alt="">
-                   </div>
-              </div>
-              <br>
-              <div class="form-group">
-                   <p>Billedet skal have formatet bredde: 200px og højde: 300px</p>
-              </div>
-         </form>
-     </div>
-</div>
-
-<div class="card">
-    <h1 class="profileName" id="profileName"><%= profileName.profileName %></h1>
-    <p class="profileTitle" id="profileTitle"><%= profileName.profileTitle %></p>
-    <p class="profileDepartment" id="profileDepartment"><%= profileName.profileDepartment %></p>
-    <p class="profilePhone" id="profilePhone"><%= profileName.profilePhone %></p>
-    <p class="profileEmail" id="profileEmail"><%= profileName.profileEmail %></p>
-    <br>
-    <button id="changeInfoBtn">Ret info</button>
-</div>
-
-<form action="/user/userProfile" method="POST">
-    <div id="infoBox" class="infoBox">
-         <div id="infoBoxContent">
-             <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
-             <span class="close">&times;</span>
-             <label for="profileName"><b>Navn</b></label>
-             <input type="text" placeholder="Navn" name="profileName" id="profileName" class="inputField" value="<%= profileName.profileName %>">
-
-             <label for="profileTitle"><b>Titel</b></label>
-             <input type="text" placeholder="Title" name="profileTitle" id="profileTitle" class="inputField" value="<%= profileName.profileTitle %>">
-
-             <label for="profileDepartment"><b>Afdeling</b></label>
-             <input type="text" name="profileDepartment" id="profileDepartment" class="inputField" placeholder="Afdeling" value="<%= profileName.profileDepartment %>">
-
-             <label for="profilePhone"><b>Afdeling</b></label>
-             <input type="text" name="profilePhone" id="profilePhone" class="inputField" placeholder="Telefon" value="<%= profileName.profilePhone %>">
-
-             <label for="profileEmail"><b>Email</b></label>
-             <input type="text" name="profileEmail" id="profileEmail" class="inputField" placeholder="Email" value="<%= profileName.profileEmail %>">
-             <button id="">Gem</button>
-             <br>
-             <br>
-             <div class="col-lg-8 col-md-10 mx-auto">
-                     <div class="form-group">
-                         <button>Delete Info</button>
-                     </div>
-             </div>
-            </div>
+    <div class="card" id="card">
+        <h1 class="profileName" id="profileName"><%= profileName.profileName %></h1>
+        <p class="profileTitle" id="profileTitle"><%= profileName.profileTitle %></p>
+        <p class="profileDepartment" id="profileDepartment"><%= profileName.profileDepartment %></p>
+        <p class="profilePhone" id="profilePhone"><%= profileName.profilePhone %></p>
+        <p class="profileEmail" id="profileEmail"><%= profileName.profileEmail %></p>
+        <br>
+        <button id="changeInfoBtn">Ret info</button>
     </div>
-</form>
-
 <form action="/user/userProfile" method="POST">
     <div class="text-container">
          <div class="profileText">
@@ -104,7 +49,58 @@
          </div>
     </div>
 </form>
+    <div id="imageBox" class="imageBox">
+        <div id="imageBoxContent">
+            <span class="spanClose">&times;</span>
+            <form ref="uploadForm" id="uploadForm" action="/user/userProfileImage" method="POST" enctype="multipart/form-data">
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
+                        <label for="profileImage"><b>Image</b></label>
+                        <input type="file" class="form-control" id="profileImage" name="profileImage">
+                        <button type='submit' value='Upload!'>Upload</button>
+                        <img class="" src="" id="preview" alt="">
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <p>Billedet skal have formatet bredde: 200px og højde: 300px</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <form action="/user/userProfile" method="POST">
+        <div id="infoBox" class="infoBox">
+            <div id="infoBoxContent">
+                <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
+                <span class="close">&times;</span>
+                <label for="profileName"><b>Navn</b></label>
+                <input type="text" placeholder="Navn" name="profileName" id="profileName" class="inputField" value="<%= profileName.profileName %>">
+
+                <label for="profileTitle"><b>Titel</b></label>
+                <input type="text" placeholder="Title" name="profileTitle" id="profileTitle" class="inputField" value="<%= profileName.profileTitle %>">
+
+                <label for="profileDepartment"><b>Afdeling</b></label>
+                <input type="text" name="profileDepartment" id="profileDepartment" class="inputField" placeholder="Afdeling" value="<%= profileName.profileDepartment %>">
+
+                <label for="profilePhone"><b>Afdeling</b></label>
+                <input type="text" name="profilePhone" id="profilePhone" class="inputField" placeholder="Telefon" value="<%= profileName.profilePhone %>">
+
+                <label for="profileEmail"><b>Email</b></label>
+                <input type="text" name="profileEmail" id="profileEmail" class="inputField" placeholder="Email" value="<%= profileName.profileEmail %>">
+                <button id="">Gem</button>
+                <br>
+                <br>
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="form-group">
+                        <button>Delete Info</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
+
 </body>
 
 <%- include('layouts/scripts'); -%>

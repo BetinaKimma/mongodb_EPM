@@ -104,7 +104,8 @@ function saveImage() {
 }
 */
 
-// BKS: dette er funktionen for kontaktformen, den gemmer blot i localstorage, skal laves om så den sender en mail.
+// BKS: dette er funktionen for kontaktformen, den gemmer blot i localstorage,
+// skal laves om så den sender en mail til apply project siden.
 function contactForm() {
     var fname = document.getElementById("fname").value;
     var phone = document.getElementById("phone").value;
