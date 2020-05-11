@@ -4,6 +4,7 @@ const profileSkills = require('../models/profileSkills.js');
 const profileImage = require('../models/profileImage.js');
 const path = require('path');
 
+// BKS: 
 module.exports = (req, res) => {
     let profileTextResult;
     profileText.findOne({'profileId': req.session.userId}, (error, result) => {
@@ -62,36 +63,3 @@ module.exports = (req, res) => {
     });
   });
 }
-
-
-
-/*
-// BKS: forskellige forsøg på at få lavet if statement og get fra databasen
-
-// if ({$isNull: ['profileText', 'Unspecified']}) {
-//     res.render('userProfile');
-//     console.log('no text yet');
-// } else {
-
-//      if (result({$isNull: ['profileText', 'Unspecified']})) {
-//          res.render('userProfile');
-//          console.log('no text yet');
-//      } else {
-            //        return({});
-      */
-
-/*
-profileInfo.findOne({'profileName': "Betina"}, function (err, result) {
-        if (err) throw err;
-        var info = db.collection('profileinfos').find();
-         { },});
-        console.log('Executed with success');
-        console.log(result.profileName);
-       // console.log(result)
-    });
-    console.log('No user found');
-res.render('userProfile') // Renders our userProfile.ejs page
-};
-
- */
-
