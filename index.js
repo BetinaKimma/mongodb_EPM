@@ -74,6 +74,10 @@ const logoutController = require('./controllers/logout');
 //const pLeaderPageController = require('./controllers/pLeaderPage');
 const storeProjectLeaderController = require('./controllers/storeProjectLeaderInfo');
 
+/* SAR: API controllers for development & checking */
+const userAPIController = require('./controllers/userAPI');
+const findUserAPIController = require('./controllers/findUserAPI');
+
 
 /* SAR: Home Page */
 app.get('/', homeController);
@@ -99,9 +103,9 @@ app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
 app.get('/user/projectPage', projectPageController);
 
 /* SAR: Delete user */
-app.get('/admin', deleteUserPageController);
-app.post('/admin/delete', deleteUserController);
-app.get('/admin/delete', require('./controllers/deleteUser'));
+app.get('/admin', authMiddleware, deleteUserPageController);
+app.post('/admin/delete', authMiddleware, deleteUserController);
+app.get('/admin/delete', authMiddleware, require('./controllers/deleteUser'));
 
 /* SAR: User logout */
 app.get('/auth/logout', logoutController);
@@ -109,6 +113,11 @@ app.get('/auth/logout', logoutController);
 /* SB: Project Leader page */
 //app.get('/leader/plProfile', pLeaderPageController);
 app.post('/leader/plProfile', storeProjectLeaderController);
+
+/* SAR: APIs for server development & checking */
+app.get('/api/user', userAPIController);
+app.get('/api/user/:id', findUserAPIController);
+app.get('');
 
 /* SAR: If no link matches, respond with 404 not found */
 app.use((req, res) => res.render('notFound'));
