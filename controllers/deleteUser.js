@@ -4,32 +4,29 @@ const path = require('path');
 // BKS: denne sletter en bruger.
 // Kode fundet: 09/05-2020 Kilde: https://www.youtube.com/watch?v=3fF4t-s7KXY (og modificeret)
 module.exports = function(req, res) {
-    User.findOneAndRemove(req.params.username).exec().then(doc => {
-        if (!doc) {return res.status(404).end(); } //fandt ikke documentet
-        console.log('no doc');
-        return res.status(204).end(); //den er blevet slettet
-    })
-        .catch(err => next(err));
-    console.log('doc deleted');
-    res.render('/')
+    console.log(req.query.userName);
+    User.findOneAndRemove({'username': req.query.userName},(error, result) => {
+        console.log('Sletter bruger');
+        res.redirect("/admin/");
+    });
 }
 
 
 // BKS: et forsøg på delete user
-    /*
-    let userId = req.params.id;
-    User.findOneAndDelete({userId} (error, result) => {
-        console.log('deleting user');
-        if (error) {
-            console.log('not deleted')
-        } else {
-            res.redirect('/');
-            console.log('user removed')
-            ;}
-    });
+/*
+let userId = req.params.id;
+User.findOneAndDelete({userId} (error, result) => {
+    console.log('deleting user');
+    if (error) {
+        console.log('not deleted')
+    } else {
+        res.redirect('/');
+        console.log('user removed')
+        ;}
+});
 };
 
-     */
+ */
 
 // BKS: et forsøg på delete user
 /*
@@ -60,23 +57,23 @@ module.exports = function(req, res) {
 
  */
 
-    /*
+/*
 // SAR:
-    User.findOneAndRemove({
-        userId: req.params.id
-    }, function(err, User) {
+User.findOneAndRemove({
+    userId: req.params.id
+}, function(err, User) {
 
-        if (err) throw err;
+    if (err) throw err;
 
-            console.log("Success");
+        console.log("Success");
 
-        });
+    });
 
-        res.redirect('/');
+    res.redirect('/');
 
-    };
+};
 
-     */
+ */
 
 // SAR: Code that has been tried:
 /*  db.collection('items').remove({_id: mongodb.ObjectID( req.params.id)}, (err, result) => {

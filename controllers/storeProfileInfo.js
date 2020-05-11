@@ -1,6 +1,7 @@
 const profileInfo = require('../models/profileInfo');
 const profileSkills = require('../models/profileSkills');
 const profileText = require('../models/profileText');
+
 const path = require('path');
 
 module.exports = (req, res) =>{

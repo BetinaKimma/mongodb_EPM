@@ -9,7 +9,7 @@
 <div class="img-user">
 
 <div class="pictureCard">
-    <img id="showProfileImage" class="showProfileImage" src="" alt="profileImage">
+    <img id="showProfileImage" class="showProfileImage" src="<%= profileImage.profileImage  %>" alt="profileImage">
     <br>
     <button id="changeImageBtn">Upload billede</button>
 </div>
@@ -78,14 +78,13 @@
 
 <form action="/user/userProfile" method="POST">
     <div class="text-container">
-        <h1 class="heading" id="heading"><%= heading.heading %></h1>
-        <p class="profileText" id="profileText"><%= heading.profileText %></p>
          <div class="profileText">
+             <h1 class="heading" id="heading"><%= heading.heading %></h1>
              <p>Din profiltekst</p>
          <div class="profileTextBox">
              <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
-             <input type="text" name="heading" id="heading" class="inputField" placeholder="Overskrift">
-             <textarea id="profileText" name="profileText" style="height: 50px"></textarea>
+             <input type="text" name="heading" id="heading" class="inputField" placeholder="Overskrift" value="<%= heading.heading %>">
+             <textarea id="profileText" name="profileText" style="height: 50px"><%= heading.profileText %></textarea>
              <button> Gem </button>
          </div>
          </div>
@@ -94,13 +93,12 @@
 <form action="/user/userProfile" method="POST">
     <div class="skills-container">
         <h1 class="education" id="education"><%= education.education %></h1>
-        <p class="profileSkills" id="profileSkills"><%= education.profileSkills %></p>
          <div class="profileSkills">
               <p>Dine færdigheder</p>
          <div class="profileSkillsBox">
              <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
              <input type="text" name="education" id="education" class="inputField" placeholder="Uddannelse">
-             <textarea id="profileSkills" name="profileSkills" style="height: 50px"></textarea>
+             <textarea id="profileSkills" name="profileSkills" style="height: 50px"><%= education.profileSkills %></textarea>
              <button> Gem </button>
          </div>
          </div>

@@ -101,6 +101,7 @@ app.get('/user/projectPage', projectPageController);
 /* SAR: Delete user */
 app.get('/admin', deleteUserPageController);
 app.post('/admin/delete', deleteUserController);
+app.get('/admin/delete', require('./controllers/deleteUser'));
 
 /* SAR: User logout */
 app.get('/auth/logout', logoutController);
