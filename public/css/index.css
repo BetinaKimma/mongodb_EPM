@@ -4,7 +4,14 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
+/* BKS. Dette er styling af dato og tid på GoSave siden */
+#dateOnFront{
+    font-size: 80px;
+    text-align: center;
+    margin-top: 25%;
+    position: relative;
+    font: bolder;
+}
 
 
 /* BKS css for navbar */
@@ -51,7 +58,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    position: absolute;
 }
 .img-apply {
     /* The image used */
