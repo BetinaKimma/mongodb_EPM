@@ -13,22 +13,24 @@ const path = require('path');
 // Har brugeren ikke oplysninger i databasen i forvejen, vil den oprette disse (POST).
 
 module.exports = (req, res) =>{
-    console.log('Entering profileimageupload on post'); /* terminalen logger at vi er ved at uploade billede */
-    // her bliver funktionen for at finde og opdatere profileImage instantieret, med .findOneAndUpdate leder koden
-    // efter brugeren med det indloggede userId i databasen.
-    // Dette gør den da den får parameteret {'profileId': req.session.userId} som filter.
+    console.log('Entering profileimageupload on post'); /* terminalen logger at der er ved at blive uploaded billede */
     let image = req.files.profileImage; /* Her deklarerer vi variablen image */
     console.log(req.files.profileImage); /* terminalen logger filen */
-    // her
+    // her instanitieres at image filen med "mv" (move) bliver flyttet til en path, dette sørger __dirname for...
     image.mv(path.resolve(__dirname, '..', 'public/img/profileimages', image.name), async (error) => {
+        // Her bliver funktionen for at finde og opdatere profileImage instantieret. Med .findOneAndUpdate leder koden
+        // efter brugeren med det indloggede userId i databasen.
+        // Dette gør den da den får parameteret {'profileId': req.session.userId} som filter.
+        // Herefter får den givet stien, hvor den kan finde billedet, der "tilhører" userId'et.
         await profileImage.findOneAndUpdate({'profileId': req.session.userId}, {
             ...req.body,
             profileImage: '/img/profileimages/' + image.name
         }, (error, result) => {
             if (result == null) {
+                // et if statement, Hvis den ikke finder en string i databasen, bliver der instatieret at koden skal oprette et.
                 req.body.profileImage = '/img/profileimages/' + image.name;
                 profileImage.create(req.body, (error, profileImage) => {
-                    console.log('new image');
+                    console.log('new image'); /* terminalen logger at der blev uploaded et nyt*/
                 });
             }
             console.log("req.body", req.body)

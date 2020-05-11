@@ -1,3 +1,6 @@
+/* BKS: når der skal laves gitlog, skriv: git log > loggen.txt ("loggen" er hvad filen kommer til at hedde) */
+/* BKS: Link til github repository: https://github.com/BetinaKimma/mongodb_EPM */
+
 const express = require('express');
 const path = require('path');
 const app = new express();
