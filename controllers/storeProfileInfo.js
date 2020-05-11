@@ -1,7 +1,7 @@
 const profileInfo = require('../models/profileInfo');
 const profileSkills = require('../models/profileSkills');
 const profileText = require('../models/profileText');
-
+const profileImage = require('../models/profileImage.js')
 const path = require('path');
 
 // BKS: Denne kode er en færdig implementeret kode, der opdaterer (ellers opretter) oplysninger i databasen. POST/PUT.
@@ -12,6 +12,23 @@ const path = require('path');
 // Har brugeren ikke oplysninger i databasen i forvejen, vil den oprette disse (POST).
 
 module.exports = (req, res) =>{
+    console.log('Entering profileimageupload on post');
+    let image = req.files.profileImage;
+    console.log(req.files.profileImage);
+    image.mv(path.resolve(__dirname, '..', 'public/img/profileimages', image.name), async (error) => {
+        await profileImage.findOneAndUpdate({'profileId': req.session.userId}, {
+            ...req.body,
+            profileImage: '/img/profileimages/' + image.name
+        }, (error, result) => {
+            if (result == null) {
+                req.body.profileImage = '/img/profileimages/' + image.name;
+                profileImage.create(req.body, (error, profileImage) => {
+                    console.log('new image');
+                });
+            }
+            console.log("req.body", req.body)
+        })
+    })
     console.log(req.body.profileId); /* terminalen logger brugerens userId */
     // her bliver funktionen for at finde og opdatere profilInfo instantieret, med .findOneAndUpdate leder koden efter brugeren med det indloggede userId i databasen,
     // dette gør den da den får parameteret {'profileId': req.session.userId} som filter.

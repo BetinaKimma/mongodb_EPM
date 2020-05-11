@@ -2,7 +2,6 @@ const profileInfo = require('../models/profileInfo.js');
 const profileText = require('../models/profileText.js');
 const profileSkills = require('../models/profileSkills.js');
 const profileImage = require('../models/profileImage.js');
-//const deleteInfo = require('../models/profileInfo')
 const path = require('path');
 
 module.exports = (req, res) => {
