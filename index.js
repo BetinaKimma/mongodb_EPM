@@ -58,7 +58,8 @@ const storeProfileInfoController = require('./controllers/storeProfileInfo');
 /* BKS: apply projectPage controller, denne side taler ikke med databasen endnu */
 const applyProjectController = require('./controllers/applyProject');
 
-const projectPageController = require('./controllers/projectPage');
+//const projectPageController = require('./controllers/projectPage');
+//const storeProjectController = require('./controllers/storeProject')
 
 /* SAR: Delete user controller */
 const deleteUserPageController = require('./controllers/deleteUserPage');
@@ -94,7 +95,8 @@ app.post('/user/userProfile', authMiddleware, storeProfileInfoController);
 /* BKS: apply for project page, denne side taler ikke med databasen endnu */
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
 
-app.get('/user/projectPage', projectPageController);
+//app.get('/user/projectPage', projectPageController);
+//app.post('/user/projectPage', storeProjectController);
 
 /* SAR: Delete user */
 app.get('/admin', authMiddleware, deleteUserPageController);

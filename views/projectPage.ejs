@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <%- include('layouts/header'); -%>
 
@@ -14,19 +14,19 @@
     <h1>Opret projekt</h1>
 
     <label for="projectId"><b>Projekt Id</b></label>
-    <input type="text" placeholder="Navn" name="projectId" id="projectId" class="inputField" required>
+    <input type="text" placeholder="projekt Id" name="projectId" id="projectId" class="inputField" required>
 
-    <label for="projectName"><b>Projekt Navn</b></label>
-    <input type="text" name="projectName" id="projectName" class="inputField" placeholder="Telefon">
+    <label for="projectName"><b>Projektnavn</b></label>
+    <input type="text" name="projectName" id="projectName" class="inputField" placeholder="Projekt navn" required>
 
-    <label for="projectDate"><b>Email</b></label>
-    <input type="text" name="projectDate" id="projectDate" class="inputField" placeholder="Email">
+    <label for="projectDate"><b>Dato</b></label>
+    <input type="text" name="projectDate" id="projectDate" class="inputField" placeholder="Dato" required>
 
-    <label for="projectManager"><b>Projektnavn</b></label>
-    <input type="text" name="projectManager" id="projectManager" class="inputField" placeholder="projektnavn">
+    <label for="projectManager"><b>Manager navn</b></label>
+    <input type="text" name="projectManager" id="projectManager" class="inputField" placeholder="Projekt leder" required>
 
-    <label for="projectDescription"><b>Kommentar</b></label>
-    <input type="text" id="projectDescription" name="projectDescription" class="inputField">
+    <label for="projectDescription"><b>Beskrivelse</b></label>
+    <textarea type="text" id="projectDescription" name="projectDescription" class="inputField" required></textarea>
 
     <button>Opret projekt</button>
   </form>

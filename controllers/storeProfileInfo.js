@@ -4,7 +4,8 @@ const profileText = require('../models/profileText');
 const profileImage = require('../models/profileImage.js')
 const path = require('path');
 
-// BKS: Denne kode er en færdig implementeret kode, der opdaterer (ellers opretter) oplysninger i databasen. POST/PUT.
+// BKS: Denne kode er en færdig implementeret kode, der opdaterer (ellers opretter) databasen med de oplysninger som
+// brugeren indtaster/uploader i formerne på userProfile.ejs./profilsiden. POST/PUT.
 // Koden finder en bruger ud fra det (req.session.)userId, der er blevet tildelt ved login,
 // som sender cookie id'et som verifikation, når bruger laver en get fra serveren.
 // På denne måde tjekker koden om den bruger der er logget ind i systemet, allerede har oplysninger der skal ændres.
@@ -12,9 +13,13 @@ const path = require('path');
 // Har brugeren ikke oplysninger i databasen i forvejen, vil den oprette disse (POST).
 
 module.exports = (req, res) =>{
-    console.log('Entering profileimageupload on post');
-    let image = req.files.profileImage;
-    console.log(req.files.profileImage);
+    console.log('Entering profileimageupload on post'); /* terminalen logger at vi er ved at uploade billede */
+    // her bliver funktionen for at finde og opdatere profileImage instantieret, med .findOneAndUpdate leder koden
+    // efter brugeren med det indloggede userId i databasen.
+    // Dette gør den da den får parameteret {'profileId': req.session.userId} som filter.
+    let image = req.files.profileImage; /* Her deklarerer vi variablen image */
+    console.log(req.files.profileImage); /* terminalen logger filen */
+    // her
     image.mv(path.resolve(__dirname, '..', 'public/img/profileimages', image.name), async (error) => {
         await profileImage.findOneAndUpdate({'profileId': req.session.userId}, {
             ...req.body,
@@ -30,7 +35,7 @@ module.exports = (req, res) =>{
         })
     })
     console.log(req.body.profileId); /* terminalen logger brugerens userId */
-    // her bliver funktionen for at finde og opdatere profilInfo instantieret, med .findOneAndUpdate leder koden efter brugeren med det indloggede userId i databasen,
+    // her bliver funktionen for at finde og opdatere profileInfo instantieret, med .findOneAndUpdate leder koden efter brugeren med det indloggede userId i databasen,
     // dette gør den da den får parameteret {'profileId': req.session.userId} som filter.
     profileInfo.findOneAndUpdate({'profileId': req.session.userId}, req.body,(error, result) => {
         console.log('opdaterer info'); /* terminalen logger at den fandt bruger og opdaterer info */
