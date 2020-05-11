@@ -16,6 +16,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
+                <h1>OBS !!!</h1>
+                <p>Brugeren bliver slettet ved at trykke på navnet i listen (hver sikker på at du vil!)</p>
                 <ul>
                     <% users.forEach(function(user){ %>
                         <li><a href="/admin/delete/?userName=<%= user.username %>"> Slet <%= user.username %></a></li>
