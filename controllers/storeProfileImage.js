@@ -6,7 +6,7 @@ module.exports = (req,res)=>{
     let image = req.files.profileImage;
     console.log(req.files.profileImage);
     image.mv(path.resolve(__dirname,'..','public/img/profileimages',image.name),async (error)=>{
-        await profileImage.create({
+        await profileImage.findOneAndUpdate({'profileId': req.session.userId},{
             ...req.body,
             profileImage: '/img/' + image.name
         })
