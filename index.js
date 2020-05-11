@@ -72,7 +72,7 @@ const logoutController = require('./controllers/logout');
 
 /* SB ProjectLeader controller */
 //const pLeaderPageController = require('./controllers/pLeaderPage');
-const storeProjectLeaderController = require('./controllers/storeProjectLeaderInfo');
+//const storeProjectLeaderController = require('./controllers/storeProjectLeaderInfo');
 
 
 /* SAR: Home Page */
@@ -108,7 +108,7 @@ app.get('/auth/logout', logoutController);
 
 /* SB: Project Leader page */
 //app.get('/leader/plProfile', pLeaderPageController);
-app.post('/leader/plProfile', storeProjectLeaderController);
+//app.post('/leader/plProfile', storeProjectLeaderController);
 
 /* SAR: If no link matches, respond with 404 not found */
 app.use((req, res) => res.render('notFound'));
