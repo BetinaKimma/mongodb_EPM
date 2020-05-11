@@ -4,17 +4,28 @@ const profileText = require('../models/profileText');
 
 const path = require('path');
 
+// BKS: Denne kode er en færdig implementeret kode, der opdaterer (ellers opretter) oplysninger i databasen. POST/PUT.
+// Koden finder en bruger ud fra det (req.session.)userId, der er blevet tildelt ved login,
+// som sender cookie id'et som verifikation, når bruger laver en get fra serveren.
+// På denne måde tjekker koden om den bruger der er logget ind i systemet, allerede har oplysninger der skal ændres.
+// Har brugeren dette, vil den opdatere med den nye værdi brugeren indtaster i userProfile.ejs (PUT).
+// Har brugeren ikke oplysninger i databasen i forvejen, vil den oprette disse (POST).
+
 module.exports = (req, res) =>{
-    console.log(req.body.profileId);
+    console.log(req.body.profileId); /* terminalen logger brugerens userId */
+    // her bliver funktionen for at finde og opdatere profilInfo instantieret, med .findOneAndUpdate leder koden efter brugeren med det indloggede userId i databasen,
+    // dette gør den da den får parameteret {'profileId': req.session.userId} som filter.
     profileInfo.findOneAndUpdate({'profileId': req.session.userId}, req.body,(error, result) => {
-        console.log('opdaterer info');
-        if (result == null)
+        console.log('opdaterer info'); /* terminalen logger at den fandt bruger og opdaterer info */
+        if (result == null) /* Hvis resultatet bliver null (hvis den ikke finder userId) */
         {
+            // Hvis koden ikke finder brugerens userId i databasen, bliver der her instantieret et if statement, så koden i stedet for med .create, opretter brugeren/profileInfo.
             profileInfo.create(req.body, (error, profileText) => {
-               console.log('Created user instead');
+               console.log('Created user instead'); /* terminalen logger at den oprettede en ny bruger */
             });
         }
     });
+    // profileSkills bliver instantieret på samme måde som info. Koden leder efter bruger, finder den ingen, opretter den ny bruger/profileSkills i databasen.
     profileSkills.findOneAndUpdate({'profileId': req.session.userId}, req.body,(error, result) => {
         console.log('opdaterer skills');
         if (result == null)
@@ -24,6 +35,7 @@ module.exports = (req, res) =>{
             });
         }
     });
+    // profileText bliver instantieret på samme måde som info. Koden leder efter bruger, finder den ingen, opretter den ny bruger/profileSkills i databasen.
     profileText.findOneAndUpdate({'profileId': req.session.userId}, req.body,(error, result) => {
         console.log('opdaterer text');
         if (result == null)
@@ -32,24 +44,6 @@ module.exports = (req, res) =>{
                 console.log('Created text instead');
             });
         }
-        res.redirect('userProfile')
+        res.redirect('userProfile') /* når koden er eksekveret returnerer/sender den brugeren til userProfile */
     });
 };
-
-
-
-
-/*
-// BKS: forsøg på at lave en findOneAndUpdate ud fra profilnavn, så den ikke opretter et nyt document hver gang.
-    module.exports = (req, res) =>{
-        let profileName = req.body;
-        profileInfo.findOneAndUpdate(req.body, (error, result) => {
-            if (result({$isNull: 'profileName'})) {
-                profileInfo.create(req.body, (error, result) => {
-                res.redirect('userProfile')
-            });
-        }
-    });
-}
-
- */
