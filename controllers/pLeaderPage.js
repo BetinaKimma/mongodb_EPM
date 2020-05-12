@@ -3,13 +3,21 @@ const path = require('path');
 
 module.exports = (req, res) => {
 let projectLeaderResult;
-projectLeader.findOne({}, (error, result) => {
-    projectLeaderResult = result;
-    console.log(result.fullName);
-    res.render('leaderProfile', {
-        heading: result,
-        fullName: result
-    });
-})};
+projectLeader.findOne({'profileId': req.session.userId}, (error, info) => {
+    if (info == null)
+    {
+        projectLeaderResult = new projectLeader();
+        console.log('You dont exist');
+    }
+    else {
+        projectLeaderResult = info;
+        console.log('nice name');
+    } {
+        projectLeader.create(req.body, (error, projectLeader) => {
+            console.log('create info instead');
+        });
+    }
+    res.redirect('leaderProfile') /* når koden er eksekveret returnerer/sender den brugeren til plProfile */
+});
+};
 
-//res.render skal huske at henvise til rette path

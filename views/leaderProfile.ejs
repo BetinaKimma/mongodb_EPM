@@ -7,15 +7,15 @@
 <%- include('layouts/navbarHome'); -%>
 <div class="img-user">
     <div class="card">
-            <h1 class="fullName" id="fullName"><%= fullName.fullName %></h1>
-            <p class="lTitle" id="lTitle"><%= fullName.lTitle %></p>
-            <p class="lDepartment" id="lDepartment"><%= fullName.lDepartment%></p>
-            <p class="lTelephone" id="lTelephone"><%= fullName.lTelephone%></p>
-            <p class="lEmailAdr" id="lEmailAdr"><%= fullName.lEmailAdr%></p>
-            <br>
-            <button id="changeInfoBtn">Ret info</button>
+        <h1 class="fullName" id="fullName"><%= fullName.fullName %></h1>
+        <p class="lTitle" id="lTitle"><%= fullName.lTitle %></p>
+        <p class="lDepartment" id="lDepartment"><%= fullName.lDepartment%></p>
+        <p class="lTelephone" id="lTelephone"><%= fullName.lTelephone%></p>
+        <p class="lEmailAdr" id="lEmailAdr"><%= fullName.lEmailAdr%></p>
+        <br>
+        <button id="changeInfoBtn">Ret info</button>
 
-        <form action="/projectLeader/plProfile" method="POST">
+        <form action="/projectLeader/leader/leaderProfile" method="POST">
             <div id="infoBox" class="infoBox">
                 <div id="infoBoxContent">
 
@@ -37,27 +37,8 @@
         <br>
         <br>
 
-    <div id="imageBox" class="imageBox">
-        <div id="imageBoxContent">
-            <span class="close">&times;</span>
-            <form ref="uploadForm" id="uploadForm" action="" method="POST" enctype="multipart/form-data">
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls">
-                        <label for="profileImage"><b>Image</b></label>
-                        <input type="file" class="form-control" id="profileImage" name="profileImage">
-                        <button type='submit' value='Upload!'>Upload</button>
-                        <img src="" id="preview" alt="profilbillede">
-                    </div>
-                </div>
-                <br>
-                <div class="form-group">
-                    <p>Billedet skal have formatet bredde: 200px og højde: 300px</p>
-                </div>
-            </form>
-        </div>
-    </div>
 
-</div>
+    </div>
     <!-- Kode hentet fra https://www.w3schools.com/howto/howto_js_filter_table.asp -->
     <h2>Medarbejdere</h2>
     <input type="text" id="plInput" onkeyup="searchEmp()" placeholder="Søg på navn..">
