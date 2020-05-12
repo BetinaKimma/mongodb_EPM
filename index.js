@@ -72,8 +72,8 @@ const deleteUserController = require('./controllers/deleteUser');
 const logoutController = require('./controllers/logout');
 
 /* SB ProjectLeader controller */
-//const pLeaderPageController = require('./controllers/pLeaderPage');
-//const storeProjectLeaderController = require('./controllers/storeProjectLeaderInfo');
+const pLeaderPageController = require('./controllers/pLeaderPage');
+const storeProjectLeaderController = require('./controllers/storeProjectLeaderInfo');
 
 /* SAR: API controllers for development & checking */
 const userAPIController = require('./controllers/userAPI');
@@ -109,8 +109,8 @@ app.get('/admin/delete', authMiddleware, deleteUserController);
 app.get('/auth/logout', logoutController);
 
 /* SB: Project Leader page */
-//app.get('/leader/plProfile', pLeaderPageController);
-//app.post('/leader/plProfile', storeProjectLeaderController);
+app.get('/leader/plProfile', pLeaderPageController);
+app.post('/leader/plProfile', storeProjectLeaderController);
 
 /* SAR: APIs for server development & checking */
 app.get('/api/user', userAPIController);
