@@ -13,6 +13,7 @@ const path = require('path');
 // Har brugeren ikke oplysninger i databasen i forvejen, vil den oprette disse (POST).
 
 module.exports = (req, res) =>{
+    console.log(req.body.profileId); /* terminalen logger brugerens userId */
     console.log('Entering profileimageupload on post'); /* terminalen logger at der er ved at blive uploaded billede */
     let image = req.files.profileImage; /* Her deklarerer vi variablen image */
     console.log(req.files.profileImage); /* terminalen logger filen */
@@ -30,7 +31,6 @@ module.exports = (req, res) =>{
             console.log("req.body", req.body)
         })
     });
-    console.log(req.body.profileId); /* terminalen logger brugerens userId */
     profileInfo.findOneAndUpdate({'profileId': req.session.userId}, req.body,(error, result) => {
         console.log('opdaterer info'); /* terminalen logger at den fandt bruger og opdaterer info */
         if (result == null) /* Hvis resultatet bliver null (hvis den ikke finder userId) */

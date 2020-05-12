@@ -6,3 +6,5 @@ module.exports = (req, res) =>{
         res.redirect('% plProfile')
     });
 };
+
+// res.redirect den rigtige path

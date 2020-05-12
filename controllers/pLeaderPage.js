@@ -3,12 +3,13 @@ const path = require('path');
 
 module.exports = (req, res) => {
 let projectLeaderResult;
-projectLeader.findOne({'fullName': "Line"}, (error, result) => {
+projectLeader.findOne({}, (error, result) => {
     projectLeaderResult = result;
     console.log(result.fullName);
-    res.render('plProfile', {
+    res.render('leaderProfile', {
         heading: result,
-        fullName: result,
+        fullName: result
     });
 })};
 
+//res.render skal huske at henvise til rette path
