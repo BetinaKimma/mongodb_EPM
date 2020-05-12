@@ -53,7 +53,7 @@ for (var i = 0; i < closeSpans.length; i++) {
 // Knappen der åbner boksen
 changeInfoBtn.onclick = function() {
     infoBox.style.display = "block";
-}
+};
 
 // når man trykker på <span> (x) lukker boksen
 function closeSpan()
@@ -78,7 +78,7 @@ for (var i = 0; i < spanCloses.length; i++) {
 // Knappen der åbner boksen
 changeImageBtn.onclick = function() {
     imageBox.style.display = "block";
-}
+};
 // når man trykker på <span> (x) lukker boksen
 function spanClose()
 {

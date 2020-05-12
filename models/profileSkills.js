@@ -8,4 +8,4 @@ const profileSkillsSchema = new Schema({
 });
 
 const profileSkills = mongoose.model('profileSkills', profileSkillsSchema);
-module.exports = profileSkills
+module.exports = profileSkills;

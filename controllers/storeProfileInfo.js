@@ -1,7 +1,7 @@
 const profileInfo = require('../models/profileInfo');
 const profileSkills = require('../models/profileSkills');
 const profileText = require('../models/profileText');
-const profileImage = require('../models/profileImage.js')
+const profileImage = require('../models/profileImage.js');
 const path = require('path');
 
 // BKS: Denne kode er en færdig implementeret kode, der opdaterer (ellers opretter) databasen med de oplysninger som
@@ -29,7 +29,8 @@ module.exports = (req, res) =>{
             }
             console.log("req.body", req.body)
         })
-    })
+    });
+    console.log(req.body.profileId); /* terminalen logger brugerens userId */
     profileInfo.findOneAndUpdate({'profileId': req.session.userId}, req.body,(error, result) => {
         console.log('opdaterer info'); /* terminalen logger at den fandt bruger og opdaterer info */
         if (result == null) /* Hvis resultatet bliver null (hvis den ikke finder userId) */
@@ -59,5 +60,3 @@ module.exports = (req, res) =>{
         res.redirect('userProfile') /* når koden er eksekveret returnerer/sender den brugeren til userProfile */
     });
 };
-
-//console.log(req.body.profileId); /* terminalen logger brugerens userId */

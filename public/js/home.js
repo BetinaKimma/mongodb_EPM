@@ -11,4 +11,4 @@ var d = currentdate.getDate() + "/"
     + currentdate.getSeconds();
 if (document.getElementById("dateOnFront") != null) {
     document.getElementById("dateOnFront").innerHTML = d;
-};
+}

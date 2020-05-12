@@ -5,7 +5,7 @@ const User = require('../models/User.js');
 module.exports = (req,res) => {
     let users; /* variablen users bliver deklareret*/
     User.find({}, (error, result) => { /* her instatieres get keldet der skal hente users */
-        console.log('users found') /* terminalen logger at den har fundet users */
+        console.log('users found'); /* terminalen logger at den har fundet users */
         users = result; /* variablen users bliver sat lig med result */
         res.render('deleteUser',{users: result}) /* res.render henter deleteUser siden, samt users resultatet*/
     });
