@@ -109,8 +109,8 @@ app.get('/admin/delete', authMiddleware, deleteUserController);
 app.get('/auth/logout', logoutController);
 
 /* SB: Project Leader page */
-app.get('/leader/plProfile', pLeaderPageController);
-app.post('/leader/plProfile', storeProjectLeaderController);
+app.get('/leader/leaderProfile', pLeaderPageController);
+app.post('/leader/leaderProfile', storeProjectLeaderController);
 
 /* SAR: APIs for server development & checking */
 app.get('/api/user', userAPIController);

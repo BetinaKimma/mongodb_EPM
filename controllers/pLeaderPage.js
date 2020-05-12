@@ -17,7 +17,7 @@ projectLeader.findOne({'profileId': req.session.userId}, (error, info) => {
             console.log('create info instead');
         });
     }
-    res.redirect('plProfile') /* når koden er eksekveret returnerer/sender den brugeren til plProfile */
+    res.redirect('leaderProfile') /* når koden er eksekveret returnerer/sender den brugeren til plProfile */
 });
 };
 
