@@ -16,18 +16,12 @@ module.exports = (req, res) =>{
     console.log('Entering profileimageupload on post'); /* terminalen logger at der er ved at blive uploaded billede */
     let image = req.files.profileImage; /* Her deklarerer vi variablen image */
     console.log(req.files.profileImage); /* terminalen logger filen */
-    // her instanitieres at image filen med "mv" (move) bliver flyttet til en path, dette sørger __dirname for...
     image.mv(path.resolve(__dirname, '..', 'public/img/profileimages', image.name), async (error) => {
-        // Her bliver funktionen for at finde og opdatere profileImage instantieret. Med .findOneAndUpdate leder koden
-        // efter brugeren med det indloggede userId i databasen.
-        // Dette gør den da den får parameteret {'profileId': req.session.userId} som filter.
-        // Herefter får den givet stien, hvor den kan finde billedet, der "tilhører" userId'et.
         await profileImage.findOneAndUpdate({'profileId': req.session.userId}, {
             ...req.body,
             profileImage: '/img/profileimages/' + image.name
         }, (error, result) => {
             if (result == null) {
-                // et if statement, Hvis den ikke finder en string i databasen, bliver der instatieret at koden skal oprette et.
                 req.body.profileImage = '/img/profileimages/' + image.name;
                 profileImage.create(req.body, (error, profileImage) => {
                     console.log('new image'); /* terminalen logger at der blev uploaded et nyt*/
@@ -37,19 +31,15 @@ module.exports = (req, res) =>{
         })
     })
     console.log(req.body.profileId); /* terminalen logger brugerens userId */
-    // her bliver funktionen for at finde og opdatere profileInfo instantieret, med .findOneAndUpdate leder koden efter brugeren med det indloggede userId i databasen,
-    // dette gør den da den får parameteret {'profileId': req.session.userId} som filter.
     profileInfo.findOneAndUpdate({'profileId': req.session.userId}, req.body,(error, result) => {
         console.log('opdaterer info'); /* terminalen logger at den fandt bruger og opdaterer info */
         if (result == null) /* Hvis resultatet bliver null (hvis den ikke finder userId) */
         {
-            // Hvis koden ikke finder brugerens userId i databasen, bliver der her instantieret et if statement, så koden i stedet for med .create, opretter brugeren/profileInfo.
             profileInfo.create(req.body, (error, profileText) => {
-               console.log('Created user instead'); /* terminalen logger at den oprettede en ny bruger */
+                console.log('Created user instead'); /* terminalen logger at den oprettede en ny bruger */
             });
         }
     });
-    // profileSkills bliver instantieret på samme måde som info. Koden leder efter bruger, finder den ingen, opretter den ny bruger/profileSkills i databasen.
     profileSkills.findOneAndUpdate({'profileId': req.session.userId}, req.body,(error, result) => {
         console.log('opdaterer skills');
         if (result == null)
@@ -59,7 +49,6 @@ module.exports = (req, res) =>{
             });
         }
     });
-    // profileText bliver instantieret på samme måde som info. Koden leder efter bruger, finder den ingen, opretter den ny bruger/profileSkills i databasen.
     profileText.findOneAndUpdate({'profileId': req.session.userId}, req.body,(error, result) => {
         console.log('opdaterer text');
         if (result == null)
