@@ -62,4 +62,4 @@ module.exports = (req, res) => {
             userId: req.session.userId
     });
   });
-}
+};

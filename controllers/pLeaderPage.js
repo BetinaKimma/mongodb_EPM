@@ -10,5 +10,5 @@ projectLeader.findOne({'fullName': "Line"}, (error, result) => {
         heading: result,
         fullName: result,
     });
-});
+})};
 

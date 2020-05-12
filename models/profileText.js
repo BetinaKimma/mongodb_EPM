@@ -8,4 +8,4 @@ const profileTextSchema = new Schema({
 });
 
 const profileText = mongoose.model('profileText', profileTextSchema);
-module.exports = profileText
+module.exports = profileText;

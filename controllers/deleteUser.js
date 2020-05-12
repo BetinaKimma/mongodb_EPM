@@ -9,5 +9,4 @@ module.exports = function(req, res) {
         console.log('Sletter bruger');
         res.redirect("/admin/");
     });
-}
-
+};
