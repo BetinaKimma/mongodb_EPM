@@ -5,7 +5,7 @@ const projectLeaderSchema= new Schema({
     lTitle: String,
     lDepartment: String,
     lTelephone: String,
-    lEmailAdr: String,
+    lEmailAdr: String
 });
 
 const projectLeader = mongoose.model('projectLeader', projectLeaderSchema);
