@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(express.static('public'));
 
+/* SAR: Her registers expressSession middleware til vores app og skaber et object med et hemmeligt værdi.
+* Denne værdi benyttest til at skrive og kryptere session ID cookie med browseren. */
 app.use(expressSession({
     secret: 'leeroy jenkins'
 }));

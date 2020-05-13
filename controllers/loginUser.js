@@ -1,3 +1,5 @@
+// Kilde: Beginning Node.js, Express & MongoDB by Greg Lim first edition 2019 (modificeret og implementeret)
+
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 

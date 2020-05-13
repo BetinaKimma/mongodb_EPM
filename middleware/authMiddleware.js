@@ -1,3 +1,5 @@
+// SAR: Kilde: Beginning Node.js, Express & MongoDB by Greg Lim first edition 2019. Kap.10 & 11 (modificeret og implementeret)
+
 const User = require('../models/User');
 
 module.exports = (req, res, next) => {
@@ -8,9 +10,3 @@ module.exports = (req, res, next) => {
         next()
     })
 };
-
-
-
-
-
-
