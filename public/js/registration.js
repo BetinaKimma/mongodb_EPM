@@ -60,7 +60,7 @@ password.onkeyup = function pswCheck () {
 
 
 // SAR: OBS: The following code is currently unimplemented in the project.
-
+/*
 // SAR: Here we create the variables and assign them to their respective id values.
 //var fullname = document.getElementById("fullname");
 //var birthday= document.getElementById("birthday");
@@ -160,7 +160,8 @@ function createUser () {
     localStorage.setItem("userName", userName.value);
     localStorage.setItem("teleNmb", teleNmb.value);*/
 
+/*
     alert("New user created. You will now be redirected to the homepage for login");
     document.location.href = "../HTML/home.html";
     console.log(localStorage);
-}
+} */
