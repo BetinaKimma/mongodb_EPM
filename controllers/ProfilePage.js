@@ -4,7 +4,7 @@ const profileSkills = require('../models/profileSkills.js');
 const profileImage = require('../models/profileImage.js')
 const path = require('path');
 
-// BKS:
+// BKS: Kilde: Beginning Node.js, Express & MongoDB by Greg Lim first edition 2019 (modificeret med et if statement)
 module.exports = (req, res) => {
     let profileTextResult;
     profileText.findOne({'profileId': req.session.userId}, (error, result) => {

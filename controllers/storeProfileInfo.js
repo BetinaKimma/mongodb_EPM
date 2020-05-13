@@ -9,6 +9,7 @@ const profileText = require('../models/profileText');
 // På denne måde tjekker koden om den bruger der er logget ind i systemet, allerede har oplysninger der skal ændres.
 // Har brugeren dette, vil den opdatere med den nye værdi brugeren indtaster i userProfile.ejs (PUT).
 // Har brugeren ikke oplysninger i databasen i forvejen, vil den oprette disse (POST).
+// BKS: Kilde: Beginning Node.js, Express & MongoDB by Greg Lim first edition 2019 (modificeret med et if statement)
 
 module.exports = (req, res) =>{
     profileInfo.findOneAndUpdate({'profileId': req.session.userId}, req.body,(error, result) => {
