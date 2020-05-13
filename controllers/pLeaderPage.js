@@ -17,7 +17,8 @@ projectLeaderInfo.findOne({'profileId': req.session.userId}, (error, info) => {
     res.render('leaderProfile', {
         projectLeader: projectLeaderResult,
         userId: req.session.userId,
-    }) /* når koden er eksekveret returnerer/sender den brugeren til plProfile */
+    });
+    res.redirect('leaderProfile') /* når koden er eksekveret returnerer/sender den brugeren til leaderProfile */
 });
 };
 
