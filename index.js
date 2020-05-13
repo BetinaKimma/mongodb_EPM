@@ -64,7 +64,7 @@ const storeProfileImageController = require('./controllers/storeProfileImage');
 const applyProjectController = require('./controllers/applyProject');
 
 const projectPageController = require('./controllers/projectPage');
-const storeProjectController = require('./controllers/storeProject')
+const storeProjectController = require('./controllers/storeProject');
 
 /* SAR: Delete user controller */
 const deleteUserPageController = require('./controllers/deleteUserPage');
