@@ -7,11 +7,11 @@
 
 <%- include('layouts/navbarHome'); -%>
 <div class="img-user">
-<div class="pictureCard">
-    <img id="showProfileImage" class="showProfileImage" src="<%= profileImage.profileImage %>" alt="profileImage">
-    <br>
-    <button id="changeImageBtn">Upload billede</button>
-</div>
+    <div class="pictureCard">
+        <img id="showProfileImage" class="showProfileImage" src="<%=  %>" alt="profileImage">
+        <br>
+        <button id="changeImageBtn">Upload billede</button>
+    </div>
     <div class="card" id="card">
         <h1 class="profileName" id="profileName"><%= profileName.profileName %></h1>
         <p class="profileTitle" id="profileTitle"><%= profileName.profileTitle %></p>
@@ -21,34 +21,34 @@
         <br>
         <button id="changeInfoBtn">Ret info</button>
     </div>
-<form action="/user/userProfile" method="POST">
-    <div class="text-container">
-         <div class="profileText">
-             <h1 class="heading" id="heading"><%= heading.heading %></h1>
-             <p>Din profiltekst</p>
-         <div class="profileTextBox">
-             <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
-             <input type="text" name="heading" id="heading" class="inputField" placeholder="Overskrift" value="<%= heading.heading %>">
-             <textarea id="profileText" name="profileText" style="height: 50px"><%= heading.profileText %></textarea>
-             <button> Gem </button>
-         </div>
-         </div>
-    </div>
-</form>
-<form action="/user/userProfile" method="POST">
-    <div class="skills-container">
-        <h1 class="education" id="education"><%= education.education %></h1>
-         <div class="profileSkills">
-              <p>Dine færdigheder</p>
-         <div class="profileSkillsBox">
-             <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
-             <input type="text" name="education" id="education" class="inputField" placeholder="Uddannelse" value="<%= education.education %>">
-             <textarea id="profileSkills" name="profileSkills" style="height: 50px"><%= education.profileSkills %></textarea>
-             <button> Gem </button>
-         </div>
-         </div>
-    </div>
-</form>
+    <form action="/user/userProfile" method="POST">
+        <div class="text-container">
+            <div class="profileText">
+                <h1 class="heading" id="heading"><%= heading.heading %></h1>
+                <p>Din profiltekst</p>
+                <div class="profileTextBox">
+                    <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
+                    <input type="text" name="heading" id="heading" class="inputField" placeholder="Overskrift" value="<%= heading.heading %>">
+                    <textarea id="profileText" name="profileText" style="height: 50px"><%= heading.profileText %></textarea>
+                    <button> Gem </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form action="/user/userProfile" method="POST">
+        <div class="skills-container">
+            <h1 class="education" id="education"><%= education.education %></h1>
+            <div class="profileSkills">
+                <p>Dine færdigheder</p>
+                <div class="profileSkillsBox">
+                    <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
+                    <input type="text" name="education" id="education" class="inputField" placeholder="Uddannelse" value="<%= education.education %>">
+                    <textarea id="profileSkills" name="profileSkills" style="height: 50px"><%= education.profileSkills %></textarea>
+                    <button> Gem </button>
+                </div>
+            </div>
+        </div>
+    </form>
     <div id="imageBox" class="imageBox">
         <div id="imageBoxContent">
             <span class="spanClose">&times;</span>

@@ -57,6 +57,8 @@ const loginUserController = require('./controllers/loginUser');
 /* BKS: Profile page (info/text/skills og image) */
 const ProfilePageController = require('./controllers/ProfilePage');
 const storeProfileInfoController = require('./controllers/storeProfileInfo');
+const storeProfileImageController = require('./controllers/storeProfileImage');
+const ProfileImageController = require('./controllers/ProfileImage');
 
 /* BKS: apply projectPage controller, denne side taler ikke med databasen endnu */
 const applyProjectController = require('./controllers/applyProject');
@@ -94,6 +96,8 @@ app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController)
 /* BKS: Profile page (info/text/skills og image) */
 app.get('/user/userProfile', authMiddleware, ProfilePageController);
 app.post('/user/userProfile', authMiddleware, storeProfileInfoController);
+app.post('/user/userProfileImage', authMiddleware, storeProfileImageController);
+app.get('/user/userProfileImage', ProfileImageController);
 
 /* BKS: apply for project page, denne side taler ikke med databasen endnu */
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
