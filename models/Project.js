@@ -7,7 +7,7 @@ const ProjectSchema = new Schema({
     projectDate: Number,
     projectManager: String,
     projectDescription: String,
-    projectId:  { type: Schema.Types.ObjectId, ref: 'Projects' }
+    profileId:  { type: Schema.Types.ObjectId, ref: 'Users' }
 });
 
 const Project = mongoose.model('Project', ProjectSchema);

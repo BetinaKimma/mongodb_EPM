@@ -9,6 +9,24 @@
 
 <div class="img-apply">
 
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h1>Projekter</h1>
+          <br>
+          <!-- BKS: kilden for denne kode: https://ejs.co/ fundet 10/05-20 -->
+          <!-- samt https://www.youtube.com/watch?v=3fF4t-s7KXY 09/05-2020 (og modificeret) -->
+          <ul>
+            <% projects.forEach(function(user){ %>
+              <li><a href="/user/projectPage/?projectName=<%= user.projectName %>"> Slet <%= user.projectName %></a></li>
+            <%});%>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
   <form action="/user/projectPage" method="POST">
     <div id="contactForm" class="apply-container">
     <h1>Opret projekt</h1>
