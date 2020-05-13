@@ -6,6 +6,6 @@ module.exports = (req, res) => {
             res.send('Something went wrong. No users were found');
             next();
         }
-        res.json(users);
+        res.json(users); // SAR: We respond with a json file of the stored users
     } );
 };
