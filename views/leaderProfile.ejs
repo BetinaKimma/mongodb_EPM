@@ -6,30 +6,30 @@
 <body>
 <%- include('layouts/navbarHome'); -%>
 <div class="img-user">
-    <div class="card">
-        <h1 class="fullName" id="fullName"><%= fullName.fullName %></h1>
-        <p class="lTitle" id="lTitle"><%= fullName.lTitle %></p>
-        <p class="lDepartment" id="lDepartment"><%= fullName.lDepartment%></p>
-        <p class="lTelephone" id="lTelephone"><%= fullName.lTelephone%></p>
-        <p class="lEmailAdr" id="lEmailAdr"><%= fullName.lEmailAdr%></p>
+    <div class="card" id="card">
+        <h1 class="fullName" id="fullName"><%= projectLeader.fullName %></h1>
+        <p class="lTitle" id="lTitle"><%= projectLeader.lTitle %></p>
+        <p class="lDepartment" id="lDepartment"><%= projectLeader.lDepartment%></p>
+        <p class="lTelephone" id="lTelephone"><%= projectLeader.lTelephone%></p>
+        <p class="lEmailAdr" id="lEmailAdr"><%= projectLeader.lEmailAdr%></p>
         <br>
         <button id="changeInfoBtn">Ret info</button>
 
-        <form action="/projectLeader/leader/leaderProfile" method="POST">
+        <form action="/leader/leaderProfile" method="POST">
             <div id="infoBox" class="infoBox">
                 <div id="infoBoxContent">
-
+                    <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
                     <span class="close">&times;</span>
                     <label for="fullName"><b>Navn</b></label>
-                    <input type="text" placeholder="Navn" name="fullName" id="fullName" class="inputField" value="<%= fullName.fullName %>">
+                    <input type="text" placeholder="Navn" name="fullName" id="fullName" class="inputField" value="<%= projectLeader.fullName %>">
                     <label for="lTitle"><b>Titel</b></label>
-                    <input type="text" placeholder="Titel" name="lTitle" id="lTitle" class="inputField" value="<%= fullName.lTitle %>">
+                    <input type="text" placeholder="Titel" name="lTitle" id="lTitle" class="inputField" value="<%= projectLeader.lTitle %>">
                     <label for="lDepartment"><b>Afdeling</b></label>
-                    <input type="text" name="lDepartment" id="lDepartment" class="inputField" placeholder="Afdeling" value="<%= fullName.lDepartment %>">
+                    <input type="text" name="lDepartment" id="lDepartment" class="inputField" placeholder="Afdeling" value="<%= projectLeader.lDepartment %>">
                     <label for="lTelephone"><b>Telefon</b></label>
-                    <input type="text" name="lTelephone" id="lTelephone" class="inputField" placeholder="Telefon" value="<%= fullName.lTelephone %>">
+                    <input type="text" name="lTelephone" id="lTelephone" class="inputField" placeholder="Telefon" value="<%= projectLeader.lTelephone %>">
                     <label for="lEmailAdr"><b>Email</b></label>
-                    <input type="text" name="lEmailAdr" id="lEmailAdr" class="inputField" placeholder="Email" value="<%= fullName.lEmailAdr %>">
+                    <input type="text" name="lEmailAdr" id="lEmailAdr" class="inputField" placeholder="Email" value="<%= projectLeader.lEmailAdr %>">
                     <button id="saveChanges">Gem</button>
                 </div>
             </div>

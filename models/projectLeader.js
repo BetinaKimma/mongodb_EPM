@@ -5,8 +5,9 @@ const projectLeaderSchema= new Schema({
     lTitle: String,
     lDepartment: String,
     lTelephone: String,
-    lEmailAdr: String
+    lEmailAdr: String,
+    profileId: { type: Schema.Types.ObjectId, ref: 'Users'}
 });
 
-const projectLeader = mongoose.model('projectLeader', projectLeaderSchema);
-module.exports = projectLeader;
+const projectLeaderInfo = mongoose.model('projectLeaderInfo', projectLeaderSchema);
+module.exports = projectLeaderInfo;
