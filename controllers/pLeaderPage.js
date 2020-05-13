@@ -14,11 +14,10 @@ projectLeaderInfo.findOne({'profileId': req.session.userId}, (error, info) => {
         console.log('nice name');
     }
     console.log(projectLeaderResult);
-    res.render('leaderProfile', {
+    res.render('leaderProfile', { /* når koden er eksekveret returnerer/sender den brugeren til leaderProfile */
         projectLeader: projectLeaderResult,
         userId: req.session.userId,
     });
-    res.redirect('leaderProfile') /* når koden er eksekveret returnerer/sender den brugeren til leaderProfile */
 });
 };
 
