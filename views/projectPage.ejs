@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 
 <%- include('layouts/header'); -%>
 
@@ -12,7 +12,7 @@
   <form action="/user/projectPage" method="POST">
     <div id="contactForm" class="apply-container">
     <h1>Opret projekt</h1>
-
+    <input type="hidden" id="profileId" name="profileId" value="<%= userId %>">
     <label for="projectId"><b>Projekt Id</b></label>
     <input type="text" placeholder="projekt Id" name="projectId" id="projectId" class="inputField" required>
 
@@ -29,6 +29,7 @@
     <textarea type="text" id="projectDescription" name="projectDescription" class="inputField" required></textarea>
 
     <button>Opret projekt</button>
+    </div>
   </form>
 
 </div>

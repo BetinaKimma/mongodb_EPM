@@ -2,13 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ProjectSchema = new Schema({
+    projectId: String,
     projectName: String,
     projectDate: Number,
-    // projectBudget: String,
-    projectDescription: String,
-    // projectLocation: String,
-    // projectDepartment: String,
     projectManager: String,
+    projectDescription: String,
     projectId:  { type: Schema.Types.ObjectId, ref: 'Projects' }
 });
 

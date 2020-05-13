@@ -3,19 +3,20 @@ const path = require('path');
 
 module.exports = (req, res) => {
     let projectInfoResult;
-    project.findOne({}, (error, info) => {
+    project.findOne({'profileId': req.session.userId}, (error, info) => {
         if (info == null)
         {
             projectInfoResult = new project();
             console.log('no');
         }
         else {
-            projectResult = info;
+            projectInfoResult = info;
             console.log('yes');
         }
         console.log(projectInfoResult);
         res.render('projectPage', {
             projectInfo: projectInfoResult,
+            userId: req.session.userId
         });
     });
 };
