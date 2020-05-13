@@ -63,8 +63,8 @@ const storeProfileImageController = require('./controllers/storeProfileImage');
 /* BKS: apply projectPage controller, denne side taler ikke med databasen endnu */
 const applyProjectController = require('./controllers/applyProject');
 
-//const projectPageController = require('./controllers/projectPage');
-//const storeProjectController = require('./controllers/storeProject')
+const projectPageController = require('./controllers/projectPage');
+const storeProjectController = require('./controllers/storeProject')
 
 /* SAR: Delete user controller */
 const deleteUserPageController = require('./controllers/deleteUserPage');
@@ -102,8 +102,8 @@ app.post('/user/userProfileImage', authMiddleware, storeProfileImageController);
 /* BKS: apply for project page, denne side taler ikke med databasen endnu */
 app.get('/user/applyProjectPage', authMiddleware, applyProjectController);
 
-//app.get('/user/projectPage', projectPageController);
-//app.post('/user/projectPage', storeProjectController);
+app.get('/user/projectPage', projectPageController);
+app.post('/user/projectPage', storeProjectController);
 
 /* SAR: Delete user */
 app.get('/admin', authMiddleware, deleteUserPageController);
