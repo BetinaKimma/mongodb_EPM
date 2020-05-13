@@ -20,4 +20,3 @@ projectLeaderInfo.findOne({'profileId': req.session.userId}, (error, info) => {
     });
 });
 };
-
