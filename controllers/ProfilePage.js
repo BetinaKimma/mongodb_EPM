@@ -1,6 +1,7 @@
 const profileInfo = require('../models/profileInfo.js');
 const profileText = require('../models/profileText.js');
 const profileSkills = require('../models/profileSkills.js');
+const profileImage = require('../models/profileImage.js')
 const path = require('path');
 
 // BKS:
@@ -29,6 +30,16 @@ module.exports = (req, res) => {
             console.log('you have many skills');
         }
     });
+    let profileImageResult;
+    profileImage.findOne({'profileId': req.session.userId}, (error, result) => {
+        if (result == null) {
+            profileImageResult = new profileImage();
+            console.log('You dont look good');
+        } else {
+            profileImageResult = result;
+            console.log('are you a model?');
+        }
+    });
     let profileInfoResult;
     profileInfo.findOne({'profileId': req.session.userId}, (error, info) => {
         if (info == null)
@@ -45,6 +56,7 @@ module.exports = (req, res) => {
             profileName: profileInfoResult,
             education: profileSkillsResult,
             heading: profileTextResult,
+            profileImage: profileImageResult,
             userId: req.session.userId
     });
   });
