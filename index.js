@@ -113,8 +113,8 @@ app.get('/admin/delete', authMiddleware, deleteUserController);
 app.get('/auth/logout', logoutController);
 
 /* SB: Project Leader page */
-app.get('/leader/leaderProfile', pLeaderPageController);
-app.post('/leader/leaderProfile', storeProjectLeaderController);
+app.get('/leader/leaderProfile', authMiddleware, pLeaderPageController);
+app.post('/leader/leaderProfile', authMiddleware, storeProjectLeaderController);
 
 /* SAR: APIs for server development & checking */
 app.get('/api/user', userAPIController); // Checks to see if server has stored users correctly
