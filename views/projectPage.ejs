@@ -18,7 +18,7 @@
           <!-- samt https://www.youtube.com/watch?v=3fF4t-s7KXY 09/05-2020 (og modificeret) -->
           <ul>
             <% projects.forEach(function(user){ %>
-              <li><a href="/user/projectPage/?projectName=<%= user.projectName %>"> Slet <%= user.projectName %></a></li>
+              <li><a href="/user/projectPage/?projectName=<%= user.projectName %>"><%= user.projectName %></a></li>
             <%});%>
           </ul>
         </div>
