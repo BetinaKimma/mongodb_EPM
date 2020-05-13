@@ -117,8 +117,8 @@ app.get('/leader/leaderProfile', pLeaderPageController);
 app.post('/leader/leaderProfile', storeProjectLeaderController);
 
 /* SAR: APIs for server development & checking */
-app.get('/api/user', userAPIController);
-app.get('/api/user/:id', findUserAPIController);
+app.get('/api/user', userAPIController); // Checks to see if server has stored users correctly
+app.get('/api/user/:id', findUserAPIController); // Checks to see if server can find a specific user
 app.get('');
 
 /* SAR: If no link matches, respond with 404 not found */
