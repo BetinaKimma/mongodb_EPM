@@ -1,8 +1,6 @@
 const profileInfo = require('../models/profileInfo');
 const profileSkills = require('../models/profileSkills');
 const profileText = require('../models/profileText');
-const profileImage = require('../models/profileImage.js');
-const path = require('path');
 
 // BKS: Denne kode er en færdig implementeret kode, der opdaterer (ellers opretter) databasen med de oplysninger som
 // brugeren indtaster/uploader i formerne på userProfile.ejs./profilsiden. POST/PUT.
@@ -13,7 +11,7 @@ const path = require('path');
 // Har brugeren ikke oplysninger i databasen i forvejen, vil den oprette disse (POST).
 
 module.exports = (req, res) =>{
-     profileInfo.findOneAndUpdate({'profileId': req.session.userId}, req.body,(error, result) => {
+    profileInfo.findOneAndUpdate({'profileId': req.session.userId}, req.body,(error, result) => {
         console.log('opdaterer info'); /* terminalen logger at den fandt bruger og opdaterer info */
         if (result == null) /* Hvis resultatet bliver null (hvis den ikke finder userId) */
         {

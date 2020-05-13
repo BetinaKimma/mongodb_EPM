@@ -3,15 +3,10 @@
 
 <%- include('layouts/header'); -%>
 
-<!-- SAR: This pages purpose is to create a new user by requesting and taking input information and converting it to an array
-     that stores the user data in localStorage-->
-
 <body>
 <%- include('layouts/navbarHome'); -%>
 <div class="img-delete">
 
-<!-- SAR: Here we create the login/register form. It has input fields for the required information that we need from a new user.
-     Each field is set as required. The password field also has certain parameters which the user must abide by.-->
 <div class="register-page">
     <div class="container">
         <div class="row">
@@ -20,6 +15,8 @@
                 <p>Brugeren bliver slettet ved at trykke på navnet i listen</p>
                 <br>
                 <h2>(Sikker på du vil?!?)</h2>
+                <!-- BKS: kilden for denne kode: https://ejs.co/ fundet 10/05-20 -->
+                <!-- samt https://www.youtube.com/watch?v=3fF4t-s7KXY 09/05-2020 (og modificeret) -->
                 <ul>
                     <% users.forEach(function(user){ %>
                         <li><a href="/admin/delete/?userName=<%= user.username %>"> Slet <%= user.username %></a></li>
@@ -28,9 +25,6 @@
             </div>
         </div>
     </div>
-    <!-- SAR: Here we create the popup message that shows the user what requirements are left for their chosen password.
-     Each class is given an id and set as invalid. This "invalid" tag is changed in the registration.js if the user
-     meets the requirements -->
 
 </div>
 </div>

@@ -2,8 +2,8 @@ const profileImage = require('../models/profileImage.js')
 const path = require('path')
 
 module.exports = (req,res)=> {
-    console.log('Entering profileimageupload on post');
-    let image = req.files.profileImage;
+    console.log('Entering profileimageupload on post'); /* terminalen logger at vi har trykket på upload billede */
+    let image = req.files.profileImage; /* her deklareres variablen med value req.files.profileImage */
     console.log(req.files.profileImage);
     image.mv(path.resolve(__dirname, '..', 'public/img/profileimages', image.name), async (error) => {
         await profileImage.findOneAndUpdate({'profileId': req.session.userId}, {
